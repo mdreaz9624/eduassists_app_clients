@@ -1,8 +1,7 @@
 
 
-// import logo from '../../assets/logo.png';
 
-import logo from '../../assets/DroptifyLogo_final-removebg-preview.png'
+import logo from "../../../src/assets/eduassists.png"
 const SupRideLogo = () => {
 
     return (

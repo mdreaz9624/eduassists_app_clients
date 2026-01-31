@@ -1,0 +1,132 @@
+{
+  "teamMembers": [
+    {
+      "id": 1,
+      "role": "Chairman",
+      "name": "Mahadi Mir Moon",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "chairman@eduassists.com",
+      "whatsapp": "+880123456789",
+      "category": "Executive",
+      "priority": 1
+    },
+    {
+      "id": 2,
+      "role": "CEO",
+      "name": "Navel Khan",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "ceo@eduassists.com",
+      "whatsapp": "+8801611032373",
+      "category": "Executive",
+      "priority": 2
+    },
+    {
+      "id": 3,
+      "role": "Director",
+      "name": "Saiful Islam Nayem",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "director@eduassists.com",
+      "whatsapp": "+8801980197166",
+      "category": "Executive",
+      "priority": 3
+    },
+    {
+      "id": 3,
+      "role": "Director",
+      "name": "Kamrul Islam Noyon",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "director@eduassists.com",
+      "whatsapp": "+447453302296",
+      "category": "Executive",
+      "priority": 3
+    },
+    {
+      "id": 4,
+      "role": "Admin Manager",
+      "name": "Ahsan Reaz",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "admin@eduassists.com",
+      "whatsapp": "+8801314883093",
+      "category": "Administration",
+      "priority": 4
+    },
+    {
+      "id": 5,
+      "role": "Country Manager - Australia",
+      "name": "Monir Hossen",
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "australia@eduassists.com",
+      "whatsapp": "+0468325264",
+      "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/australia-link",
+      "category": "Country Management",
+      "priority": 5
+    },
+    {
+      "id": 6,
+      "role": "Country Manager - UK",
+      "name": "Saiful Islam Nayem",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "uk@eduassists.com",
+      "whatsapp": "+441234567890",
+      "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/uk-link",
+      "category": "Country Management",
+      "priority": 6
+    },
+    {
+      "id": 7,
+      "role": "Marketing Officer",
+      "name": "Al Sabit",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "marketing@eduassists.com",
+      "whatsapp": "+8801742900088",
+      "category": "Marketing",
+      "priority": 7
+    },
+    {
+      "id": 8,
+      "role": "Digital Marketing Specialist",
+      "name": "Ass-hafi Rahman Arbab",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "digital@eduassists.com",
+      "whatsapp": "+880123456786",
+      "category": "Marketing",
+      "priority": 8
+    },
+    {
+      "id": 9,
+      "role": "Senior Admin",
+      "name": "Senior Admin Name",
+      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
+      "email": "senior.admin@eduassists.com",
+      "whatsapp": "+880123456783",
+      "category": "Administration",
+      "priority": 9
+    }
+  ],
+  "offices": [
+    {
+      "id": 1,
+      "type": "Head Office",
+      "name": "Main Office",
+      "address": "152/1/H, 9th Floor, Sabamoon Tower, Panthapath Green Rd, Dhaka 1205",
+      "mapLink": "https://maps.app.goo.gl/cphGp6j4zdwgw88o7",
+      "phone": "+880123456789",
+      "email": "office@eduassists.com",
+      "workingHours": "9:00 AM - 6:00 PM (Sunday-Thursday)"
+    },
+    {
+      "id": 2,
+      "type": "Branch Office",
+      "name": "Uttara Branch",
+      "address": "House # 12, Road # 12, Sector # 6, Uttara, Dhaka 1230",
+      "mapLink": "https://maps.app.goo.gl/uttara-branch-link",
+      "phone": "+880123456790",
+      "email": "uttara@eduassists.com",
+      "workingHours": "10:00 AM - 7:00 PM (Sunday-Thursday)"
+    }
+  ]
+}

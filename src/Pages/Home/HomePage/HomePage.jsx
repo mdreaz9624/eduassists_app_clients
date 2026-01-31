@@ -1,3 +1,5 @@
+import EduAsistaAI from "../../../FunctionsAi/EduAssistaAI/EduAssistaAI";
+import FilterRow from "../../FiteringSystem/FilterRow";
 import Bannar from "../Bannar/Bannar";
 import CustomerFeedback from "../CustomerFeedback/CustomerFeedback";
 import FaqComponent from "../FaqComponent/FaqComponent";
@@ -13,6 +15,12 @@ const HomePage = () => {
         <div>
             <div>
                 <Bannar></Bannar>
+            </div>
+            <div>
+                <FilterRow></FilterRow>
+            </div>
+            <div>
+                <EduAsistaAI></EduAsistaAI>
             </div>
             <div className="mt-20">
                 <HowItWorks></HowItWorks>

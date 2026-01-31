@@ -1,148 +1,174 @@
-// import { FaUser, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
+
+
+// import { useState } from "react";
+// import { useForm } from "react-hook-form";
+// import { FaUser, FaEnvelope, FaLock, FaPhone, FaEye, FaEyeSlash, FaGoogle, FaFacebook, FaMapMarkerAlt, FaFileUpload } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import useAuth from "../../../hooks/useAuth";
+// import SocialLink from "../SocialLink/SocialLink";
 
 // const Registration = () => {
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Later connect with backend (Node / MongoDB)
-//     console.log("Registration submitted");
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+//   const {createUser} = useAuth();
+
+//   const demoCredentials = {
+//     fullName: "Ahsan Reaz",
+//     email: "demo@eduassists.com",
+//     phone: "01712345678",
+//     role: "customer", // Default to student
+//     password: "demo1234",
+//     confirmPassword: "demo1234",
+//     district: "Dhaka",
+//     area: "Dhanmondi"
+//   };
+
+//   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+
+//   // Watch the "role" field to conditionally show inputs
+//   const selectedRole = watch("role");
+//   const password = watch("password");
+
+//   const onSubmit = (data) => {
+//     // If files are uploaded (Student role), they will be in data.documents[0]
+//     console.log("Registration data object:", data);
+//     alert(`Registration submitted!\nName: ${data.fullName}\nRole: ${data.role}`);
+//     // console.log(createUser)
+//     createUser(data.email, data.password)
+//         .then(result =>{
+//           console.log(result.createUser)
+//         })
+//         .catch(error => {
+//           console.log(error);
+//         })
+//   };
+
+//   const fillDemoCredentials = () => {
+//     reset(demoCredentials);
 //   };
 
 //   return (
-//     <section className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-//       <div className="card w-full max-w-lg shadow-2xl bg-base-100">
+//     <section className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
+//       <div className="card w-full max-w-lg shadow-2xl bg-base-100 border-t-4 border-primary">
+
+//         {import.meta.env.DEV && (
+//           <div className="bg-blue-50 border-l-4 border-blue-500 p-3 mx-6 mt-4 rounded flex justify-between items-center">
+//             <div>
+//               <strong className="text-blue-700 text-sm">🛠️ Dev Mode</strong>
+//               <p className="text-xs text-blue-600">Dynamic fields enabled</p>
+//             </div>
+//             <button onClick={fillDemoCredentials} className="btn btn-xs btn-outline btn-info">Fill Demo</button>
+//           </div>
+//         )}
+
 //         <div className="card-body">
+//           <h2 className="text-3xl font-bold text-center text-primary">Create Account</h2>
+//           <p className="text-center text-base-content/70 mb-6 italic">Join EduAssists Global Network</p>
 
-//           {/* Header */}
-//           <h2 className="text-3xl font-bold text-center text-primary">
-//             Create an Account
-//           </h2>
-//           <p className="text-center text-base-content/70 mb-6">
-//             Join DropTify as a Rider or Merchant
-//           </p>
-
-//           {/* Form */}
-//           <form onSubmit={handleSubmit} className="space-y-4">
-
+//           <SocialLink></SocialLink>
+//           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 //             {/* Full Name */}
 //             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Full Name</span>
-//               </label>
+//               <label className="label"><span className="label-text font-medium">Full Name</span></label>
 //               <div className="relative">
 //                 <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-//                 <input
-//                   type="text"
-//                   placeholder="Enter your full name"
-//                   className="input input-bordered w-full pl-10"
-//                   required
-//                 />
+//                 <input type="text" {...register("fullName", { required: "Full name is required" })} placeholder="Enter your name" className="input input-bordered w-full pl-10" />
+//               </div>
+//               {errors.fullName && <span className="text-red-500 text-xs mt-1">{errors.fullName.message}</span>}
+//             </div>
+
+//             {/* Email & Phone Row */}
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//               <div className="form-control">
+//                 <label className="label"><span className="label-text font-medium">Email</span></label>
+//                 <input type="email" {...register("email", { required: "Required" })} className="input input-bordered w-full" />
+//               </div>
+//               <div className="form-control">
+//                 <label className="label"><span className="label-text font-medium">Phone</span></label>
+//                 <input type="tel" {...register("phone", { required: "Required" })} className="input input-bordered w-full" />
 //               </div>
 //             </div>
 
-//             {/* Email */}
+//             {/* Role Selection */}
 //             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Email</span>
-//               </label>
-//               <div className="relative">
-//                 <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-//                 <input
-//                   type="email"
-//                   placeholder="Enter your email"
-//                   className="input input-bordered w-full pl-10"
-//                   required
-//                 />
-//               </div>
-//             </div>
-
-//             {/* Phone */}
-//             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Phone Number</span>
-//               </label>
-//               <div className="relative">
-//                 <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-//                 <input
-//                   type="tel"
-//                   placeholder="01XXXXXXXXX"
-//                   className="input input-bordered w-full pl-10"
-//                   required
-//                 />
-//               </div>
-//             </div>
-
-//             {/* Role */}
-//             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Register As</span>
-//               </label>
-//               <select className="select select-bordered w-full" required>
-//                 <option value="">Select role</option>
-//                 <option value="merchant">Merchant</option>
-//                 <option value="rider">Rider</option>
-//                 <option value="customer">Customer</option>
+//               <label className="label"><span className="label-text font-bold text-primary">Register As</span></label>
+//               <select 
+//                 {...register("role", { required: "Please select a role" })}
+//                 className="select select-primary w-full font-semibold"
+//                 defaultValue=""
+//               >
+//                 <option value="" disabled>Select your status</option>
+//                 <option value="student">Student (Applicant)</option>
+//                 <option value="franchise">Franchise (Partner)</option>
+//                 <option value="admin">Admin</option>
 //               </select>
+//               {errors.role && <span className="text-red-500 text-xs mt-1">{errors.role.message}</span>}
 //             </div>
 
-//             {/* Password */}
-//             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Password</span>
-//               </label>
-//               <div className="relative">
-//                 <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-//                 <input
-//                   type="password"
-//                   placeholder="Create a password"
-//                   className="input input-bordered w-full pl-10"
-//                   required
-//                 />
+//             {/* DYNAMIC FIELDS: Franchise (Merchant) */}
+//             {selectedRole === "franchise" && (
+//               <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-xl border border-dashed border-primary/30">
+//                 <div className="form-control col-span-2">
+//                   <span className="text-xs font-bold text-primary uppercase mb-2">Franchise Details</span>
+//                 </div>
+//                 <div className="form-control">
+//                   <label className="label"><span className="label-text font-medium">District</span></label>
+//                   <div className="relative">
+//                     <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+//                     <input type="text" {...register("district", { required: "District required" })} placeholder="e.g. Dhaka" className="input input-sm input-bordered w-full pl-8" />
+//                   </div>
+//                 </div>
+//                 <div className="form-control">
+//                   <label className="label"><span className="label-text font-medium">Area Name</span></label>
+//                   <input type="text" {...register("area", { required: "Area required" })} placeholder="e.g. Uttara" className="input input-sm input-bordered w-full" />
+//                 </div>
 //               </div>
-//             </div>
+//             )}
 
-//             {/* Confirm Password */}
-//             <div className="form-control">
-//               <label className="label">
-//                 <span className="label-text font-medium">Confirm Password</span>
-//               </label>
-//               <div className="relative">
-//                 <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-//                 <input
-//                   type="password"
-//                   placeholder="Confirm your password"
-//                   className="input input-bordered w-full pl-10"
-//                   required
-//                 />
+//             {/* DYNAMIC FIELDS: Student  */}
+//             {selectedRole === "customer" && (
+//               <div className="p-4 bg-blue-50 rounded-xl border border-dashed border-blue-300">
+//                 <div className="form-control">
+//                   <label className="label">
+//                     <span className="label-text font-bold text-blue-700">Basic Documents (Zip/PDF)</span>
+//                   </label>
+//                   <div className="flex items-center justify-center w-full">
+//                     <label className="flex flex-col items-center justify-center w-full h-24 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-blue-100 transition-colors">
+//                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
+//                         <FaFileUpload className="text-blue-500 mb-2" />
+//                         <p className="text-xs text-gray-500 text-center px-2">Upload Academic Transcripts & Passport Copy</p>
+//                       </div>
+//                       <input type="file" {...register("documents")} className="hidden" />
+//                     </label>
+//                   </div>
+//                   <p className="text-[10px] text-gray-400 mt-2">*Only PDF or ZIP files accepted for initial review.</p>
+//                 </div>
 //               </div>
+//             )}
+
+//             {/* Passwords */}
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                {/* Password input logic same as your original code but inside grid */}
+//                <div className="form-control relative">
+//                   <label className="label"><span className="label-text">Password</span></label>
+//                   <input type={showPassword ? "text" : "password"} {...register("password", { required: true, minLength: 6 })} className="input input-bordered w-full pr-10" />
+//                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-[50px] text-gray-400">{showPassword ? <FaEyeSlash /> : <FaEye />}</button>
+//                </div>
+//                <div className="form-control relative">
+//                   <label className="label"><span className="label-text">Confirm</span></label>
+//                   <input type={showConfirmPassword ? "text" : "password"} {...register("confirmPassword", { validate: v => v === password || "Match failed" })} className="input input-bordered w-full pr-10" />
+//                   <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-[50px] text-gray-400">{showConfirmPassword ? <FaEyeSlash /> : <FaEye />}</button>
+//                </div>
 //             </div>
 
-//             {/* Terms */}
-//             <div className="form-control">
-//               <label className="cursor-pointer flex items-center gap-2">
-//                 <input type="checkbox" className="checkbox checkbox-sm" required />
-//                 <span className="text-sm">
-//                   I agree to the{" "}
-//                   <span className="text-primary font-semibold">Terms & Conditions</span>
-//                 </span>
-//               </label>
-//             </div>
-
-//             {/* Submit Button */}
 //             <div className="form-control mt-6">
-//               <button className="btn btn-primary w-full">
-//                 Register
-//               </button>
+//               <button type="submit" className="btn btn-primary w-full text-white">Create Account</button>
 //             </div>
 //           </form>
 
-//           {/* Footer */}
-//           <p className="text-center text-sm mt-4">
-//             Already have an account?{" "}
-//             <a href="/login" className="text-primary font-semibold hover:underline">
-//               Login
-//             </a>
-//           </p>
-
+//           <div className="text-center text-sm mt-6 pt-4 border-t">
+//             <p>Already have an account? <Link to="/login" className="text-primary font-bold hover:underline">Sign In</Link></p>
+//           </div>
 //         </div>
 //       </div>
 //     </section>
@@ -152,381 +178,387 @@
 // export default Registration;
 
 
-
-// new code ......
-
+// new code deepseek
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaUser, FaEnvelope, FaLock, FaPhone, FaEye, FaEyeSlash, FaGoogle, FaFacebook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaUser, FaEnvelope, FaLock, FaPhone, FaEye, FaEyeSlash, FaMapMarkerAlt } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import SocialLink from "../SocialLink/SocialLink";
+import { toast } from "react-hot-toast";
+import { useSearchParams } from 'react-router-dom';
 
 const Registration = () => {
-  // State for password visibility
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
-  // Demo credentials for development
-  const demoCredentials = {
-    fullName: "Ahsan Reaz",
-    email: "demo@droptify.com",
-    phone: "01712345678",
-    role: "merchant",
-    password: "demo1234",
-    confirmPassword: "demo1234"
-  };
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const { createUser } = useAuth();
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const referralCode = searchParams.get('ref');
 
-  // Initialize react-hook-form
-  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
-  
-  // Watch password for confirmation validation
-  const password = watch("password");
 
-  // Handle form submission - data comes as object
-  const onSubmit = (data) => {
-    console.log("Registration data object:", data);
-    
-    // In development mode, log to console with styling
-    if (import.meta.env.DEV) {
-      console.group('🔧 Development Registration Data');
-      console.log('👤 Name:', data.fullName);
-      console.log('📧 Email:', data.email);
-      console.log('📱 Phone:', data.phone);
-      console.log('🎭 Role:', data.role);
-      console.log('🔑 Password:', data.password);
-      console.log('📦 Full object:', JSON.stringify(data, null, 2));
-      console.groupEnd();
+    const demoCredentials = {
+        fullName: "Ahsan Reaz",
+        email: "demo@eduassists.com",
+        phone: "01712345678",
+        role: "student",
+        password: "demo1234",
+        confirmPassword: "demo1234",
+        district: "Dhaka",
+        area: "Dhanmondi"
+    };
+
+    if (referralCode) {
+        // Save referral to localStorage or send to backend
+        localStorage.setItem('referred_by', referralCode);
     }
-    
-    // For now, just show alert with the data
-    alert(`Registration submitted!\nName: ${data.fullName}\nEmail: ${data.email}\nRole: ${data.role}`);
-    
-    // TODO: Connect to backend API
-  };
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
 
-  // Fill form with demo credentials
-  const fillDemoCredentials = () => {
-    reset(demoCredentials);
-    console.log("Demo credentials filled:", demoCredentials);
-  };
+    const selectedRole = watch("role");
+    const password = watch("password");
 
-  // Toggle password visibility
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
+    const onSubmit = async (data) => {
+        if (data.password !== data.confirmPassword) {
+            toast.error("Passwords do not match!");
+            return;
+        }
 
-  // Social registration handlers
-  const handleGoogleRegistration = () => {
-    console.log("Google registration clicked");
-    alert("Google registration - Firebase integration required");
-  };
+        setLoading(true);
+        try {
+            // Prepare user data
+            const userData = {
+                fullName: data.fullName,
+                role: data.role,
+                phone: data.phone,
+                district: data.district,
+                area: data.area,
+                photoURL: `https://ui-avatars.com/api/?name=${encodeURIComponent(data.fullName)}&background=random`
+            };
 
-  const handleFacebookRegistration = () => {
-    console.log("Facebook registration clicked");
-    alert("Facebook registration - Firebase integration required");
-  };
+            // Create user with additional data
+            const result = await createUser(data.email, data.password, userData);
 
-  return (
-    <section className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
-      <div className="card w-full max-w-lg shadow-2xl bg-base-100">
-        
-        {/* Development Mode Banner */}
-        {import.meta.env.DEV && (
-          <div className="bg-blue-100 border-l-4 border-blue-500 p-3 mx-6 mt-4 rounded">
-            <div className="flex items-center">
-              <div className="text-blue-700">
-                <strong>🛠️ Development Mode</strong>
-                <p className="text-sm mt-1">
-                  Demo credentials available
-                </p>
-                <button 
-                  onClick={fillDemoCredentials}
-                  className="text-xs text-blue-600 hover:text-blue-800 underline mt-1"
-                >
-                  Click to fill demo credentials
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+            if (result && result.success) {
+                toast.success("Account created successfully!");
 
-        {/* Header */}
-        <div className="card-body">
-          <h2 className="text-3xl font-bold text-center text-primary">
-            Create an Account
-          </h2>
-          <p className="text-center text-base-content/70 mb-6">
-            Join DropTify as a Rider or Merchant
-          </p>
+                // Redirect based on role
+                if (data.role === 'franchise') {
+                    navigate("/franchise-profile"); // Redirect to franchise profile
+                } else {
+                    navigate("/student-profile"); // Redirect to student profile
+                }
+            } else {
+                toast.error("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Registration error:", error);
 
-          {/* Social Registration Buttons */}
-          <div className="space-y-3 mb-6">
-            <button 
-              type="button"
-              onClick={handleGoogleRegistration}
-              className="btn btn-outline w-full gap-2 hover:bg-red-50"
-            >
-              <FaGoogle className="text-red-500 text-lg" />
-              Sign up with Google
-            </button>
-            
-            <button 
-              type="button"
-              onClick={handleFacebookRegistration}
-              className="btn btn-outline w-full gap-2 hover:bg-blue-50"
-            >
-              <FaFacebook className="text-blue-600 text-lg" />
-              Sign up with Facebook
-            </button>
-          </div>
+            // User-friendly error messages
+            if (error.code === 'auth/email-already-in-use') {
+                toast.error("Email already in use. Please use a different email.");
+            } else if (error.code === 'auth/weak-password') {
+                toast.error("Password is too weak. Please use at least 6 characters.");
+            } else if (error.code === 'auth/invalid-email') {
+                toast.error("Invalid email address.");
+            } else {
+                toast.error(error.message || "Failed to create account. Please try again.");
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
 
-          {/* Divider */}
-          <div className="divider text-base-content/50 text-sm">OR REGISTER WITH EMAIL</div>
+    // end onSubmit
+    const fillDemoCredentials = () => {
+        reset(demoCredentials);
+        toast.success("Demo credentials filled!");
+    };
 
-          {/* Form */}
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {/* Full Name */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Full Name</span>
-              </label>
-              <div className="relative">
-                <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  {...register("fullName", { 
-                    required: "Full name is required",
-                    minLength: {
-                      value: 2,
-                      message: "Name must be at least 2 characters"
-                    }
-                  })}
-                  placeholder={demoCredentials.fullName}
-                  className="input input-bordered w-full pl-10"
-                />
-              </div>
-              {errors.fullName && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.fullName.message}
-                </span>
-              )}
-            </div>
+    return (
+        <section className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
+            <div className="card w-full max-w-lg shadow-2xl bg-base-100 border-t-4 border-primary">
 
-            {/* Email */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Email</span>
-              </label>
-              <div className="relative">
-                <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type="email"
-                  {...register("email", { 
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Please enter a valid email address"
-                    }
-                  })}
-                  placeholder={demoCredentials.email}
-                  className="input input-bordered w-full pl-10"
-                />
-              </div>
-              {errors.email && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-
-            {/* Phone */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Phone Number</span>
-              </label>
-              <div className="relative">
-                <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type="tel"
-                  {...register("phone", { 
-                    required: "Phone number is required",
-                    pattern: {
-                      value: /^01[3-9]\d{8}$/,
-                      message: "Please enter a valid Bangladeshi phone number (01XXXXXXXXX)"
-                    }
-                  })}
-                  placeholder={demoCredentials.phone}
-                  className="input input-bordered w-full pl-10"
-                />
-              </div>
-              {errors.phone && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.phone.message}
-                </span>
-              )}
-            </div>
-
-            {/* Role */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Register As</span>
-              </label>
-              <select 
-                {...register("role", { required: "Please select a role" })}
-                className="select select-bordered w-full"
-                defaultValue=""
-              >
-                <option value="" disabled>Select role</option>
-                <option value="merchant">Merchant</option>
-                <option value="rider">Rider</option>
-                <option value="customer">Customer</option>
-              </select>
-              {errors.role && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.role.message}
-                </span>
-              )}
-            </div>
-
-            {/* Password with visibility toggle */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Password</span>
-              </label>
-              <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type={showPassword ? "text" : "password"}
-                  {...register("password", { 
-                    required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password must be at least 6 characters"
-                    }
-                  })}
-                  placeholder={demoCredentials.password}
-                  className="input input-bordered w-full pl-10 pr-10"
-                />
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-              <div className="flex justify-between mt-1">
-                {errors.password && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
                 {import.meta.env.DEV && (
-                  <span className="label-text-alt text-gray-500">
-                    Demo: {demoCredentials.password}
-                  </span>
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-3 mx-6 mt-4 rounded flex justify-between items-center">
+                        <div>
+                            <strong className="text-blue-700 text-sm">🛠️ Dev Mode</strong>
+                            <p className="text-xs text-blue-600">Dynamic fields enabled</p>
+                        </div>
+                        <button
+                            onClick={fillDemoCredentials}
+                            className="btn btn-xs btn-outline btn-info"
+                            disabled={loading}
+                        >
+                            Fill Demo
+                        </button>
+                    </div>
                 )}
-              </div>
-            </div>
 
-            {/* Confirm Password with visibility toggle */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Confirm Password</span>
-              </label>
-              <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  {...register("confirmPassword", { 
-                    required: "Please confirm your password",
-                    validate: value => value === password || "Passwords do not match"
-                  })}
-                  placeholder={demoCredentials.confirmPassword}
-                  className="input input-bordered w-full pl-10 pr-10"
-                />
-                <button
-                  type="button"
-                  onClick={toggleConfirmPasswordVisibility}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
-                  aria-label={showConfirmPassword ? "Hide password" : "Show password"}
-                >
-                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-              {errors.confirmPassword && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.confirmPassword.message}
-                </span>
-              )}
-            </div>
+                <div className="card-body">
+                    <h2 className="text-3xl font-bold text-center text-primary">Create Account</h2>
+                    <p className="text-center text-base-content/70 mb-6 italic">Join EduAssists Global Network</p>
 
-            {/* Terms and Conditions */}
-            <div className="form-control">
-              <label className="cursor-pointer flex items-start gap-3">
-                <input 
-                  type="checkbox" 
-                  {...register("terms", { 
-                    required: "You must accept the terms and conditions"
-                  })}
-                  className="checkbox checkbox-sm mt-1" 
-                />
-                <span className="text-sm text-left">
-                  I agree to the{" "}
-                  <a href="/terms" className="text-primary font-semibold hover:underline">
-                    Terms & Conditions
-                  </a>{" "}
-                  and{" "}
-                  <a href="/privacy" className="text-primary font-semibold hover:underline">
-                    Privacy Policy
-                  </a>
-                </span>
-              </label>
-              {errors.terms && (
-                <span className="label-text-alt text-red-500 mt-1">
-                  {errors.terms.message}
-                </span>
-              )}
-            </div>
+                    <SocialLink />
 
-            {/* Submit Button */}
-            <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary w-full">
-                Create Account
-              </button>
-            </div>
-          </form>
+                    <div className="divider">OR</div>
 
-          {/* Footer */}
-          <div className="text-center text-sm mt-6 pt-4 border-t">
-            <p className="text-base-content/70">
-              Already have an account?{" "}
-              <Link to="/login" className="text-primary font-semibold hover:underline">
-                Sign In
-              </Link>
-            </p>
-            
-            {/* Development Info */}
-            {import.meta.env.DEV && (
-              <div className="mt-3 p-2 bg-gray-100 rounded text-xs">
-                <p className="text-gray-600">
-                  <strong>💡 Development Tip:</strong> Check browser console for form data object
-                </p>
-                <div className="mt-1 text-gray-500 text-[10px]">
-                  Demo: {demoCredentials.email} / {demoCredentials.password}
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                        {/* Full Name */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-medium">Full Name *</span>
+                            </label>
+                            <div className="relative">
+                                <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                <input
+                                    type="text"
+                                    {...register("fullName", {
+                                        required: "Full name is required",
+                                        minLength: {
+                                            value: 3,
+                                            message: "Name must be at least 3 characters"
+                                        }
+                                    })}
+                                    placeholder="Enter your full name"
+                                    className="input input-bordered w-full pl-10"
+                                    disabled={loading}
+                                />
+                            </div>
+                            {errors.fullName && (
+                                <span className="text-red-500 text-xs mt-1">{errors.fullName.message}</span>
+                            )}
+                        </div>
+
+                        {/* Email & Phone Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-medium">Email *</span>
+                                </label>
+                                <div className="relative">
+                                    <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                    <input
+                                        type="email"
+                                        {...register("email", {
+                                            required: "Email is required",
+                                            pattern: {
+                                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                message: "Please enter a valid email address"
+                                            }
+                                        })}
+                                        placeholder="example@email.com"
+                                        className="input input-bordered w-full pl-10"
+                                        disabled={loading}
+                                    />
+                                </div>
+                                {errors.email && (
+                                    <span className="text-red-500 text-xs mt-1">{errors.email.message}</span>
+                                )}
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-medium">Phone *</span>
+                                </label>
+                                <div className="relative">
+                                    <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                    <input
+                                        type="tel"
+                                        {...register("phone", {
+                                            required: "Phone number is required"
+                                        })}
+                                        placeholder="+880 1XXX-XXXXXX"
+                                        className="input input-bordered w-full pl-10"
+                                        disabled={loading}
+                                    />
+                                </div>
+                                {errors.phone && (
+                                    <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Role Selection */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-bold text-primary">Register As *</span>
+                            </label>
+                            <select
+                                {...register("role", { required: "Please select a role" })}
+                                className="select select-primary w-full font-semibold"
+                                disabled={loading}
+                            >
+                                <option value="" disabled>Select your status</option>
+                                <option value="student">Student (Applicant)</option>
+                                <option value="franchise">Franchise (Partner)</option>
+                            </select>
+                            {errors.role && (
+                                <span className="text-red-500 text-xs mt-1">{errors.role.message}</span>
+                            )}
+                        </div>
+
+                        {/* DYNAMIC FIELDS: Franchise */}
+                        {selectedRole === "franchise" && (
+                            <div className="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
+                                <h3 className="text-lg font-bold text-emerald-700 mb-3">Franchise Details</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text font-medium">District *</span>
+                                        </label>
+                                        <div className="relative">
+                                            <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                            <input
+                                                type="text"
+                                                {...register("district", {
+                                                    required: selectedRole === "franchise" ? "District is required" : false
+                                                })}
+                                                placeholder="e.g. Dhaka"
+                                                className="input input-bordered w-full pl-10"
+                                                disabled={loading}
+                                            />
+                                        </div>
+                                        {errors.district && (
+                                            <span className="text-red-500 text-xs mt-1">{errors.district.message}</span>
+                                        )}
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text font-medium">Area Name *</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            {...register("area", {
+                                                required: selectedRole === "franchise" ? "Area is required" : false
+                                            })}
+                                            placeholder="e.g. Uttara"
+                                            className="input input-bordered w-full"
+                                            disabled={loading}
+                                        />
+                                        {errors.area && (
+                                            <span className="text-red-500 text-xs mt-1">{errors.area.message}</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Passwords */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="form-control relative">
+                                <label className="label">
+                                    <span className="label-text font-medium">Password *</span>
+                                </label>
+                                <div className="relative">
+                                    <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        {...register("password", {
+                                            required: "Password is required",
+                                            minLength: {
+                                                value: 6,
+                                                message: "Password must be at least 6 characters"
+                                            }
+                                        })}
+                                        placeholder="Create password"
+                                        className="input input-bordered w-full pl-10 pr-10"
+                                        disabled={loading}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                        disabled={loading}
+                                    >
+                                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </button>
+                                </div>
+                                {errors.password && (
+                                    <span className="text-red-500 text-xs mt-1">{errors.password.message}</span>
+                                )}
+                            </div>
+
+                            <div className="form-control relative">
+                                <label className="label">
+                                    <span className="label-text font-medium">Confirm Password *</span>
+                                </label>
+                                <div className="relative">
+                                    <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                                    <input
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        {...register("confirmPassword", {
+                                            required: "Please confirm your password",
+                                            validate: value => value === password || "Passwords do not match"
+                                        })}
+                                        placeholder="Confirm password"
+                                        className="input input-bordered w-full pl-10 pr-10"
+                                        disabled={loading}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                        disabled={loading}
+                                    >
+                                        {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </button>
+                                </div>
+                                {errors.confirmPassword && (
+                                    <span className="text-red-500 text-xs mt-1">{errors.confirmPassword.message}</span>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Terms and Conditions */}
+                        <div className="form-control">
+                            <label className="label cursor-pointer justify-start gap-2">
+                                <input
+                                    type="checkbox"
+                                    {...register("terms", { required: "You must accept the terms and conditions" })}
+                                    className="checkbox checkbox-sm"
+                                    disabled={loading}
+                                />
+                                <span className="label-text text-sm">
+                                    I agree to the Terms & Conditions and Privacy Policy
+                                </span>
+                            </label>
+                            {errors.terms && (
+                                <span className="text-red-500 text-xs mt-1">{errors.terms.message}</span>
+                            )}
+                        </div>
+
+                        {/* Submit Button */}
+                        <div className="form-control mt-6">
+                            <button
+                                type="submit"
+                                className="btn btn-primary w-full text-white text-lg py-3"
+                                disabled={loading}
+                            >
+                                {loading ? (
+                                    <>
+                                        <span className="loading loading-spinner loading-sm"></span>
+                                        Creating Account...
+                                    </>
+                                ) : "Create Account"}
+                            </button>
+                        </div>
+                    </form>
+
+                    <div className="text-center text-sm mt-6 pt-4 border-t">
+                        <p className="text-base-content/70">
+                            Already have an account?{" "}
+                            <Link to="/login" className="text-primary font-bold hover:underline">
+                                Sign In
+                            </Link>
+                        </p>
+                    </div>
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 };
 
 export default Registration;

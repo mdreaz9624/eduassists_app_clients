@@ -28,7 +28,7 @@ const FaqComponent = () => {
           </h2>
         </div>
         <p className="text-base-content text-lg mt-2">
-          Find answers to the most common questions from our customers.
+          Find answers to the most common questions from our Students.
         </p>
       </div>
 

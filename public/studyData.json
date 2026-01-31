@@ -1,0 +1,451 @@
+[
+  {
+    "country": "United Kingdom",
+    "flag": "🇬🇧",
+    "universities": [
+      {
+        "id": "lsbu",
+        "name": "London South Bank University",
+        "city": "London",
+        "tuition": "£12,000 – £18,000",
+        "departments": [
+          { "name": "Computer Science", "subjects": ["Data Science", "Software Engineering"] },
+          { "name": "Law", "subjects": ["LLB Law"] },
+          { "name": "Business", "subjects": ["Finance", "Marketing"] },
+          { "name": "Engineering", "subjects": ["Civil Engineering", "Mechanical Engineering"] },
+          { "name": "Health Sciences", "subjects": ["Nursing", "Physiotherapy"] }
+        ]
+      },
+      {
+        "id": "ucl",
+        "name": "University College London",
+        "city": "London",
+        "tuition": "£25,000 – £35,000",
+        "departments": [
+          { "name": "Computer Science", "subjects": ["AI", "Data Science", "Cybersecurity"] },
+          { "name": "Business", "subjects": ["Management", "Finance", "Entrepreneurship"] },
+          { "name": "Medicine", "subjects": ["Surgery", "General Medicine"] },
+          { "name": "Law", "subjects": ["International Law", "Corporate Law"] },
+          { "name": "Architecture", "subjects": ["Urban Design", "Sustainable Architecture"] }
+        ]
+      },
+      {
+        "id": "oxford",
+        "name": "University of Oxford",
+        "city": "Oxford",
+        "tuition": "£28,000 – £38,000",
+        "departments": [
+          { "name": "Humanities", "subjects": ["Philosophy", "History", "Classics"] },
+          { "name": "Science", "subjects": ["Physics", "Chemistry", "Biology"] },
+          { "name": "Social Sciences", "subjects": ["Economics", "Politics", "Sociology"] }
+        ]
+      },
+      {
+        "id": "manchester",
+        "name": "University of Manchester",
+        "city": "Manchester",
+        "tuition": "£19,000 – £25,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Chemical Engineering", "Electrical Engineering"] },
+          { "name": "Computer Science", "subjects": ["Machine Learning", "Robotics"] }
+        ]
+      },
+      {
+        "id": "edinburgh",
+        "name": "University of Edinburgh",
+        "city": "Edinburgh",
+        "tuition": "£22,000 – £30,000",
+        "departments": [
+          { "name": "Veterinary Science", "subjects": ["Veterinary Medicine"] },
+          { "name": "Literature", "subjects": ["English Literature", "Creative Writing"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "United States",
+    "flag": "🇺🇸",
+    "universities": [
+      {
+        "id": "mit",
+        "name": "MIT",
+        "city": "Cambridge",
+        "tuition": "$55,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Aerospace Engineering", "Mechanical Engineering", "Electrical Engineering"] },
+          { "name": "Science", "subjects": ["Physics", "Chemistry", "Mathematics"] },
+          { "name": "Computer Science", "subjects": ["AI", "Computer Systems", "Theory of Computation"] }
+        ]
+      },
+      {
+        "id": "harvard",
+        "name": "Harvard University",
+        "city": "Cambridge",
+        "tuition": "$54,000",
+        "departments": [
+          { "name": "Law", "subjects": ["Constitutional Law", "International Law"] },
+          { "name": "Business", "subjects": ["MBA", "Entrepreneurship"] },
+          { "name": "Medicine", "subjects": ["Biomedical Sciences", "Public Health"] }
+        ]
+      },
+      {
+        "id": "stanford",
+        "name": "Stanford University",
+        "city": "Stanford",
+        "tuition": "$56,000",
+        "departments": [
+          { "name": "Computer Science", "subjects": ["AI", "Human-Computer Interaction"] },
+          { "name": "Business", "subjects": ["Management Science", "Finance"] }
+        ]
+      },
+      {
+        "id": "berkeley",
+        "name": "UC Berkeley",
+        "city": "Berkeley",
+        "tuition": "$44,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Civil Engineering", "Bioengineering"] },
+          { "name": "Environmental Science", "subjects": ["Climate Science", "Sustainability"] }
+        ]
+      },
+      {
+        "id": "caltech",
+        "name": "Caltech",
+        "city": "Pasadena",
+        "tuition": "$58,000",
+        "departments": [
+          { "name": "Physics", "subjects": ["Quantum Physics", "Astrophysics"] },
+          { "name": "Engineering", "subjects": ["Aerospace", "Chemical Engineering"] }
+        ]
+      },
+      {
+        "id": "nyu",
+        "name": "New York University",
+        "city": "New York",
+        "tuition": "$53,000",
+        "departments": [
+          { "name": "Arts", "subjects": ["Film Studies", "Performing Arts"] },
+          { "name": "Business", "subjects": ["Finance", "Marketing"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "Canada",
+    "flag": "🇨🇦",
+    "universities": [
+      {
+        "id": "toronto",
+        "name": "University of Toronto",
+        "city": "Toronto",
+        "tuition": "CAD 45,000 – 55,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Medical Science", "Nursing"] },
+          { "name": "Engineering", "subjects": ["Industrial Engineering", "Computer Engineering"] }
+        ]
+      },
+      {
+        "id": "ubc",
+        "name": "University of British Columbia",
+        "city": "Vancouver",
+        "tuition": "CAD 42,000 – 50,000",
+        "departments": [
+          { "name": "Forestry", "subjects": ["Forest Management", "Wood Science"] },
+          { "name": "Business", "subjects": ["Commerce", "Real Estate"] }
+        ]
+      },
+      {
+        "id": "mcgill",
+        "name": "McGill University",
+        "city": "Montreal",
+        "tuition": "CAD 22,000 – 35,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Neuroscience", "Pharmacology"] },
+          { "name": "Law", "subjects": ["Common Law", "Civil Law"] }
+        ]
+      },
+      {
+        "id": "waterloo",
+        "name": "University of Waterloo",
+        "city": "Waterloo",
+        "tuition": "CAD 30,000 – 45,000",
+        "departments": [
+          { "name": "Computer Science", "subjects": ["Software Engineering", "Data Science"] },
+          { "name": "Engineering", "subjects": ["Systems Design", "Nanotechnology"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "Australia",
+    "flag": "🇦🇺",
+    "universities": [
+      {
+        "id": "anu",
+        "name": "Australian National University",
+        "city": "Canberra",
+        "tuition": "AUD 38,000 – 48,000",
+        "departments": [
+          { "name": "Public Policy", "subjects": ["International Relations", "Public Administration"] },
+          { "name": "Science", "subjects": ["Astronomy", "Environmental Science"] }
+        ]
+      },
+      {
+        "id": "sydney",
+        "name": "University of Sydney",
+        "city": "Sydney",
+        "tuition": "AUD 40,000 – 50,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Dentistry", "Pharmacy"] },
+          { "name": "Law", "subjects": ["Jurisprudence", "Commercial Law"] }
+        ]
+      },
+      {
+        "id": "melbourne",
+        "name": "University of Melbourne",
+        "city": "Melbourne",
+        "tuition": "AUD 35,000 – 45,000",
+        "departments": [
+          { "name": "Business", "subjects": ["Accounting", "Economics"] },
+          { "name": "Arts", "subjects": ["History", "Cultural Studies"] }
+        ]
+      },
+      {
+        "id": "monash",
+        "name": "Monash University",
+        "city": "Melbourne",
+        "tuition": "AUD 32,000 – 42,000",
+        "departments": [
+          { "name": "Pharmacy", "subjects": ["Pharmaceutical Science"] },
+          { "name": "Engineering", "subjects": ["Materials Engineering", "Renewable Energy"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "universities": [
+      {
+        "id": "tum",
+        "name": "Technical University of Munich",
+        "city": "Munich",
+        "tuition": "€0 – €3,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Mechanical Engineering", "Electrical Engineering"] },
+          { "name": "Computer Science", "subjects": ["Robotics", "Computer Vision"] }
+        ]
+      },
+      {
+        "id": "heidelberg",
+        "name": "Heidelberg University",
+        "city": "Heidelberg",
+        "tuition": "€0 – €3,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Medical Research", "Clinical Medicine"] },
+          { "name": "Humanities", "subjects": ["Philosophy", "Theology"] }
+        ]
+      },
+      {
+        "id": "berlin",
+        "name": "Free University of Berlin",
+        "city": "Berlin",
+        "tuition": "€0 – €3,000",
+        "departments": [
+          { "name": "Social Sciences", "subjects": ["Political Science", "Sociology"] },
+          { "name": "Law", "subjects": ["European Law", "Human Rights Law"] }
+        ]
+      },
+      {
+        "id": "rwth",
+        "name": "RWTH Aachen University",
+        "city": "Aachen",
+        "tuition": "€0 – €3,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Automotive Engineering", "Production Engineering"] },
+          { "name": "Materials Science", "subjects": ["Metallurgy", "Polymer Science"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "France",
+    "flag": "🇫🇷",
+    "universities": [
+      {
+        "id": "sorbonne",
+        "name": "Sorbonne University",
+        "city": "Paris",
+        "tuition": "€170 – €3,770",
+        "departments": [
+          { "name": "Humanities", "subjects": ["Literature", "Languages"] },
+          { "name": "Science", "subjects": ["Mathematics", "Physics"] }
+        ]
+      },
+      {
+        "id": "polytechnique",
+        "name": "École Polytechnique",
+        "city": "Palaiseau",
+        "tuition": "€12,000 – €16,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Applied Mathematics", "Computer Science"] },
+          { "name": "Economics", "subjects": ["Financial Economics", "Econometrics"] }
+        ]
+      },
+      {
+        "id": "hec",
+        "name": "HEC Paris",
+        "city": "Paris",
+        "tuition": "€20,000 – €45,000",
+        "departments": [
+          { "name": "Business", "subjects": ["MBA", "Executive Education"] },
+          { "name": "Finance", "subjects": ["Corporate Finance", "Investment Banking"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "Japan",
+    "flag": "🇯🇵",
+    "universities": [
+      {
+        "id": "tokyo",
+        "name": "University of Tokyo",
+        "city": "Tokyo",
+        "tuition": "¥535,800 – ¥804,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Robotics", "Civil Engineering"] },
+          { "name": "Science", "subjects": ["Physics", "Chemistry"] }
+        ]
+      },
+      {
+        "id": "kyoto",
+        "name": "Kyoto University",
+        "city": "Kyoto",
+        "tuition": "¥535,800 – ¥804,000",
+        "departments": [
+          { "name": "Humanities", "subjects": ["Japanese Literature", "History"] },
+          { "name": "Science", "subjects": ["Biology", "Mathematics"] }
+        ]
+      },
+      {
+        "id": "osaka",
+        "name": "Osaka University",
+        "city": "Osaka",
+        "tuition": "¥535,800 – ¥804,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Medical Science", "Dentistry"] },
+          { "name": "Engineering", "subjects": ["Biotechnology", "Chemical Engineering"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "China",
+    "flag": "🇨🇳",
+    "universities": [
+      {
+        "id": "tsinghua",
+        "name": "Tsinghua University",
+        "city": "Beijing",
+        "tuition": "¥26,000 – ¥40,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Civil Engineering", "Electrical Engineering"] },
+          { "name": "Business", "subjects": ["MBA", "Economics"] }
+        ]
+      },
+      {
+        "id": "pku",
+        "name": "Peking University",
+        "city": "Beijing",
+        "tuition": "¥26,000 – ¥40,000",
+        "departments": [
+          { "name": "Humanities", "subjects": ["Chinese Literature", "Philosophy"] },
+          { "name": "Social Sciences", "subjects": ["International Relations", "Sociology"] }
+        ]
+      },
+      {
+        "id": "fudan",
+        "name": "Fudan University",
+        "city": "Shanghai",
+        "tuition": "¥23,000 – ¥38,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Clinical Medicine", "Public Health"] },
+          { "name": "Journalism", "subjects": ["Mass Communication", "Digital Media"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "South Korea",
+    "flag": "🇰🇷",
+    "universities": [
+      {
+        "id": "seoul",
+        "name": "Seoul National University",
+        "city": "Seoul",
+        "tuition": "₩2,500,000 – ₩6,000,000",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Computer Engineering", "Mechanical Engineering"] },
+          { "name": "Business", "subjects": ["Business Administration", "Accounting"] }
+        ]
+      },
+      {
+        "id": "kaist",
+        "name": "KAIST",
+        "city": "Daejeon",
+        "tuition": "₩3,000,000 – ₩7,000,000",
+        "departments": [
+          { "name": "Science", "subjects": ["Physics", "Chemistry"] },
+          { "name": "Engineering", "subjects": ["Electrical Engineering", "Bioengineering"] }
+        ]
+      },
+      {
+        "id": "yonsei",
+        "name": "Yonsei University",
+        "city": "Seoul",
+        "tuition": "₩4,000,000 – ₩8,000,000",
+        "departments": [
+          { "name": "Medicine", "subjects": ["Medical Science", "Dentistry"] },
+          { "name": "International Studies", "subjects": ["Global Affairs", "Diplomacy"] }
+        ]
+      }
+    ]
+  },
+  {
+    "country": "Switzerland",
+    "flag": "🇨🇭",
+    "universities": [
+      {
+        "id": "eth",
+        "name": "ETH Zurich",
+        "city": "Zurich",
+        "tuition": "CHF 1,300 – CHF 1,800",
+        "departments": [
+          { "name": "Engineering", "subjects": ["Mechanical Engineering", "Electrical Engineering"] },
+          { "name": "Science", "subjects": ["Physics", "Chemistry"] }
+        ]
+      },
+      {
+        "id": "epfl",
+        "name": "EPFL",
+        "city": "Lausanne",
+        "tuition": "CHF 1,266 – CHF 1,600",
+        "departments": [
+          { "name": "Computer Science", "subjects": ["Data Science", "AI"] },
+          { "name": "Engineering", "subjects": ["Microengineering", "Environmental Engineering"] }
+        ]
+      },
+      {
+        "id": "unige",
+        "name": "University of Geneva",
+        "city": "Geneva",
+        "tuition": "CHF 500 – CHF 1,000",
+        "departments": [
+          { "name": "International Relations", "subjects": ["Diplomacy", "Human Rights"] },
+          { "name": "Finance", "subjects": ["Banking", "Wealth Management"] }
+        ]
+      }
+    ]
+  }
+]

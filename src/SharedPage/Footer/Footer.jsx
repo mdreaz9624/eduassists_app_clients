@@ -7,9 +7,9 @@ const Footer = () => {
                 <aside>
                     <SupRideLogo></SupRideLogo>
                     <p className="font-bold">
-                        DropTify Private Ltd.
+                        EduAssists Your Global Education Partner.
                         <br />
-                        Providing reliable tech since 2025
+                        Students Consultency Firm tech since 2025
                     </p>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved AhsanReaz</p>
                 </aside>

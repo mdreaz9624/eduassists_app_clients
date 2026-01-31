@@ -1,17 +1,50 @@
 [
   {
     "name": "Ahsan Reaz",
-    "feedback": "This service is amazing! Highly satisfied.",
-    "avatar": "/avatars/user1.png"
+    "country": "UK",
+    "university": "London South Bank University",
+    "feedback": "EduAssists made my UK dream a reality. Their visa guidance was flawless, and they even helped me find a great apartment near my campus!",
+    "avatar": "https://i.pravatar.cc/150?u=ahsan",
+    "rating": 5
   },
   {
     "name": "Sara Khan",
-    "feedback": "Very smooth experience. I love the UI!",
-    "avatar": "/avatars/user2.png"
+    "country": "Canada",
+    "university": "University of Toronto",
+    "feedback": "I was confused about the SOP and documentation, but the consultants here are experts. Highly recommend for Canada study permits!",
+    "avatar": "https://i.pravatar.cc/150?u=sara",
+    "rating": 5
   },
   {
-    "name": "John Doe",
-    "feedback": "Support team was very helpful. Recommended!",
-    "avatar": "/avatars/user3.png"
+    "name": "Tanvir Ahmed",
+    "country": "USA",
+    "university": "MIT",
+    "feedback": "The mock interview sessions for the F1 visa were a game changer. I felt so confident during the actual interview at the embassy.",
+    "avatar": "https://i.pravatar.cc/150?u=tanvir",
+    "rating": 5
+  },
+  {
+    "name": "Jessica Williams",
+    "country": "Germany",
+    "university": "IU International University",
+    "feedback": "Amazing experience with their physical counseling at the Dhaka branch. They simplified the complex German block account process for me.",
+    "avatar": "https://i.pravatar.cc/150?u=jessica",
+    "rating": 4
+  },
+  {
+    "name": "Mahir Zahan",
+    "country": "Australia",
+    "university": "Monash University",
+    "feedback": "From flight reservation to post-arrival support, EduAssists was with me every step of the way. Truly a global education partner.",
+    "avatar": "https://i.pravatar.cc/150?u=mahir",
+    "rating": 5
+  },
+  {
+    "name": "Laila Mansour",
+    "country": "UK",
+    "university": "University of Hertfordshire",
+    "feedback": "I received my CAS and Visa in record time! Their franchise team is very professional and responsive to every query.",
+    "avatar": "https://i.pravatar.cc/150?u=laila",
+    "rating": 5
   }
 ]

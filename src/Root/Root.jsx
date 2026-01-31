@@ -9,6 +9,14 @@ import AuthLayout from "../RootLayout/AuthLayout/AuthLayout";
 import Login from "../Pages/UserAccount/Login/Login";
 import Registration from "../Pages/UserAccount/Registration/Registration";
 import ErrorPage from "../Pages/ErrorElement/ErrorElement";
+import CourseDetails from "../Pages/FiteringSystem/CourseDetails";
+import Contract from "../Pages/Contract/Contract";
+import Gallery from "../Pages/Gallery/Gallery";
+import EduBlog from "../Pages/EduBlog/EduBlog";
+import Scholarship from "../Pages/Scholarship/Scholarship";
+import StudentProfile from "../Pages/StudentProfile/StudentProfile";
+import ReferralDashboard from "../Pages/UserAccount/ReferralDashboard/ReferralDashboard";
+import FranchiseProfile from "../Pages/UserAccount/FranchiseProfile/FranchiseProfile";
 
 
 
@@ -25,6 +33,30 @@ export const router = createBrowserRouter([
       {
         path: "/service",
         element: <Services></Services> 
+      },
+      {
+        path: "/contract",
+        element: <Contract></Contract>
+      },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>
+      },
+      {
+        path: "/edublog",
+        element: <EduBlog></EduBlog>
+      },
+      {
+        path: "/scholarship",
+        element: <Scholarship></Scholarship>
+      },
+      {
+        path:"/referral",
+        element:<ReferralDashboard></ReferralDashboard>
+      },
+      {
+        path:"/franchise-profile",
+        element:<FranchiseProfile></FranchiseProfile>
       }
       
     ]
@@ -40,6 +72,14 @@ export const router = createBrowserRouter([
       {
         path:"/registration",
         element:<Registration></Registration>
+      },
+      {
+        path:"/course-details",
+        element:<CourseDetails></CourseDetails>
+      },
+      {
+        path:"/student-profile",
+        element:<StudentProfile></StudentProfile>
       }
     ]
 

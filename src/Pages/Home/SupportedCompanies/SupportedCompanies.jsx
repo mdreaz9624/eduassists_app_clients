@@ -2,7 +2,7 @@ import amazon from "../../../assets/amazon.jpeg";
 import bkash from "../../../assets/bkash.jpg";
 import daraz from "../../../assets/daraz.png";
 import foodpanda from "../../../assets/foodpanda.png";
-import pathao from "../../../assets/Pathao.jpg";
+import pathao from "../../../assets/DroptifyLogo_final.JPG";
 import eduassists from "../../../assets/eduassists.png";
 
 const SupportedCompanies = () => {
