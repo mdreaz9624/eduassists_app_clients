@@ -1,7 +1,7 @@
 
 
 
-import logo from "../../../src/assets/eduassists.png"
+import logo from "../../../src/assets/upEduLogo.png"
 const SupRideLogo = () => {
 
     return (

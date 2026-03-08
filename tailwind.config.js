@@ -1,4 +1,27 @@
-<<<<<<< HEAD
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: [
+//     "./index.html",
+//     "./src/**/*.{js,jsx,ts,tsx}",
+//   ],
+//   theme: {
+//     extend: {},
+//   },
+//   // The syntax must be require("daisyui")
+//   plugins: [require("daisyui")],
+
+//   daisyui: {
+//     // You can add as many themes as you like here
+//     themes: ["light", "dark", "cupcake", "emerald", "corporate", "bumblebee"],
+//     darkTheme: "dark", 
+//     base: true, 
+//     utils: true,
+//   },
+// };
+
+
+import daisyui from "daisyui"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,26 +31,8 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [("daisyui")],
-
+  plugins: [daisyui],
   daisyui: {
-    themes: ["light", "dark", "cupcake"], // ✅ Add more themes if you want
+    themes: ["light", "dark", "cupcake", "emerald", "corporate", "bumblebee"],
   },
 };
-=======
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [("daisyui")],
-
-  daisyui: {
-    themes: ["light", "dark", "cupcake"], // ✅ Add more themes if you want
-  },
-};
->>>>>>> d41d59977b004026d99f1fc7af9f16f0ec80f038

@@ -1,22 +1,23 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import SupRideLogo from "../SupRideLogo/SupRideLogo";
 import useAuth from "../../hooks/useAuth";
 import { 
     FaSignOutAlt, FaUser, FaCog, FaHome, 
-    FaChevronDown, FaMoon, FaSun 
+    FaChevronDown, FaPalette 
 } from "react-icons/fa";
 
 const Navbar = () => {
+    // 1. Initialize theme from localStorage or default to light
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
     const [scrolled, setScrolled] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
     
-    // Ensure loading is pulled from useAuth to prevent premature role calculation
     const { user, userData, logOut, loading } = useAuth(); 
     const navigate = useNavigate();
+
+    // List of themes matching your tailwind.config.js
+    const availableThemes = ["light", "dark", "cupcake", "emerald", "corporate", "bumblebee"];
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,13 +25,22 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // 2. Apply theme to HTML tag and persist to localStorage
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
-        document.body.style.backgroundColor = theme === 'dark' ? '#0e3592' : '#FFFFFF';
+        
+        // Dynamic background sync for non-daisyUI elements
+        if (theme === 'dark') {
+            document.body.style.backgroundColor = '#0e3592';
+        } else if (theme === 'light') {
+            document.body.style.backgroundColor = '#FFFFFF';
+        }else if (theme === 'corporate') {
+            document.body.style.backgroundColor = '#bedd0b';
+        }else {
+            document.body.style.backgroundColor = ''; // Let DaisyUI theme handle it
+        }
     }, [theme]);
-
-    const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
     const handleLogout = async () => {
         try {
@@ -40,12 +50,10 @@ const Navbar = () => {
         } catch (error) { console.error("Logout error:", error); }
     };
 
-    // --- ENHANCED ROLE LOGIC ---
-    // If the auth hook is still fetching data, we should treat the role as "pending"
     const userRole = userData?.role; 
 
     const getProfilePath = () => {
-        if (!userRole) return "/"; // Fallback if data hasn't arrived
+        if (!userRole) return "/";
         if (userRole === 'franchise') return "/franchise-profile";
         if (userRole === 'student') return "/student-profile";
         return "/";
@@ -92,7 +100,7 @@ const Navbar = () => {
                             <NavLink 
                                 to={link.path}
                                 className={({ isActive }) => `text-sm font-bold transition-colors ${
-                                    isActive ? "text-blue-600 dark:text-blue-800" : "text-black dark:text-slate-300 hover:text-blue-500"
+                                    isActive ? "text-blue-600" : "text-base-content/70 hover:text-blue-500"
                                 }`}
                             >
                                 {link.name}
@@ -103,23 +111,21 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end gap-2 md:gap-4">
-                {/* Check if we are loading OR if the user exists */}
                 {loading ? (
                     <span className="loading loading-spinner loading-sm text-blue-600"></span>
                 ) : user ? (
                     <div className="relative user-menu flex items-center gap-3">
                         <div 
                             onClick={() => setShowUserMenu(!showUserMenu)}
-                            className="flex items-center gap-2 cursor-pointer p-1 pr-3 bg-slate-100 dark:bg-white/10 rounded-full hover:bg-slate-200 dark:hover:bg-white/20 transition-all border border-transparent hover:border-blue-300"
+                            className="flex items-center gap-2 cursor-pointer p-1 pr-3 bg-base-200 rounded-full hover:bg-base-300 transition-all border border-transparent hover:border-blue-300"
                         >
                             <img 
                                 src={userData?.photoURL || user?.photoURL || `https://ui-avatars.com/api/?name=${user?.displayName}&background=4f46e5&color=fff`} 
                                 alt="avatar" 
-                                className="w-8 h-8 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm"
+                                className="w-8 h-8 rounded-full object-cover border-2 border-base-100 shadow-sm"
                             />
                             <div className="hidden sm:block text-left">
-                                {/* Use optional chaining and default text while role is loading */}
-                                <p className="text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 leading-none">
+                                <p className="text-[10px] font-black uppercase text-blue-600 leading-none">
                                     {userRole || 'User'}
                                 </p>
                                 <FaChevronDown className={`text-[8px] mt-1 transition-transform ${showUserMenu ? 'rotate-180' : ''}`} />
@@ -127,25 +133,24 @@ const Navbar = () => {
                         </div>
 
                         {showUserMenu && (
-                            <div className="absolute right-0 top-12 w-60 bg-white dark:bg-[#6380af] rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 py-2 animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden">
-                                <div className="px-4 py-3 border-b border-slate-50 dark:border-slate-800 mb-1">
+                            <div className="absolute right-0 top-12 w-60 bg-base-100 rounded-2xl shadow-2xl border border-base-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden">
+                                <div className="px-4 py-3 border-b border-base-200 mb-1">
                                     <p className="text-sm font-bold truncate">{user?.displayName}</p>
-                                    <p className="text-[10px] text-slate-400 truncate">{user?.email}</p>
+                                    <p className="text-[10px] opacity-60 truncate">{user?.email}</p>
                                 </div>
                                 <div className="p-1">
-                                    {/* These paths will now correctly update once userData arrives */}
-                                    <Link to={getDashboardPath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-colors">
-                                        <FaHome className="text-blue-500"/> Dashboard
+                                    <Link to={getDashboardPath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+                                        <FaHome className="text-primary"/> Dashboard
                                     </Link>
-                                    <Link to={getProfilePath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-colors">
-                                        <FaUser className="text-blue-500"/> My Profile
+                                    <Link to={getProfilePath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+                                        <FaUser className="text-primary"/> My Profile
                                     </Link>
-                                    <Link to="/settings" className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-colors">
-                                        <FaCog className="text-blue-500"/> Settings
+                                    <Link to="/settings" className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+                                        <FaCog className="text-primary"/> Settings
                                     </Link>
                                 </div>
-                                <div className="p-1 mt-1 border-t border-slate-50 dark:border-slate-800">
-                                    <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 w-full text-left rounded-xl transition-colors">
+                                <div className="p-1 mt-1 border-t border-base-200">
+                                    <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 w-full text-left rounded-xl transition-colors">
                                         <FaSignOutAlt /> Logout
                                     </button>
                                 </div>
@@ -158,14 +163,25 @@ const Navbar = () => {
                     </Link>
                 )}
 
-                <div className="border-l border-slate-200 dark:border-slate-700 pl-2 ml-1">
-                    <button 
-                        onClick={toggleTheme} 
-                        className="btn btn-ghost btn-circle btn-sm text-slate-500 dark:text-yellow-400 hover:bg-slate-100 dark:hover:bg-white/10"
-                        aria-label="Toggle Theme"
-                    >
-                        {theme === "light" ? <FaMoon size={16} /> : <FaSun size={18} />}
-                    </button>
+                {/* --- UPDATED THEME SELECTOR DROPDOWN --- */}
+                <div className="dropdown dropdown-end border-l border-base-300 pl-2 ml-1">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle btn-sm">
+                        <FaPalette className="text-primary" />
+                    </label>
+                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52 border border-base-200 mt-4">
+                        <div className="px-4 py-2 text-[10px] font-black uppercase opacity-50 tracking-widest">Select Theme</div>
+                        {availableThemes.map((t) => (
+                            <li key={t}>
+                                <button 
+                                    onClick={() => setTheme(t)}
+                                    className={`flex justify-between capitalize ${theme === t ? "bg-primary text-primary-content" : ""}`}
+                                >
+                                    {t}
+                                    {theme === t && <span className="w-2 h-2 rounded-full bg-current"></span>}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>

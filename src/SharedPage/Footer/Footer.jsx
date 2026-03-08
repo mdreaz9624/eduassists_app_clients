@@ -3,13 +3,13 @@ import SupRideLogo from "../SupRideLogo/SupRideLogo";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-horizontal footer-center rounded-2xl mt-2 bg-black text-primary-content p-10">
+            <footer className="footer footer-horizontal footer-center rounded-2xl mt-2 bg-slate-300 text-black p-10">
                 <aside>
                     <SupRideLogo></SupRideLogo>
                     <p className="font-bold">
                         EduAssists Your Global Education Partner.
                         <br />
-                        Students Consultency Firm tech since 2025
+                        Students Consultency Firm  Since 2025
                     </p>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved AhsanReaz</p>
                 </aside>

@@ -1,41 +1,9 @@
-@import "tailwindcss";
-@plugin "daisyui";
 
+@tailwind components;
+@tailwind utilities;
 
+/* Smooth transition when changing themes */
 :root {
-  --primary: #3b82f6;
-  --primary-focus: #1d4ed8;
-  --primary-content: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-[data-theme="dark"] {
-  --primary: #60a5fa;
-  --primary-focus: #3b82f6;
-}
-
-/* Apply theme colors to DaisyUI */
-.btn-primary {
-  background-color: var(--primary) !important;
-  border-color: var(--primary) !important;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-focus) !important;
-  border-color: var(--primary-focus) !important;
-}
-
-.text-primary {
-  color: var(--primary) !important;
-}
-
-.border-primary {
-  border-color: var(--primary) !important;
-}
-
-.bg-primary {
-  background-color: var(--primary) !important;
-}
-
-.ring-primary {
-  --tw-ring-color: var(--primary) !important;
-}
