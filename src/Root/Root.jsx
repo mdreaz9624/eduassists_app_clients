@@ -24,6 +24,17 @@ import WebDevCard from "../Pages/Service/WebDevCard/WebDevCard";
 import FilterRow from "../Pages/FiteringSystem/FilterRow";
 import WatchStory from "../Pages/WatchStory/WatchStory";
 
+import { ScrollToTopWrapper } from "../hooks/ScrollToTop";
+
+
+const Layout = ({ children }) => {
+  return (
+    <>
+      <ScrollToTopWrapper />
+      {children}
+    </>
+  );
+};
 
 
 export const router = createBrowserRouter([
@@ -32,6 +43,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      <Layout/>,
       {
         index: true,
         element: <HomePage />,
