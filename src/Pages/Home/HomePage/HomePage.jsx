@@ -1,5 +1,4 @@
 import EduAsistaAI from "../../../FunctionsAi/EduAssistaAI/EduAssistaAI";
-import FilterRow from "../../FiteringSystem/FilterRow";
 import Bannar from "../Bannar/Bannar";
 import CustomerFeedback from "../CustomerFeedback/CustomerFeedback";
 import FaqComponent from "../FaqComponent/FaqComponent";
@@ -7,6 +6,8 @@ import HowItWorks from "../HowItWorks/HowItWorks";
 import MarcentSatisfaction from "../MarcentSatisfaction/MarcentSatisfaction";
 import OurServices from "../OurServices/OurServices";
 import SupportedCompanies from "../SupportedCompanies/SupportedCompanies";
+import FeaturesUniversity from "../../FeaturesUniversity/FeaturesUniversity"
+
 
 
 const HomePage = () => {
@@ -15,12 +16,12 @@ const HomePage = () => {
         <div>
             <div>
                 <Bannar></Bannar>
-            </div>
-            <div>
-                <FilterRow></FilterRow>
-            </div>
+            </div>           
             <div>
                 <EduAsistaAI></EduAsistaAI>
+            </div>
+            <div>
+                <FeaturesUniversity></FeaturesUniversity>
             </div>
             <div className="mt-20">
                 <HowItWorks></HowItWorks>

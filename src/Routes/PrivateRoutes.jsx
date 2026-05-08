@@ -1,33 +1,4 @@
-// import React, { Children } from 'react';
-// import useAuth from '../hooks/useAuth';
-// import { Navigate } from 'react-router';
-// import { ThreeCircles } from 'react-loader-spinner';
 
-// const PrivateRoutes = ({ children }) => {
-//     const { user, loading } = useAuth();
-
-//     if (loading) {
-//         return <ThreeCircles
-//             visible={true}
-//             height="100"
-//             width="100"
-//             color="#4fa94d"
-//             ariaLabel="three-circles-loading"
-//             wrapperStyle={{}}
-//             wrapperClass=""
-//         />
-//     }
-//     if (!user) {
-//         <Navigate to="/login"></Navigate>
-//     }
-
-//     return children;
-// };
-
-// export default PrivateRoutes;
-
-
-// new Code 
 
 import React from 'react'; // Removed unused { Children }
 import useAuth from '../hooks/useAuth';
