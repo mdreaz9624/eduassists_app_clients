@@ -6,7 +6,7 @@ const AuthLayout = () => {
     return (
         <div>
             <Navber></Navber>
-            <div className="hero bg-base-200 min-h-screen">
+            {/* <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img
                         src={loginandregistration}
@@ -17,7 +17,8 @@ const AuthLayout = () => {
                         <Outlet />
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Outlet />
         </div>
     );
 };

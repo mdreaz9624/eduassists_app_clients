@@ -178,8 +178,10 @@
 // export default Registration;
 
 
-// new code deepseek
 
+
+
+//another version of registration
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser, FaEnvelope, FaLock, FaPhone, FaEye, FaEyeSlash, FaMapMarkerAlt } from "react-icons/fa";
@@ -198,7 +200,6 @@ const Registration = () => {
     const [searchParams] = useSearchParams();
     const referralCode = searchParams.get('ref');
 
-
     const demoCredentials = {
         fullName: "Ahsan Reaz",
         email: "demo@eduassists.com",
@@ -211,14 +212,13 @@ const Registration = () => {
     };
 
     if (referralCode) {
-        // Save referral to localStorage or send to backend
         localStorage.setItem('referred_by', referralCode);
     }
+    
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
 
     const selectedRole = watch("role");
     const password = watch("password");
-
 
     const onSubmit = async (data) => {
         if (data.password !== data.confirmPassword) {
@@ -242,14 +242,21 @@ const Registration = () => {
             const result = await createUser(data.email, data.password, userData);
 
             if (result && result.success) {
-                toast.success("Account created successfully!");
-
-                // Redirect based on role
-                if (data.role === 'franchise') {
-                    navigate("/franchise-profile"); // Redirect to franchise profile
-                } else {
-                    navigate("/student-profile"); // Redirect to student profile
-                }
+                // Show success toast
+                toast.success("Account created successfully!", {
+                    duration: 3000,
+                    position: "top-center",
+                    style: {
+                        background: "#F59E0B",
+                        color: "#fff",
+                        fontWeight: "bold"
+                    }
+                });
+                
+                // Redirect to login after 2 seconds
+                setTimeout(() => {
+                    navigate("/login");
+                }, 2000);
             } else {
                 toast.error("Registration failed. Please try again.");
             }
@@ -271,7 +278,6 @@ const Registration = () => {
         }
     };
 
-    // end onSubmit
     const fillDemoCredentials = () => {
         reset(demoCredentials);
         toast.success("Demo credentials filled!");
@@ -279,8 +285,7 @@ const Registration = () => {
 
     return (
         <section className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
-            <div className="card w-full max-w-lg shadow-2xl bg-base-100 border-t-4 border-primary">
-
+            <div className="card w-full max-w-lg shadow-2xl bg-base-100 border-t-4 border-[#F59E0B]">
                 {import.meta.env.DEV && (
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-3 mx-6 mt-4 rounded flex justify-between items-center">
                         <div>
@@ -298,7 +303,7 @@ const Registration = () => {
                 )}
 
                 <div className="card-body">
-                    <h2 className="text-3xl font-bold text-center text-primary">Create Account</h2>
+                    <h2 className="text-3xl font-bold text-center text-[#F59E0B]">Create Account</h2>
                     <p className="text-center text-base-content/70 mb-6 italic">Join EduAssists Global Network</p>
 
                     <SocialLink />
@@ -384,12 +389,13 @@ const Registration = () => {
                         {/* Role Selection */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-bold text-primary">Register As *</span>
+                                <span className="label-text font-bold text-[#F59E0B]">Register As *</span>
                             </label>
                             <select
                                 {...register("role", { required: "Please select a role" })}
                                 className="select select-primary w-full font-semibold"
                                 disabled={loading}
+                                style={{ borderColor: "#F59E0B" }}
                             >
                                 <option value="" disabled>Select your status</option>
                                 <option value="student">Student (Applicant)</option>
@@ -520,6 +526,7 @@ const Registration = () => {
                                     {...register("terms", { required: "You must accept the terms and conditions" })}
                                     className="checkbox checkbox-sm"
                                     disabled={loading}
+                                    style={{ borderColor: "#F59E0B" }}
                                 />
                                 <span className="label-text text-sm">
                                     I agree to the Terms & Conditions and Privacy Policy
@@ -530,11 +537,16 @@ const Registration = () => {
                             )}
                         </div>
 
-                        {/* Submit Button */}
+                        {/* Submit Button - Golden Yellow */}
                         <div className="form-control mt-6">
                             <button
                                 type="submit"
-                                className="btn btn-primary w-full text-white text-lg py-3"
+                                className="btn w-full text-white text-lg py-3 transition-all duration-300 hover:scale-105"
+                                style={{
+                                    background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+                                    border: "none",
+                                    boxShadow: "0 4px 15px rgba(245, 158, 11, 0.3)"
+                                }}
                                 disabled={loading}
                             >
                                 {loading ? (
@@ -550,7 +562,7 @@ const Registration = () => {
                     <div className="text-center text-sm mt-6 pt-4 border-t">
                         <p className="text-base-content/70">
                             Already have an account?{" "}
-                            <Link to="/login" className="text-primary font-bold hover:underline">
+                            <Link to="/login" className="text-[#5a3f11] font-bold hover:underline">
                                 Sign In
                             </Link>
                         </p>
