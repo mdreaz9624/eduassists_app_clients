@@ -25,6 +25,9 @@ import FilterRow from "../Pages/FiteringSystem/FilterRow";
 import WatchStory from "../Pages/WatchStory/WatchStory";
 
 import ScrollToTop,{ ScrollToTopWrapper } from "../hooks/ScrollToTop";
+import AdminLayout from "../RootLayout/AdminLayout/AdminLayout";
+import AdminDeshboard from "../Admin/AdminDeshboard/AdminDeshboard";
+
 
 
 const Layout = ({ children }) => {
@@ -127,5 +130,15 @@ export const router = createBrowserRouter([
 
     ]
 
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout></AdminLayout>,
+    children: [
+      {
+        index: true,
+        element: <AdminDeshboard></AdminDeshboard>
+      }
+    ]
   }
 ]);
