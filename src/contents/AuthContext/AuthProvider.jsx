@@ -101,13 +101,13 @@
 //         try {
 //             const existingUsers = JSON.parse(localStorage.getItem('eduassists_users')) || [];
 //             const userIndex = existingUsers.findIndex(u => u.uid === userInfo.uid);
-            
+
 //             if (userIndex >= 0) {
 //                 existingUsers[userIndex] = { ...existingUsers[userIndex], ...userInfo };
 //             } else {
 //                 existingUsers.push(userInfo);
 //             }
-            
+
 //             localStorage.setItem('eduassists_users', JSON.stringify(existingUsers));
 //             localStorage.setItem('current_user', JSON.stringify(userInfo));
 //         } catch (error) {
@@ -131,7 +131,7 @@
 //         setLoading(true);
 //         try {
 //             const result = await createUserWithEmailAndPassword(auth, email, password);
-            
+
 //             // Prepare user data
 //             const userData = {
 //                 uid: result.user.uid,
@@ -155,11 +155,11 @@
 
 //             // Save user data
 //             saveUserData(userData);
-            
+
 //             // Update state
 //             setUser(result.user);
 //             setUserData(userData);
-            
+
 //             return { success: true, user: result.user, userData };
 //         } catch (error) {
 //             console.error("Registration error:", error);
@@ -174,10 +174,10 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithEmailAndPassword(auth, email, password);
-            
+
 //             // Get user data
 //             const storedUserData = getUserData(result.user.uid);
-            
+
 //             if (storedUserData) {
 //                 // Update last login
 //                 const updatedUserData = {
@@ -199,7 +199,7 @@
 //                 saveUserData(basicUserData);
 //                 setUserData(basicUserData);
 //             }
-            
+
 //             setUser(result.user);
 //             return { success: true, user: result.user };
 //         } catch (error) {
@@ -215,9 +215,9 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithPopup(auth, googleProvider);
-            
+
 //             let storedUserData = getUserData(result.user.uid);
-            
+
 //             if (!storedUserData) {
 //                 storedUserData = {
 //                     uid: result.user.uid,
@@ -240,7 +240,7 @@
 //                 saveUserData(updatedUserData);
 //                 storedUserData = updatedUserData;
 //             }
-            
+
 //             setUser(result.user);
 //             setUserData(storedUserData);
 //             return { success: true, user: result.user, userData: storedUserData };
@@ -259,9 +259,9 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithPopup(auth, facebookProvider);
-            
+
 //             let storedUserData = getUserData(result.user.uid);
-            
+
 //             if (!storedUserData) {
 //                 storedUserData = {
 //                     uid: result.user.uid,
@@ -284,7 +284,7 @@
 //                 saveUserData(updatedUserData);
 //                 storedUserData = updatedUserData;
 //             }
-            
+
 //             setUser(result.user);
 //             setUserData(storedUserData);
 //             return { success: true, user: result.user, userData: storedUserData };
@@ -320,9 +320,9 @@
 //         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 //             if (currentUser) {
 //                 setUser(currentUser);
-                
+
 //                 const storedUserData = getUserData(currentUser.uid);
-                
+
 //                 if (storedUserData) {
 //                     setUserData(storedUserData);
 //                     localStorage.setItem('current_user', JSON.stringify(storedUserData));
@@ -390,13 +390,13 @@
 //         try {
 //             const existingUsers = JSON.parse(localStorage.getItem('eduassists_users')) || [];
 //             const userIndex = existingUsers.findIndex(u => u.uid === userInfo.uid);
-            
+
 //             if (userIndex >= 0) {
 //                 existingUsers[userIndex] = { ...existingUsers[userIndex], ...userInfo };
 //             } else {
 //                 existingUsers.push(userInfo);
 //             }
-            
+
 //             localStorage.setItem('eduassists_users', JSON.stringify(existingUsers));
 //             localStorage.setItem('current_user', JSON.stringify(userInfo));
 //             return userInfo;
@@ -411,7 +411,7 @@
 //         try {
 //             const users = JSON.parse(localStorage.getItem('eduassists_users')) || [];
 //             const userData = users.find(u => u.uid === uid);
-            
+
 //             // If not found in localStorage, check current_user
 //             if (!userData) {
 //                 const currentUser = JSON.parse(localStorage.getItem('current_user'));
@@ -431,7 +431,7 @@
 //         setLoading(true);
 //         try {
 //             const result = await createUserWithEmailAndPassword(auth, email, password);
-            
+
 //             // Prepare user data
 //             const userData = {
 //                 uid: result.user.uid,
@@ -455,11 +455,11 @@
 
 //             // Save user data
 //             const savedData = saveUserData(userData);
-            
+
 //             // Update state
 //             setUser(result.user);
 //             setUserData(savedData);
-            
+
 //             return { success: true, user: result.user, userData: savedData };
 //         } catch (error) {
 //             console.error("Registration error:", error);
@@ -474,10 +474,10 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithEmailAndPassword(auth, email, password);
-            
+
 //             // Get user data
 //             let storedUserData = getUserData(result.user.uid);
-            
+
 //             if (!storedUserData) {
 //                 // Create basic user data if not found
 //                 storedUserData = {
@@ -492,14 +492,14 @@
 //                 // Update last login
 //                 storedUserData.lastLogin = new Date().toISOString();
 //             }
-            
+
 //             // Save user data
 //             const savedData = saveUserData(storedUserData);
-            
+
 //             // Update state
 //             setUser(result.user);
 //             setUserData(savedData);
-            
+
 //             return { success: true, user: result.user, userData: savedData };
 //         } catch (error) {
 //             console.error("Login error:", error);
@@ -514,9 +514,9 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithPopup(auth, googleProvider);
-            
+
 //             let storedUserData = getUserData(result.user.uid);
-            
+
 //             if (!storedUserData) {
 //                 // Create new user data for Google sign-in
 //                 storedUserData = {
@@ -535,14 +535,14 @@
 //                 // Update last login
 //                 storedUserData.lastLogin = new Date().toISOString();
 //             }
-            
+
 //             // Save user data
 //             const savedData = saveUserData(storedUserData);
-            
+
 //             // Update state
 //             setUser(result.user);
 //             setUserData(savedData);
-            
+
 //             return { success: true, user: result.user, userData: savedData };
 //         } catch (error) {
 //             console.error("Google login error:", error);
@@ -559,9 +559,9 @@
 //         setLoading(true);
 //         try {
 //             const result = await signInWithPopup(auth, facebookProvider);
-            
+
 //             let storedUserData = getUserData(result.user.uid);
-            
+
 //             if (!storedUserData) {
 //                 // Create new user data for Facebook sign-in
 //                 storedUserData = {
@@ -580,14 +580,14 @@
 //                 // Update last login
 //                 storedUserData.lastLogin = new Date().toISOString();
 //             }
-            
+
 //             // Save user data
 //             const savedData = saveUserData(storedUserData);
-            
+
 //             // Update state
 //             setUser(result.user);
 //             setUserData(savedData);
-            
+
 //             return { success: true, user: result.user, userData: savedData };
 //         } catch (error) {
 //             console.error("Facebook login error:", error);
@@ -621,10 +621,10 @@
 //         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 //             if (currentUser) {
 //                 setUser(currentUser);
-                
+
 //                 // Try to get user data from localStorage
 //                 let storedUserData = getUserData(currentUser.uid);
-                
+
 //                 if (!storedUserData) {
 //                     // Create basic user data if not found
 //                     storedUserData = {
@@ -637,7 +637,7 @@
 //                     };
 //                     saveUserData(storedUserData);
 //                 }
-                
+
 //                 setUserData(storedUserData);
 //                 localStorage.setItem('current_user', JSON.stringify(storedUserData));
 //             } else {
@@ -678,6 +678,8 @@ import { createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvide
 import { AuthContext } from "./AuthContext";
 import { auth } from "../../firebase/firebase.init";
 import { useEffect, useState } from "react";
+import { sendPasswordResetEmail } from "firebase/auth";
+
 
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
@@ -692,16 +694,16 @@ const AuthProvider = ({ children }) => {
         try {
             const existingUsers = JSON.parse(localStorage.getItem('eduassists_users')) || [];
             const userIndex = existingUsers.findIndex(u => u.uid === userInfo.uid);
-            
+
             if (userIndex >= 0) {
                 existingUsers[userIndex] = { ...existingUsers[userIndex], ...userInfo };
             } else {
                 existingUsers.push(userInfo);
             }
-            
+
             localStorage.setItem('eduassists_users', JSON.stringify(existingUsers));
             localStorage.setItem('current_user', JSON.stringify(userInfo));
-            
+
             // Also save referral data if exists
             const referredBy = localStorage.getItem('referred_by');
             if (referredBy && userInfo.uid) {
@@ -712,15 +714,15 @@ const AuthProvider = ({ children }) => {
                     referralDate: new Date().toISOString(),
                     status: 'pending'
                 };
-                
+
                 const existingReferrals = JSON.parse(localStorage.getItem('eduassists_referrals')) || [];
                 existingReferrals.push(referralData);
                 localStorage.setItem('eduassists_referrals', JSON.stringify(existingReferrals));
-                
+
                 // Clear the referral after saving
                 localStorage.removeItem('referred_by');
             }
-            
+
             return userInfo;
         } catch (error) {
             console.error("Error saving user data:", error);
@@ -733,7 +735,7 @@ const AuthProvider = ({ children }) => {
         try {
             const users = JSON.parse(localStorage.getItem('eduassists_users')) || [];
             const userData = users.find(u => u.uid === uid);
-            
+
             // If not found in localStorage, check current_user
             if (!userData) {
                 const currentUser = JSON.parse(localStorage.getItem('current_user'));
@@ -753,22 +755,22 @@ const AuthProvider = ({ children }) => {
         try {
             const existingUsers = JSON.parse(localStorage.getItem('eduassists_users')) || [];
             const userIndex = existingUsers.findIndex(u => u.uid === uid);
-            
+
             if (userIndex >= 0) {
                 existingUsers[userIndex] = { ...existingUsers[userIndex], ...updates };
                 localStorage.setItem('eduassists_users', JSON.stringify(existingUsers));
-                
+
                 // Update current_user if it's the same user
                 const currentUser = JSON.parse(localStorage.getItem('current_user'));
                 if (currentUser && currentUser.uid === uid) {
                     localStorage.setItem('current_user', JSON.stringify({ ...currentUser, ...updates }));
                 }
-                
+
                 // Update state if this is the current user
                 if (user && user.uid === uid) {
                     setUserData(prev => ({ ...prev, ...updates }));
                 }
-                
+
                 return { success: true, updatedData: existingUsers[userIndex] };
             }
             return { success: false, error: "User not found" };
@@ -783,7 +785,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const result = await createUserWithEmailAndPassword(auth, email, password);
-            
+
             // Prepare user data - Make sure role is saved properly
             const userData = {
                 uid: result.user.uid,
@@ -810,23 +812,23 @@ const AuthProvider = ({ children }) => {
 
             // Save user data
             const savedData = saveUserData(userData);
-            
+
             // Update state
             setUser(result.user);
             setUserData(savedData);
-            
-            return { 
-                success: true, 
-                user: result.user, 
+
+            return {
+                success: true,
+                user: result.user,
                 userData: savedData,
                 role: savedData.role // Return role explicitly for navigation
             };
         } catch (error) {
             console.error("Registration error:", error);
-            
+
             // Enhanced error handling
             let errorMessage = "Failed to create account. Please try again.";
-            switch(error.code) {
+            switch (error.code) {
                 case 'auth/email-already-in-use':
                     errorMessage = "Email already in use. Please use a different email.";
                     break;
@@ -842,7 +844,7 @@ const AuthProvider = ({ children }) => {
                 default:
                     errorMessage = error.message || errorMessage;
             }
-            
+
             const enhancedError = new Error(errorMessage);
             enhancedError.code = error.code;
             throw enhancedError;
@@ -856,10 +858,10 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
-            
+
             // Get user data
             let storedUserData = getUserData(result.user.uid);
-            
+
             if (!storedUserData) {
                 // Create basic user data if not found
                 storedUserData = {
@@ -875,26 +877,26 @@ const AuthProvider = ({ children }) => {
                 // Update last login
                 storedUserData.lastLogin = new Date().toISOString();
             }
-            
+
             // Save user data
             const savedData = saveUserData(storedUserData);
-            
+
             // Update state
             setUser(result.user);
             setUserData(savedData);
-            
-            return { 
-                success: true, 
-                user: result.user, 
+
+            return {
+                success: true,
+                user: result.user,
                 userData: savedData,
                 role: savedData.role // Return role for navigation
             };
         } catch (error) {
             console.error("Login error:", error);
-            
+
             // Enhanced error handling
             let errorMessage = "Invalid email or password.";
-            switch(error.code) {
+            switch (error.code) {
                 case 'auth/user-not-found':
                     errorMessage = "No account found with this email.";
                     break;
@@ -910,7 +912,7 @@ const AuthProvider = ({ children }) => {
                 default:
                     errorMessage = error.message || errorMessage;
             }
-            
+
             const enhancedError = new Error(errorMessage);
             enhancedError.code = error.code;
             throw enhancedError;
@@ -924,9 +926,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            
+
             let storedUserData = getUserData(result.user.uid);
-            
+
             if (!storedUserData) {
                 // Create new user data for Google sign-in
                 storedUserData = {
@@ -947,26 +949,26 @@ const AuthProvider = ({ children }) => {
                 // Update last login
                 storedUserData.lastLogin = new Date().toISOString();
             }
-            
+
             // Save user data
             const savedData = saveUserData(storedUserData);
-            
+
             // Update state
             setUser(result.user);
             setUserData(savedData);
-            
-            return { 
-                success: true, 
-                user: result.user, 
+
+            return {
+                success: true,
+                user: result.user,
                 userData: savedData,
-                role: savedData.role 
+                role: savedData.role
             };
         } catch (error) {
             console.error("Google login error:", error);
-            
+
             // Enhanced error handling
             let errorMessage = "Google sign-in failed. Please try again.";
-            switch(error.code) {
+            switch (error.code) {
                 case 'auth/popup-closed-by-user':
                     errorMessage = "Sign-in popup was closed. Please try again.";
                     break;
@@ -981,7 +983,7 @@ const AuthProvider = ({ children }) => {
                         errorMessage = error.message || errorMessage;
                     }
             }
-            
+
             if (error.code !== 'auth/cancelled-popup-request') {
                 const enhancedError = new Error(errorMessage);
                 enhancedError.code = error.code;
@@ -997,9 +999,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const result = await signInWithPopup(auth, facebookProvider);
-            
+
             let storedUserData = getUserData(result.user.uid);
-            
+
             if (!storedUserData) {
                 // Create new user data for Facebook sign-in
                 storedUserData = {
@@ -1020,26 +1022,26 @@ const AuthProvider = ({ children }) => {
                 // Update last login
                 storedUserData.lastLogin = new Date().toISOString();
             }
-            
+
             // Save user data
             const savedData = saveUserData(storedUserData);
-            
+
             // Update state
             setUser(result.user);
             setUserData(savedData);
-            
-            return { 
-                success: true, 
-                user: result.user, 
+
+            return {
+                success: true,
+                user: result.user,
                 userData: savedData,
-                role: savedData.role 
+                role: savedData.role
             };
         } catch (error) {
             console.error("Facebook login error:", error);
-            
+
             // Enhanced error handling
             let errorMessage = "Facebook sign-in failed. Please try again.";
-            switch(error.code) {
+            switch (error.code) {
                 case 'auth/popup-closed-by-user':
                     errorMessage = "Sign-in popup was closed. Please try again.";
                     break;
@@ -1057,7 +1059,7 @@ const AuthProvider = ({ children }) => {
                         errorMessage = error.message || errorMessage;
                     }
             }
-            
+
             if (error.code !== 'auth/cancelled-popup-request') {
                 const enhancedError = new Error(errorMessage);
                 enhancedError.code = error.code;
@@ -1085,6 +1087,12 @@ const AuthProvider = ({ children }) => {
         }
     };
 
+    //forgot password
+
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
+
     // Check if user is franchise
     const isFranchise = () => {
         return userData?.role === 'franchise';
@@ -1105,10 +1113,10 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
-                
+
                 // Try to get user data from localStorage
                 let storedUserData = getUserData(currentUser.uid);
-                
+
                 if (!storedUserData) {
                     // Create basic user data if not found
                     storedUserData = {
@@ -1122,10 +1130,10 @@ const AuthProvider = ({ children }) => {
                     };
                     saveUserData(storedUserData);
                 }
-                
+
                 setUserData(storedUserData);
                 localStorage.setItem('current_user', JSON.stringify(storedUserData));
-                
+
                 // Log for debugging
                 console.log("User authenticated:", {
                     uid: currentUser.uid,
@@ -1155,7 +1163,8 @@ const AuthProvider = ({ children }) => {
         updateUserData,
         isFranchise,
         isStudent,
-        getUserRole
+        getUserRole,
+        resetPassword
     };
 
     return (
