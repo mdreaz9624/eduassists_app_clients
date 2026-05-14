@@ -40,7 +40,7 @@ const Contract = () => {
   const others = data.teamMembers.filter(m => m.category !== "Executive" && m.category !== "Country Management");
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen mt-28 bg-slate-50 font-sans">
       {/* Header Section */}
       <section className="bg-indigo-900 py-20 px-4 text-center text-white">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Contact Our Global Team</h1>

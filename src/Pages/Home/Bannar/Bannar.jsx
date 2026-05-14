@@ -102,7 +102,7 @@ const Banner = ({ onNavigate }) => {
       </div>
 
       {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div className="relative max-w-7xl mt-6 mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="max-w-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">

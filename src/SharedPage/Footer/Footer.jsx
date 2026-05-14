@@ -5,6 +5,13 @@ import logo from '../../assets/EduAssistLogo.jpeg';
 import { Link } from "react-router-dom";
 import SupRideLogo from '../SupRideLogo/SupRideLogo';
 
+const socialLinks = [
+  { Icon: Facebook, url: "https://www.facebook.com/eduassists24" },
+  { Icon: Linkedin, url: "https://www.linkedin.com/company/eduassists/" },
+  { Icon: Instagram, url: "https://www.instagram.com/edu.assists/" },
+];
+
+
 export default function Footer({ onNavigate }) {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -27,10 +34,10 @@ export default function Footer({ onNavigate }) {
               Your trusted partner for international education. We guide students from application to arrival.
             </p>
             <div className="flex items-center gap-3">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+              {socialLinks.map(({ Icon, url }, i)=> (
                 <a 
                   key={i} 
-                  href="#" 
+                  href={url} 
                   className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"

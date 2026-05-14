@@ -2,8 +2,8 @@ import React from 'react';
 
 const EduBlog = () => {
     return (
-        <div>
-            <h1>Edu Blog</h1>
+        <div className='mt-28'>
+            <h1 className='text-center text-red-800 font-extrabold'>Comming Soon..............</h1>
             
         </div>
     );

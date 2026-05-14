@@ -38,7 +38,7 @@ const Service = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate-50 px-4">
+    <section className="py-16 bg-slate-50 mt-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-black text-slate-900 mb-2">Our Specialized Services</h2>
