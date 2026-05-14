@@ -311,7 +311,7 @@ const FilterRow = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
+    <div className="min-h-screen bg-gradient-to-br mt-28 from-slate-50 via-white to-indigo-50/30">
 
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-purple-700 text-white py-16 px-4 shadow-xl">
