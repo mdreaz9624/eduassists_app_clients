@@ -361,7 +361,7 @@ const Login = () => {
                         <div className="flex flex-col">
 
                             <strong className="text-yellow-700">
-                                🛠 Development Mode
+                            
                             </strong>
 
                             <p className="text-sm mt-1 text-yellow-600">
@@ -373,7 +373,7 @@ const Login = () => {
                                 onClick={fillDemoCredentials}
                                 className="text-xs text-yellow-700 underline mt-1 text-left"
                             >
-                                Fill Demo Credentials
+                                
                             </button>
 
                         </div>
@@ -510,11 +510,11 @@ const Login = () => {
                         </div>
 
                         {/* LOGIN BUTTON */}
-                        <div className="form-control mt-6">
+                        <div className="form-control bg-[#e49308] rounded-xl mt-6">
 
                             <button
                                 type="submit"
-                                className="btn btn-primary w-full"
+                                className="btn btn-primary w-full text-white font-bold hover:bg-primary-focus"
                                 disabled={loading}
                             >
 

@@ -29,7 +29,9 @@ const countryFlags = {
   'Italy': '🇮🇹',
   'Spain': '🇪🇸',
   'Ireland': '🇮🇪',
-  'New Zealand': '🇳🇿'
+  'New Zealand': '🇳🇿',
+  "Malta": '🇲🇹',
+  "Cyprus": '🇨🇾'
 };
 
 const axiosSecure = useAxiosSecure();
