@@ -173,13 +173,13 @@ const Registration = () => {
     };
 
     return (
-        <section className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
+        <section className="min-h-screen flex items-center justify-center mt-24 bg-base-200 px-4 py-8">
             <div className="card w-full max-w-lg shadow-2xl bg-base-100 border-t-4 border-[#F59E0B]">
                 {import.meta.env.DEV && (
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-3 mx-6 mt-4 rounded flex justify-between items-center">
                         <div>
-                            <strong className="text-blue-700 text-sm">🛠️ Dev Mode</strong>
-                            <p className="text-xs text-blue-600">Dynamic fields enabled</p>
+                            <strong className="text-blue-700 text-sm">🛠️ Join Our Global Network</strong>
+                            <p className="text-xs text-blue-600">Dynamic Fields Enabled</p>
                         </div>
                         <button
                             onClick={fillDemoCredentials}
@@ -413,11 +413,11 @@ const Registration = () => {
                                 <input
                                     type="checkbox"
                                     {...register("terms", { required: "You must accept the terms and conditions" })}
-                                    className="checkbox checkbox-sm"
+                                    className="checkbox checkbox-sm bg-slate-700 text-white"
                                     disabled={loading}
                                     style={{ borderColor: "#F59E0B" }}
                                 />
-                                <span className="label-text text-sm">
+                                <span className="label-text text-sm text-red-700">
                                     I agree to the Terms & Conditions and Privacy Policy
                                 </span>
                             </label>

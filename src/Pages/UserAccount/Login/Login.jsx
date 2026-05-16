@@ -349,7 +349,7 @@ const Login = () => {
 
     return (
 
-        <section className="min-h-screen flex items-center justify-center bg-base-200 px-4">
+        <section className="min-h-screen flex items-center justify-center mt-24 bg-base-200 px-4 py-8">
 
             <div className="card w-full max-w-md shadow-2xl bg-base-100">
 
