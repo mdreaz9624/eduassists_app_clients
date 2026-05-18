@@ -107,7 +107,7 @@ const Banner = ({ onNavigate }) => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
             <Star className="w-3.5 h-3.5 fill-current" />
-            #1 International Education Consultant
+             International Education Consultant
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
