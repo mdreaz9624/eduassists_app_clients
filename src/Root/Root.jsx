@@ -27,6 +27,8 @@ import WatchStory from "../Pages/WatchStory/WatchStory";
 import ScrollToTop,{ ScrollToTopWrapper } from "../hooks/ScrollToTop";
 import AdminLayout from "../RootLayout/AdminLayout/AdminLayout";
 import AdminDeshboard from "../Admin/AdminDeshboard/AdminDeshboard";
+import PrivateRoutes from "../Routes/PrivateRoutes";
+import AdminRoute from "../Routes/AdminRoute";
 
 
 
@@ -85,14 +87,6 @@ export const router = createBrowserRouter([
         element: <WebDevCard></WebDevCard>
       },
       {
-        path: "/referral",
-        element: <ReferralDashboard></ReferralDashboard>
-      },
-      {
-        path: "/franchise-profile",
-        element: <FranchiseProfile></FranchiseProfile>
-      },
-      {
         path: "/developer-profile",
         element: <DeveloperProfile></DeveloperProfile>
       },
@@ -126,6 +120,14 @@ export const router = createBrowserRouter([
       {
         path: "/student-profile",
         element: <StudentProfile></StudentProfile>
+      },
+      {
+        path: "/franchise-profile",
+        element: <FranchiseProfile></FranchiseProfile>
+      },
+      {
+        path: "/referral",
+        element: <ReferralDashboard></ReferralDashboard>
       }
 
     ]
@@ -133,7 +135,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout></AdminLayout>,
+    element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
     children: [
       {
         index: true,
