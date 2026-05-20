@@ -29,6 +29,10 @@ import AdminLayout from "../RootLayout/AdminLayout/AdminLayout";
 import AdminDeshboard from "../Admin/AdminDeshboard/AdminDeshboard";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 import AdminRoute from "../Routes/AdminRoute";
+import Analytics from "../Admin/AdminDeshboard/Dashboard Analytics/Analytics";
+import UsersManagement from "../Admin/ManageUsers/UsersManagement";
+import StudyDataManagement from "../Admin/ManageUniversities/StudyDataManagement";
+import AddUniversity from "../Admin/ManageUniversities/AddUniversity";
 
 
 
@@ -139,7 +143,28 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AdminDeshboard></AdminDeshboard>
+        // element: <AdminDeshboard></AdminDeshboard>
+        element: <Analytics></Analytics>
+      },
+      {
+        path: "users",
+        element:<UsersManagement></UsersManagement>
+      },
+      {
+        path: "study-data",
+        element:<StudyDataManagement></StudyDataManagement>
+      },
+      {
+        path: "add-university",
+        element:<StudyDataManagement></StudyDataManagement>
+      },
+      {
+        path:"edit-university/:id",
+        element:<AddUniversity></AddUniversity>
+      },
+      {
+        path:"analytics",
+        element:<Analytics></Analytics>
       }
     ]
   }
