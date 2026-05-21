@@ -1,0 +1,258 @@
+{
+  "gallery": [
+    {
+      "id": 1,
+      "title": "Oxford University Campus",
+      "description": "Beautiful historic campus of Oxford University, one of the oldest universities in the world.",
+      "category": "campus",
+      "subcategory": "university",
+      "image": "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-15",
+      "location": "Oxford, United Kingdom",
+      "tags": ["campus", "historic", "uk"],
+      "likes": 1245,
+      "views": 5678,
+      "photographer": "John Smith"
+    },
+    {
+      "id": 2,
+      "title": "Harvard Library",
+      "description": "The iconic Widener Library at Harvard University, housing millions of books.",
+      "category": "library",
+      "subcategory": "facility",
+      "image": "https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-10",
+      "location": "Cambridge, USA",
+      "tags": ["library", "usa", "ivy-league"],
+      "likes": 2341,
+      "views": 8901,
+      "photographer": "Sarah Johnson"
+    },
+    {
+      "id": 3,
+      "title": "Student Life at MIT",
+      "description": "Students collaborating on innovative projects at MIT's media lab.",
+      "category": "students",
+      "subcategory": "campus-life",
+      "image": "https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-05",
+      "location": "Cambridge, USA",
+      "tags": ["students", "collaboration", "usa"],
+      "likes": 3120,
+      "views": 12450,
+      "photographer": "Mike Wilson"
+    },
+    {
+      "id": 4,
+      "title": "Sydney University Graduation",
+      "description": "Graduation ceremony at the University of Sydney's Great Hall.",
+      "category": "events",
+      "subcategory": "graduation",
+      "image": "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-20",
+      "location": "Sydney, Australia",
+      "tags": ["graduation", "australia", "ceremony"],
+      "likes": 1876,
+      "views": 7654,
+      "photographer": "Emma Brown"
+    },
+    {
+      "id": 5,
+      "title": "Tokyo University Campus",
+      "description": "Modern architecture meets tradition at the University of Tokyo.",
+      "category": "campus",
+      "subcategory": "university",
+      "image": "https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-18",
+      "location": "Tokyo, Japan",
+      "tags": ["campus", "japan", "modern"],
+      "likes": 2654,
+      "views": 9876,
+      "photographer": "Yuki Tanaka"
+    },
+    {
+      "id": 6,
+      "title": "Research Lab",
+      "description": "Students conducting research in advanced chemistry laboratory.",
+      "category": "labs",
+      "subcategory": "research",
+      "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-12",
+      "location": "Berlin, Germany",
+      "tags": ["research", "lab", "science"],
+      "likes": 1432,
+      "views": 5432,
+      "photographer": "Hans Mueller"
+    },
+    {
+      "id": 7,
+      "title": "Sports Complex",
+      "description": "State-of-the-art sports facility with Olympic-sized swimming pool.",
+      "category": "sports",
+      "subcategory": "facility",
+      "image": "https://images.pexels.com/photos/1203807/pexels-photo-1203807.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/1203807/pexels-photo-1203807.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-08",
+      "location": "Melbourne, Australia",
+      "tags": ["sports", "facility", "australia"],
+      "likes": 987,
+      "views": 4321,
+      "photographer": "David Chen"
+    },
+    {
+      "id": 8,
+      "title": "International Student Meetup",
+      "description": "Cultural exchange event for international students.",
+      "category": "students",
+      "subcategory": "events",
+      "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-22",
+      "location": "Toronto, Canada",
+      "tags": ["students", "culture", "canada"],
+      "likes": 2345,
+      "views": 8765,
+      "photographer": "Maria Garcia"
+    },
+    {
+      "id": 9,
+      "title": "University Dining Hall",
+      "description": "Modern dining facility serving diverse international cuisine.",
+      "category": "facilities",
+      "subcategory": "dining",
+      "image": "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-14",
+      "location": "London, UK",
+      "tags": ["dining", "facility", "uk"],
+      "likes": 876,
+      "views": 3210,
+      "photographer": "James Anderson"
+    },
+    {
+      "id": 10,
+      "title": "Lecture Hall",
+      "description": "Advanced smart classroom with modern teaching technology.",
+      "category": "classrooms",
+      "subcategory": "academic",
+      "image": "https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-16",
+      "location": "Singapore",
+      "tags": ["classroom", "technology", "singapore"],
+      "likes": 1543,
+      "views": 6543,
+      "photographer": "Wei Zhang"
+    },
+    {
+      "id": 11,
+      "title": "Art Exhibition",
+      "description": "Student art exhibition showcasing creative talents.",
+      "category": "arts",
+      "subcategory": "exhibition",
+      "image": "https://images.pexels.com/photos/2884111/pexels-photo-2884111.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/2884111/pexels-photo-2884111.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-19",
+      "location": "Paris, France",
+      "tags": ["art", "exhibition", "france"],
+      "likes": 2098,
+      "views": 7654,
+      "photographer": "Sophie Martin"
+    },
+    {
+      "id": 12,
+      "title": "Campus Garden",
+      "description": "Beautiful botanical garden on university campus.",
+      "category": "nature",
+      "subcategory": "garden",
+      "image": "https://images.pexels.com/photos/990660/pexels-photo-990660.jpeg",
+      "thumbnail": "https://images.pexels.com/photos/990660/pexels-photo-990660.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-21",
+      "location": "Vancouver, Canada",
+      "tags": ["garden", "nature", "canada"],
+      "likes": 1765,
+      "views": 5432,
+      "photographer": "Lisa Wang"
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Photos",
+      "icon": "grid",
+      "count": 12
+    },
+    {
+      "id": "campus",
+      "name": "Campus Views",
+      "icon": "building",
+      "count": 2
+    },
+    {
+      "id": "students",
+      "name": "Student Life",
+      "icon": "users",
+      "count": 2
+    },
+    {
+      "id": "events",
+      "name": "Events",
+      "icon": "calendar",
+      "count": 1
+    },
+    {
+      "id": "labs",
+      "name": "Research Labs",
+      "icon": "flask",
+      "count": 1
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "icon": "trophy",
+      "count": 1
+    },
+    {
+      "id": "library",
+      "name": "Libraries",
+      "icon": "book",
+      "count": 1
+    },
+    {
+      "id": "classrooms",
+      "name": "Classrooms",
+      "icon": "chalkboard",
+      "count": 1
+    },
+    {
+      "id": "arts",
+      "name": "Arts & Culture",
+      "icon": "palette",
+      "count": 1
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "icon": "tree",
+      "count": 1
+    },
+    {
+      "id": "facilities",
+      "name": "Facilities",
+      "icon": "utensils",
+      "count": 1
+    }
+  ],
+  "settings": {
+    "itemsPerPage": 9,
+    "enableLightbox": true,
+    "enableLikes": true,
+    "enableSharing": true
+  }
+}

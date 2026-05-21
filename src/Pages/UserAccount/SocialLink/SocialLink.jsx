@@ -54,7 +54,8 @@ const SocialLink = () => {
 
             const result = await signInWithGoogle();
 
-            console.log(result);
+            //check browser console for the result object to understand its structure
+            // console.log(result);
 
             // Firebase user
             const user = result.user;

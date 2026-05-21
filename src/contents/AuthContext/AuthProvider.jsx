@@ -462,11 +462,12 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem('current_user', JSON.stringify(storedUserData));
 
                 // Log for debugging
-                console.log("User authenticated:", {
-                    uid: currentUser.uid,
-                    email: currentUser.email,
-                    role: storedUserData.role
-                });
+                //check if userData is properly set and contains role
+                // console.log("User authenticated:", {
+                //     uid: currentUser.uid,
+                //     email: currentUser.email,
+                //     role: storedUserData.role
+                // });
             } else {
                 setUser(null);
                 setUserData(null);
