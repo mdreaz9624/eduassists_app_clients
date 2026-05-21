@@ -1,0 +1,238 @@
+{
+  "scholarships": [
+    {
+      "id": 1,
+      "title": "Chevening Scholarship",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "university": "Various UK Universities",
+      "degree": "Master's Degree",
+      "coverage": "Full Tuition + Living Stipend + Travel",
+      "deadline": "November 7, 2024",
+      "funding": "100% Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/chevening",
+      "description": "UK government's global scholarship programme funded by the Foreign and Commonwealth Office and partner organisations.",
+      "requirements": [
+        "Bachelor's degree with honors",
+        "2+ years of work experience",
+        "Leadership potential",
+        "IELTS 6.5+"
+      ],
+      "benefits": [
+        "Full tuition fees",
+        "Monthly living stipend",
+        "Return airfare to UK",
+        "Visa and healthcare costs"
+      ],
+      "featured": true,
+      "popular": true,
+      "deadline_urgent": false
+    },
+    {
+      "id": 2,
+      "title": "Fulbright Scholarship",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "university": "Various US Universities",
+      "degree": "Master's/PhD",
+      "coverage": "Full Tuition + Living Stipend",
+      "deadline": "October 10, 2024",
+      "funding": "100% Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/fulbright",
+      "description": "Flagship international educational exchange program sponsored by the U.S. government.",
+      "requirements": [
+        "Bachelor's degree",
+        "Strong academic record",
+        "Leadership qualities",
+        "TOEFL 90+ or IELTS 7.0+"
+      ],
+      "benefits": [
+        "Full tuition coverage",
+        "Monthly stipend",
+        "Health insurance",
+        "Travel allowance"
+      ],
+      "featured": true,
+      "popular": true,
+      "deadline_urgent": false
+    },
+    {
+      "id": 3,
+      "title": "Australia Awards Scholarship",
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "university": "Participating Australian Universities",
+      "degree": "Master's Degree",
+      "coverage": "Full Tuition + Living Expenses + Travel",
+      "deadline": "April 30, 2024",
+      "funding": "100% Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/australia-awards",
+      "description": "Australian Government scholarship for development professionals.",
+      "requirements": [
+        "Bachelor's degree",
+        "2+ years work experience",
+        "English proficiency",
+        "Return to home country for 2 years"
+      ],
+      "benefits": [
+        "Full tuition fees",
+        "Contribution to living expenses",
+        "Introductory academic program",
+        "Overseas Student Health Cover"
+      ],
+      "featured": true,
+      "popular": true,
+      "deadline_urgent": true
+    },
+    {
+      "id": 4,
+      "title": "DAAD Scholarship",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "university": "German Universities",
+      "degree": "Master's/PhD",
+      "coverage": "Monthly Stipend + Health Insurance + Travel",
+      "deadline": "August 15, 2024",
+      "funding": "Partially Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/daad",
+      "description": "German Academic Exchange Service scholarship for international students.",
+      "requirements": [
+        "Bachelor's degree",
+        "2+ years work experience",
+        "German or English proficiency",
+        "Strong academic record"
+      ],
+      "benefits": [
+        "€934 monthly stipend",
+        "Health insurance",
+        "Travel allowance",
+        "Study and research subsidy"
+      ],
+      "featured": false,
+      "popular": true,
+      "deadline_urgent": false
+    },
+    {
+      "id": 5,
+      "title": "Eiffel Excellence Scholarship",
+      "country": "France",
+      "flag": "🇫🇷",
+      "university": "French Universities",
+      "degree": "Master's/PhD",
+      "coverage": "Monthly Stipend + Travel + Insurance",
+      "deadline": "January 10, 2024",
+      "funding": "Partially Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/eiffel",
+      "description": "French Ministry of Foreign Affairs scholarship for international students.",
+      "requirements": [
+        "Bachelor's degree",
+        "Under 30 years old",
+        "Strong academic record",
+        "French or English proficiency"
+      ],
+      "benefits": [
+        "€1,181 monthly stipend",
+        "International travel",
+        "Health insurance",
+        "Cultural activities"
+      ],
+      "featured": false,
+      "popular": true,
+      "deadline_urgent": true
+    },
+    {
+      "id": 6,
+      "title": "Gates Cambridge Scholarship",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "university": "University of Cambridge",
+      "degree": "PhD",
+      "coverage": "Full Tuition + Living Stipend + Travel",
+      "deadline": "December 5, 2024",
+      "funding": "100% Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/gates-cambridge",
+      "description": "Bill and Melinda Gates Foundation scholarship for outstanding students.",
+      "requirements": [
+        "First-class bachelor's degree",
+        "Leadership potential",
+        "Research proposal",
+        "IELTS 7.5+"
+      ],
+      "benefits": [
+        "Full tuition fees",
+        "£20,000 living stipend",
+        "Airfare to/from UK",
+        "Research expenses"
+      ],
+      "featured": true,
+      "popular": true,
+      "deadline_urgent": false
+    },
+    {
+      "id": 7,
+      "title": "Vanier Canada Graduate Scholarship",
+      "country": "Canada",
+      "flag": "🇨🇦",
+      "university": "Canadian Universities",
+      "degree": "PhD",
+      "coverage": "$50,000 per year",
+      "deadline": "November 1, 2024",
+      "funding": "Fully Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/vanier",
+      "description": "Canadian government scholarship for doctoral students.",
+      "requirements": [
+        "Master's degree",
+        "Research excellence",
+        "Leadership skills",
+        "English proficiency"
+      ],
+      "benefits": [
+        "$50,000 annual stipend",
+        "Research allowance",
+        "Travel grants",
+        "Mentorship program"
+      ],
+      "featured": false,
+      "popular": false,
+      "deadline_urgent": false
+    },
+    {
+      "id": 8,
+      "title": "Swedish Institute Scholarship",
+      "country": "Sweden",
+      "flag": "🇸🇪",
+      "university": "Swedish Universities",
+      "degree": "Master's Degree",
+      "coverage": "Full Tuition + Living Costs + Travel",
+      "deadline": "February 15, 2024",
+      "funding": "100% Funded",
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "link": "/scholarship/swedish-institute",
+      "description": "Swedish government scholarship for global professionals.",
+      "requirements": [
+        "Bachelor's degree",
+        "2+ years work experience",
+        "Leadership experience",
+        "IELTS 6.5+"
+      ],
+      "benefits": [
+        "Full tuition fees",
+        "SEK 12,000 monthly stipend",
+        "Travel grant of SEK 15,000",
+        "Health insurance"
+      ],
+      "featured": false,
+      "popular": false,
+      "deadline_urgent": true
+    }
+  ],
+  "categories": ["All", "Fully Funded", "Partially Funded", "Urgent Deadline", "Popular"],
+  "featuredLimit": 3
+}

@@ -24,7 +24,7 @@ import WebDevCard from "../Pages/Service/WebDevCard/WebDevCard";
 import FilterRow from "../Pages/FiteringSystem/FilterRow";
 import WatchStory from "../Pages/WatchStory/WatchStory";
 
-import ScrollToTop,{ ScrollToTopWrapper } from "../hooks/ScrollToTop";
+import ScrollToTop, { ScrollToTopWrapper } from "../hooks/ScrollToTop";
 import AdminLayout from "../RootLayout/AdminLayout/AdminLayout";
 import AdminDeshboard from "../Admin/AdminDeshboard/AdminDeshboard";
 import PrivateRoutes from "../Routes/PrivateRoutes";
@@ -33,6 +33,7 @@ import Analytics from "../Admin/AdminDeshboard/Dashboard Analytics/Analytics";
 import UsersManagement from "../Admin/ManageUsers/UsersManagement";
 import StudyDataManagement from "../Admin/ManageUniversities/StudyDataManagement";
 import AddUniversity from "../Admin/ManageUniversities/AddUniversity";
+import ScholarshipDetails from "../Pages/Scholarship/ScholarshipDetails/ScholarshipDetails";
 
 
 
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      {ScrollToTopWrapper},
+      { ScrollToTopWrapper },
       {
         index: true,
         element: <HomePage />,
@@ -76,6 +77,12 @@ export const router = createBrowserRouter([
       {
         path: "/scholarship",
         element: <Scholarship></Scholarship>
+      },
+      {
+
+        path: "/scholarship/:id",
+        element: <ScholarshipDetails />
+
       },
       {
         path: "/ieltsCard",
@@ -148,23 +155,23 @@ export const router = createBrowserRouter([
       },
       {
         path: "users",
-        element:<UsersManagement></UsersManagement>
+        element: <UsersManagement></UsersManagement>
       },
       {
         path: "study-data",
-        element:<StudyDataManagement></StudyDataManagement>
+        element: <StudyDataManagement></StudyDataManagement>
       },
       {
         path: "add-university",
-        element:<StudyDataManagement></StudyDataManagement>
+        element: <StudyDataManagement></StudyDataManagement>
       },
       {
-        path:"edit-university/:id",
-        element:<AddUniversity></AddUniversity>
+        path: "edit-university/:id",
+        element: <AddUniversity></AddUniversity>
       },
       {
-        path:"analytics",
-        element:<Analytics></Analytics>
+        path: "analytics",
+        element: <Analytics></Analytics>
       }
     ]
   }
