@@ -1,47 +1,296 @@
 
 
+// import React, { useState, useEffect } from "react";
+// import { Link, NavLink, useNavigate, useLocation } from "react-router-dom"; // Added useLocation
+// import SupRideLogo from "../SupRideLogo/SupRideLogo";
+// import useAuth from "../../hooks/useAuth";
+// import { 
+//     FaSignOutAlt, FaUser, FaCog, FaHome, 
+//     FaChevronDown, FaPalette 
+// } from "react-icons/fa";
+
+// const Navbar = () => {
+//     // 1. Initialize theme from localStorage or default to light
+//     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+//     const [scrolled, setScrolled] = useState(false);
+//     const [showUserMenu, setShowUserMenu] = useState(false);
+
+//     const { user, userData, logOut, loading } = useAuth(); 
+//     const navigate = useNavigate();
+//     const location = useLocation(); // Added useLocation
+
+//     // List of themes matching your tailwind.config.js
+//     const availableThemes = ["light", "dark", "cupcake", "emerald", "corporate", "bumblebee"];
+
+//     useEffect(() => {
+//         const handleScroll = () => setScrolled(window.scrollY > 20);
+//         window.addEventListener("scroll", handleScroll);
+//         return () => window.removeEventListener("scroll", handleScroll);
+//     }, []);
+
+//     // 2. Apply theme to HTML tag and persist to localStorage
+//     useEffect(() => {
+//         document.documentElement.setAttribute("data-theme", theme);
+//         localStorage.setItem("theme", theme);
+
+//         // Dynamic background sync for non-daisyUI elements
+//         if (theme === 'dark') {
+//             document.body.style.backgroundColor = '#0e3592';
+//         } else if (theme === 'light') {
+//             document.body.style.backgroundColor = '#FFFFFF';
+//         }else if (theme === 'corporate') {
+//             document.body.style.backgroundColor = '#bedd0b';
+//         }else {
+//             document.body.style.backgroundColor = ''; // Let DaisyUI theme handle it
+//         }
+//     }, [theme]);
+
+//     const handleLogout = async () => {
+//         try {
+//             await logOut();
+//             setShowUserMenu(false);
+//             navigate("/login");
+//         } catch (error) { console.error("Logout error:", error); }
+//     };
+
+//     const userRole = userData?.role; 
+
+//     const getProfilePath = () => {
+//         if (!userRole) return "/";
+//         if (userRole === 'franchise') return "/franchise-profile";
+//         if (userRole === 'student') return "/student-profile";
+//         return "/";
+//     };
+
+//     const getDashboardPath = () => {
+//         if (userRole === 'franchise') return "/franchise-profile";
+//         return "/dashboard";
+//     };
+
+//     const navLinks = [
+//         { name: "Home", path: "/" },
+//         { name: "Gallery", path: "/gallery" },
+//         { name: "Services", path: "/service" },
+//         { name: "Edu Blog", path: "/edublog" },
+//         { name: "Scholarship", path: "/scholarship" },
+//         { name: "Contact", path: "/contract" },
+//     ];
+
+//     // Define isHomePage
+//     const isHomePage = location.pathname === "/";
+
+//     return (
+//         <div className={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+//             scrolled || !isHomePage 
+//                 ? 'bg-base-100/95 backdrop-blur-sm shadow-lg' 
+//                 : 'bg-transparent shadow-none'
+//         }`}>
+//             <div className="navbar-start">
+//                 <div className="dropdown lg:hidden">
+//                     <label tabIndex={0} className={`btn btn-ghost btn-circle ${!scrolled && isHomePage ? 'text-white' : ''}`}>
+//                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+//                     </label>
+//                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border">
+//                         {navLinks.map((link) => (
+//                             <li key={link.path}><Link to={link.path}>{link.name}</Link></li>
+//                         ))}
+//                     </ul>
+//                 </div>
+//                 <Link to="/" className="hover:opacity-80 transition-opacity">
+//                     <SupRideLogo />
+//                 </Link>
+//             </div>
+
+//             <div className="navbar-center hidden  lg:flex">
+//                 <ul className="flex items-center  gap-6">
+//                     {navLinks.map((link) => (
+//                         <li key={link.path}>
+//                             <NavLink 
+//                                 to={link.path}
+//                                 className={({ isActive }) => {
+//                                     let baseClass = "text-sm font-bold transition-colors";
+//                                     if (isActive) {
+//                                         return `${baseClass} text-blue-600`;
+//                                     }
+//                                     if (!scrolled && isHomePage) {
+//                                         return `${baseClass} text-white hover:text-blue-300`;
+//                                     }
+//                                     return `${baseClass} text-base-content/70 hover:text-blue-500`;
+//                                 }}
+//                             >
+//                                 {link.name}
+//                             </NavLink>
+//                         </li>
+//                     ))}
+//                 </ul>
+//             </div>
+
+//             <div className="navbar-end gap-2 md:gap-4">
+//                 {loading ? (
+//                     <span className="loading loading-spinner loading-sm text-blue-600"></span>
+//                 ) : user ? (
+//                     <div className="relative user-menu flex items-center gap-3">
+//                         <div 
+//                             onClick={() => setShowUserMenu(!showUserMenu)}
+//                             className={`flex items-center gap-2 cursor-pointer p-1 pr-3 rounded-full transition-all border ${
+//                                 !scrolled && isHomePage 
+//                                     ? 'bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30' 
+//                                     : 'bg-base-200 border-transparent hover:bg-base-300 hover:border-blue-300'
+//                             }`}
+//                         >
+//                             <img 
+//                                 src={userData?.photoURL || user?.photoURL || `https://ui-avatars.com/api/?name=${user?.displayName}&background=4f46e5&color=fff`} 
+//                                 alt="avatar" 
+//                                 className="w-8 h-8 rounded-full object-cover border-2 border-base-100 shadow-sm"
+//                             />
+//                             <div className="hidden sm:block text-left">
+//                                 <p className={`text-[10px] font-black uppercase leading-none ${!scrolled && isHomePage ? 'text-blue-300' : 'text-blue-600'}`}>
+//                                     {userRole || 'User'}
+//                                 </p>
+//                                 <FaChevronDown className={`text-[8px] mt-1 transition-transform ${showUserMenu ? 'rotate-180' : ''} ${!scrolled && isHomePage ? 'text-white' : ''}`} />
+//                             </div>
+//                         </div>
+
+//                         {showUserMenu && (
+//                             <div className="absolute right-0 top-12 w-60 bg-base-100 rounded-2xl shadow-2xl border border-base-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden z-50">
+//                                 <div className="px-4 py-3 border-b border-base-200 mb-1">
+//                                     <p className="text-sm font-bold truncate">{user?.displayName}</p>
+//                                     <p className="text-[10px] opacity-60 truncate">{user?.email}</p>
+//                                 </div>
+//                                 <div className="p-1 font-extrabold">
+//                                     <Link to={getDashboardPath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+//                                         <FaHome className="text-primary"/> Dashboard
+//                                     </Link>
+//                                     <Link to={getProfilePath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+//                                         <FaUser className="text-primary"/> My Profile
+//                                     </Link>
+//                                     <Link to="/settings" className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
+//                                         <FaCog className="text-primary"/> Settings
+//                                     </Link>
+//                                 </div>
+//                                 <div className="p-1 mt-1 border-t border-base-200">
+//                                     <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 w-full text-left rounded-xl transition-colors">
+//                                         <FaSignOutAlt /> Logout
+//                                     </button>
+//                                 </div>
+//                             </div>
+//                         )}
+//                     </div>
+//                 ) : (
+//                     <Link 
+//                         to="/login" 
+//                         className={`btn btn-sm px-5 rounded-full shadow-lg shadow-blue-500/20 border-none ${
+//                             !scrolled && isHomePage
+//                                 ? 'bg-white/20 hover:bg-white/30 text-white'
+//                                 : 'bg-blue-600 hover:bg-blue-700 text-white'
+//                         }`}
+//                     >
+//                         Login
+//                     </Link>
+//                 )}
+
+//                 {/* --- UPDATED THEME SELECTOR DROPDOWN --- */}
+//                 <div className={`dropdown dropdown-end ${!scrolled && isHomePage ? 'border-white/30' : 'border-base-300'} pl-2 ml-1`}>
+//                     <label tabIndex={0} className={`btn btn-ghost btn-circle btn-sm ${!scrolled && isHomePage ? 'text-white' : ''}`}>
+//                         <FaPalette className={`${!scrolled && isHomePage ? 'text-white' : 'text-primary'}`} />
+//                     </label>
+//                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52 border border-base-200 mt-4">
+//                         <div className="px-4 py-2 text-[10px] font-black uppercase opacity-50 tracking-widest">Select Theme</div>
+//                         {availableThemes.map((t) => (
+//                             <li key={t}>
+//                                 <button 
+//                                     onClick={() => setTheme(t)}
+//                                     className={`flex justify-between capitalize ${theme === t ? "bg-primary text-primary-content" : ""}`}
+//                                 >
+//                                     {t}
+//                                     {theme === t && <span className="w-2 h-2 rounded-full bg-current"></span>}
+//                                 </button>
+//                             </li>
+//                         ))}
+//                     </ul>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Navbar;
+
+
+
+//another version of navber
+
+
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, useNavigate, useLocation } from "react-router-dom"; // Added useLocation
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import SupRideLogo from "../SupRideLogo/SupRideLogo";
 import useAuth from "../../hooks/useAuth";
-import { 
-    FaSignOutAlt, FaUser, FaCog, FaHome, 
-    FaChevronDown, FaPalette 
+import {
+    FaSignOutAlt,
+    FaUser,
+    FaCog,
+    FaHome,
+    FaChevronDown,
+    FaPalette
 } from "react-icons/fa";
 
 const Navbar = () => {
-    // 1. Initialize theme from localStorage or default to light
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") || "light"
+    );
+
     const [scrolled, setScrolled] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
 
-    const { user, userData, logOut, loading } = useAuth(); 
-    const navigate = useNavigate();
-    const location = useLocation(); // Added useLocation
+    const { user, userData, logOut, loading } = useAuth();
 
-    // List of themes matching your tailwind.config.js
-    const availableThemes = ["light", "dark", "cupcake", "emerald", "corporate", "bumblebee"];
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const availableThemes = [
+        "light",
+        "dark",
+        "cupcake",
+        "emerald",
+        "corporate",
+        "bumblebee"
+    ];
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
+
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+
+        return () =>
+            window.removeEventListener(
+                "scroll",
+                handleScroll
+            );
     }, []);
 
-    // 2. Apply theme to HTML tag and persist to localStorage
     useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
+        document.documentElement.setAttribute(
+            "data-theme",
+            theme
+        );
 
-        // Dynamic background sync for non-daisyUI elements
-        if (theme === 'dark') {
-            document.body.style.backgroundColor = '#0e3592';
-        } else if (theme === 'light') {
-            document.body.style.backgroundColor = '#FFFFFF';
-        }else if (theme === 'corporate') {
-            document.body.style.backgroundColor = '#bedd0b';
-        }else {
-            document.body.style.backgroundColor = ''; // Let DaisyUI theme handle it
+        localStorage.setItem(
+            "theme",
+            theme
+        );
+
+        if (theme === "dark") {
+            document.body.style.backgroundColor =
+                "#0e3592";
+        } else if (theme === "light") {
+            document.body.style.backgroundColor =
+                "#FFFFFF";
+        } else if (theme === "corporate") {
+            document.body.style.backgroundColor =
+                "#bedd0b";
+        } else {
+            document.body.style.backgroundColor =
+                "";
         }
     }, [theme]);
 
@@ -50,20 +299,32 @@ const Navbar = () => {
             await logOut();
             setShowUserMenu(false);
             navigate("/login");
-        } catch (error) { console.error("Logout error:", error); }
+        } catch (error) {
+            console.error(
+                "Logout error:",
+                error
+            );
+        }
     };
 
-    const userRole = userData?.role; 
+    const userRole = userData?.role;
 
     const getProfilePath = () => {
         if (!userRole) return "/";
-        if (userRole === 'franchise') return "/franchise-profile";
-        if (userRole === 'student') return "/student-profile";
+
+        if (userRole === "franchise")
+            return "/franchise-profile";
+
+        if (userRole === "student")
+            return "/student-profile";
+
         return "/";
     };
 
     const getDashboardPath = () => {
-        if (userRole === 'franchise') return "/franchise-profile";
+        if (userRole === "franchise")
+            return "/franchise-profile";
+
         return "/dashboard";
     };
 
@@ -76,139 +337,310 @@ const Navbar = () => {
         { name: "Contact", path: "/contract" },
     ];
 
-    // Define isHomePage
-    const isHomePage = location.pathname === "/";
+    const isHomePage =
+        location.pathname === "/";
 
     return (
-        <div className={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            scrolled || !isHomePage 
-                ? 'bg-base-100/95 backdrop-blur-sm shadow-lg' 
-                : 'bg-transparent shadow-none'
-        }`}>
+        <div
+            className={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                scrolled || !isHomePage
+                    ? "bg-base-100/95 backdrop-blur-md shadow-lg"
+                    : "bg-transparent"
+            }`}
+        >
+            {/* Left */}
             <div className="navbar-start">
+
+                {/* Mobile Menu */}
                 <div className="dropdown lg:hidden">
-                    <label tabIndex={0} className={`btn btn-ghost btn-circle ${!scrolled && isHomePage ? 'text-white' : ''}`}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+
+                    <label
+                        tabIndex={0}
+                        className={`btn btn-sm btn-circle shadow-md border border-base-300 bg-base-100/30 backdrop-blur-md hover:bg-primary hover:text-white transition-all duration-300 ${
+                            !scrolled &&
+                            isHomePage
+                                ? "text-white border-white/30"
+                                : ""
+                        }`}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border">
-                        {navLinks.map((link) => (
-                            <li key={link.path}><Link to={link.path}>{link.name}</Link></li>
-                        ))}
+
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-xl bg-base-100 rounded-xl w-56 border"
+                    >
+                        {navLinks.map(
+                            (link) => (
+                                <li
+                                    key={
+                                        link.path
+                                    }
+                                >
+                                    <Link
+                                        to={
+                                            link.path
+                                        }
+                                        className="font-extrabold text-[15px] hover:bg-primary hover:text-white rounded-lg transition-all duration-300"
+                                    >
+                                        {
+                                            link.name
+                                        }
+                                    </Link>
+                                </li>
+                            )
+                        )}
                     </ul>
                 </div>
-                <Link to="/" className="hover:opacity-80 transition-opacity">
+
+                <Link
+                    to="/"
+                    className="hover:opacity-80 transition"
+                >
                     <SupRideLogo />
                 </Link>
             </div>
 
+            {/* Center */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex items-center gap-6">
-                    {navLinks.map((link) => (
-                        <li key={link.path}>
-                            <NavLink 
-                                to={link.path}
-                                className={({ isActive }) => {
-                                    let baseClass = "text-sm font-bold transition-colors";
-                                    if (isActive) {
-                                        return `${baseClass} text-blue-600`;
-                                    }
-                                    if (!scrolled && isHomePage) {
-                                        return `${baseClass} text-white hover:text-blue-300`;
-                                    }
-                                    return `${baseClass} text-base-content/70 hover:text-blue-500`;
-                                }}
+
+                <ul className="flex items-center gap-8">
+
+                    {navLinks.map(
+                        (link) => (
+                            <li
+                                key={
+                                    link.path
+                                }
                             >
-                                {link.name}
-                            </NavLink>
-                        </li>
-                    ))}
+                                <NavLink
+                                    to={
+                                        link.path
+                                    }
+                                    className={({
+                                        isActive
+                                    }) => {
+                                        let baseClass =
+                                            "text-[15px] font-extrabold tracking-wide transition-all duration-300";
+
+                                        if (
+                                            isActive
+                                        ) {
+                                            return `${baseClass} text-primary`;
+                                        }
+
+                                        if (
+                                            !scrolled &&
+                                            isHomePage
+                                        ) {
+                                            return `${baseClass} text-white hover:text-blue-300`;
+                                        }
+
+                                        return `${baseClass} text-base-content/70 hover:text-primary`;
+                                    }}
+                                >
+                                    {
+                                        link.name
+                                    }
+                                </NavLink>
+                            </li>
+                        )
+                    )}
                 </ul>
+
             </div>
 
-            <div className="navbar-end gap-2 md:gap-4">
+            {/* Right */}
+            <div className="navbar-end gap-3">
+
                 {loading ? (
-                    <span className="loading loading-spinner loading-sm text-blue-600"></span>
+                    <span className="loading loading-spinner loading-sm"></span>
                 ) : user ? (
-                    <div className="relative user-menu flex items-center gap-3">
-                        <div 
-                            onClick={() => setShowUserMenu(!showUserMenu)}
-                            className={`flex items-center gap-2 cursor-pointer p-1 pr-3 rounded-full transition-all border ${
-                                !scrolled && isHomePage 
-                                    ? 'bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30' 
-                                    : 'bg-base-200 border-transparent hover:bg-base-300 hover:border-blue-300'
+                    <div className="relative">
+
+                        <div
+                            onClick={() =>
+                                setShowUserMenu(
+                                    !showUserMenu
+                                )
+                            }
+                            className={`flex items-center gap-3 cursor-pointer px-2 py-1.5 rounded-full transition-all duration-300 border shadow-md hover:shadow-lg ${
+                                !scrolled &&
+                                isHomePage
+                                    ? "bg-white/10 border-white/20 hover:bg-white/20"
+                                    : "bg-base-200"
                             }`}
                         >
-                            <img 
-                                src={userData?.photoURL || user?.photoURL || `https://ui-avatars.com/api/?name=${user?.displayName}&background=4f46e5&color=fff`} 
-                                alt="avatar" 
-                                className="w-8 h-8 rounded-full object-cover border-2 border-base-100 shadow-sm"
+                            <img
+                                src={
+                                    userData?.photoURL ||
+                                    user?.photoURL
+                                }
+                                alt=""
+                                className="w-9 h-9 rounded-full object-cover border-2"
                             />
-                            <div className="hidden sm:block text-left">
-                                <p className={`text-[10px] font-black uppercase leading-none ${!scrolled && isHomePage ? 'text-blue-300' : 'text-blue-600'}`}>
-                                    {userRole || 'User'}
+
+                            <div className="hidden sm:block">
+
+                                <p
+                                    className={`text-[11px] font-extrabold uppercase tracking-widest ${
+                                        !scrolled &&
+                                        isHomePage
+                                            ? "text-blue-300"
+                                            : "text-primary"
+                                    }`}
+                                >
+                                    {userRole ||
+                                        "User"}
                                 </p>
-                                <FaChevronDown className={`text-[8px] mt-1 transition-transform ${showUserMenu ? 'rotate-180' : ''} ${!scrolled && isHomePage ? 'text-white' : ''}`} />
+
+                                <FaChevronDown
+                                    className={`text-xs mt-1 transition-transform ${
+                                        showUserMenu
+                                            ? "rotate-180"
+                                            : ""
+                                    }`}
+                                />
                             </div>
+
                         </div>
 
                         {showUserMenu && (
-                            <div className="absolute right-0 top-12 w-60 bg-base-100 rounded-2xl shadow-2xl border border-base-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden z-50">
-                                <div className="px-4 py-3 border-b border-base-200 mb-1">
-                                    <p className="text-sm font-bold truncate">{user?.displayName}</p>
-                                    <p className="text-[10px] opacity-60 truncate">{user?.email}</p>
+                            <div className="absolute right-0 top-14 w-64 bg-base-100 rounded-2xl shadow-2xl border py-2">
+
+                                <div className="px-4 py-3 border-b">
+
+                                    <p className="font-extrabold">
+                                        {
+                                            user?.displayName
+                                        }
+                                    </p>
+
+                                    <p className="text-xs opacity-60">
+                                        {
+                                            user?.email
+                                        }
+                                    </p>
+
                                 </div>
+
                                 <div className="p-1">
-                                    <Link to={getDashboardPath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
-                                        <FaHome className="text-primary"/> Dashboard
+
+                                    <Link
+                                        to={getDashboardPath()}
+                                        className="flex items-center gap-3 px-4 py-3 text-[14px] font-extrabold hover:bg-primary hover:text-white rounded-xl transition-all duration-300"
+                                    >
+                                        <FaHome className="text-[16px]" />
+                                        Dashboard
                                     </Link>
-                                    <Link to={getProfilePath()} className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
-                                        <FaUser className="text-primary"/> My Profile
+
+                                    <Link
+                                        to={getProfilePath()}
+                                        className="flex items-center gap-3 px-4 py-3 text-[14px] font-extrabold hover:bg-primary hover:text-white rounded-xl transition-all duration-300"
+                                    >
+                                        <FaUser className="text-[16px]" />
+                                        Profile
                                     </Link>
-                                    <Link to="/settings" className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold hover:bg-primary/10 rounded-xl transition-colors">
-                                        <FaCog className="text-primary"/> Settings
+
+                                    <Link
+                                        to="/settings"
+                                        className="flex items-center gap-3 px-4 py-3 text-[14px] font-extrabold hover:bg-primary hover:text-white rounded-xl transition-all duration-300"
+                                    >
+                                        <FaCog className="text-[16px]" />
+                                        Settings
                                     </Link>
+
                                 </div>
-                                <div className="p-1 mt-1 border-t border-base-200">
-                                    <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 w-full text-left rounded-xl transition-colors">
-                                        <FaSignOutAlt /> Logout
+
+                                <div className="border-t p-1">
+
+                                    <button
+                                        onClick={
+                                            handleLogout
+                                        }
+                                        className="flex items-center gap-3 px-4 py-3 text-[14px] font-extrabold text-error hover:bg-error hover:text-white transition-all duration-300 rounded-xl w-full"
+                                    >
+                                        <FaSignOutAlt />
+                                        Logout
                                     </button>
+
                                 </div>
+
                             </div>
                         )}
                     </div>
                 ) : (
-                    <Link 
-                        to="/login" 
-                        className={`btn btn-sm px-5 rounded-full shadow-lg shadow-blue-500/20 border-none ${
-                            !scrolled && isHomePage
-                                ? 'bg-white/20 hover:bg-white/30 text-white'
-                                : 'bg-blue-600 hover:bg-blue-700 text-white'
-                        }`}
+                    <Link
+                        to="/login"
+                        className="btn btn-sm rounded-full font-extrabold px-6 bg-primary hover:scale-105 text-white border-none"
                     >
                         Login
                     </Link>
                 )}
 
-                {/* --- UPDATED THEME SELECTOR DROPDOWN --- */}
-                <div className={`dropdown dropdown-end ${!scrolled && isHomePage ? 'border-white/30' : 'border-base-300'} pl-2 ml-1`}>
-                    <label tabIndex={0} className={`btn btn-ghost btn-circle btn-sm ${!scrolled && isHomePage ? 'text-white' : ''}`}>
-                        <FaPalette className={`${!scrolled && isHomePage ? 'text-white' : 'text-primary'}`} />
+                {/* Theme */}
+
+                <div className="dropdown dropdown-end">
+
+                    <label
+                        tabIndex={0}
+                        className={`btn btn-circle btn-sm shadow-md border hover:bg-primary hover:text-white transition-all duration-300 ${
+                            !scrolled &&
+                            isHomePage
+                                ? "text-white bg-white/10 border-white/30"
+                                : ""
+                        }`}
+                    >
+                        <FaPalette className="text-[16px]" />
                     </label>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52 border border-base-200 mt-4">
-                        <div className="px-4 py-2 text-[10px] font-black uppercase opacity-50 tracking-widest">Select Theme</div>
-                        {availableThemes.map((t) => (
-                            <li key={t}>
-                                <button 
-                                    onClick={() => setTheme(t)}
-                                    className={`flex justify-between capitalize ${theme === t ? "bg-primary text-primary-content" : ""}`}
-                                >
-                                    {t}
-                                    {theme === t && <span className="w-2 h-2 rounded-full bg-current"></span>}
-                                </button>
-                            </li>
-                        ))}
+
+                    <ul className="dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52 mt-4">
+
+                        <div className="px-4 py-2 text-xs font-extrabold opacity-50">
+                            SELECT THEME
+                        </div>
+
+                        {availableThemes.map(
+                            (t) => (
+                                <li key={t}>
+                                    <button
+                                        onClick={() =>
+                                            setTheme(
+                                                t
+                                            )
+                                        }
+                                        className={`flex justify-between items-center capitalize font-extrabold text-[14px]
+                                        hover:bg-primary hover:text-white rounded-lg transition-all duration-300
+                                        ${
+                                            theme ===
+                                            t
+                                                ? "bg-primary text-white"
+                                                : ""
+                                        }`}
+                                    >
+                                        {t}
+                                    </button>
+                                </li>
+                            )
+                        )}
+
                     </ul>
+
                 </div>
+
             </div>
         </div>
     );
