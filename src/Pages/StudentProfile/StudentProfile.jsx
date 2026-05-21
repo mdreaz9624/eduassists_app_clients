@@ -74,7 +74,7 @@ const StudentProfile = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0e3592] text-slate-900 dark:text-slate-100">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0e3592] text-slate-900 mt-24 dark:text-slate-100">
       <div className="max-w-5xl mx-auto p-6 md:p-12">
 
         {/* ---------- HEADER ---------- */}

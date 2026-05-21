@@ -89,7 +89,7 @@ const CourseDetails = () => {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-slate-50 mt-24 min-h-screen">
       {/* Top Navigation */}
       <div className="p-4 max-w-7xl mx-auto">
         <button 

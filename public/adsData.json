@@ -1,0 +1,58 @@
+{
+  "ads": [
+    {
+      "id": 1,
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "title": "🎓 Study in UK",
+      "description": "Top universities with scholarship opportunities",
+      "discount": "Up to 50% Scholarship",
+      "cta": "Apply Now",
+      "link": "/scholarship",
+      "color": "from-blue-500 to-purple-600",
+      "badge": "Limited Offer",
+      "duration": 5000
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "title": "🇺🇸 Study in USA",
+      "description": "Ivy League universities open for admissions",
+      "discount": "Application Fee Waiver",
+      "cta": "Learn More",
+      "link": "/eligibility",
+      "color": "from-red-500 to-pink-600",
+      "badge": "Popular",
+      "duration": 5000
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "title": "🇦🇺 Study in Australia",
+      "description": "PR pathways available after studies",
+      "discount": "Free IELTS Preparation",
+      "cta": "Get Offer",
+      "link": "/ieltsCard",
+      "color": "from-green-500 to-teal-600",
+      "badge": "New",
+      "duration": 5000
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
+      "title": "💰 Scholarship Alert",
+      "description": "100% funded scholarships available",
+      "discount": "Fully Funded",
+      "cta": "Check Eligibility",
+      "link": "/scholarship",
+      "color": "from-yellow-500 to-orange-600",
+      "badge": "Hot Deal",
+      "duration": 5000
+    }
+  ],
+  "settings": {
+    "popupDelay": 1000,
+    "autoCloseDelay": 5,
+    "showOnEveryVisit": false,
+    "minimizeIcon": true
+  }
+}
