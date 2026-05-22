@@ -78,7 +78,7 @@ const IeltsCard = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8 bg-slate-50 min-h-screen">
+    <div className="max-w-4xl mx-auto mt-24 p-4 md:p-8 bg-slate-50 min-h-screen">
       {/* Header & Basic Instructions */}
       <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 mb-8">
         <h2 className="text-3xl font-black text-slate-900 mb-4 flex items-center gap-3">
