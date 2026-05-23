@@ -179,6 +179,37 @@
       "likes": 1765,
       "views": 5432,
       "photographer": "Lisa Wang"
+    },
+     {
+      "id": 13,
+      "title": "UK Success Story",
+      "description": "Mahmudul Hasan | Anglia Ruskin University | MSC supply chain management ",
+      "category": "EduAssists",
+      "subcategory": "Success UK",
+      "image": "https://i.ibb.co.com/SwcG22Gm/Eduassistsuk.jpg",
+      "thumbnail": "https://i.ibb.co.com/SwcG22Gm/Eduassistsuk.jpg?auto=compress&cs=tinysrgb&w=400",
+      "date": "2024-01-17",
+      "location": "East Anglia, UK",
+      "tags": ["successStory", "facility", "uk"],
+      "likes": 654,
+      "views": 3210,
+      "photographer": "Edu Assists"
+
+    },
+    {
+      "id": 14,
+      "title": "US Success Story",
+      "description": "Mahmudul Hasan | Anglia Ruskin University | MSC supply chain management ",
+      "category": "EduAssists",
+      "subcategory": "Success US",
+      "image": "https://res.cloudinary.com/dhix6zkp8/image/upload/q_auto/f_auto/v1779521416/Eduassistsukcom_qqlr4g.jpg",
+      "thumbnail": "https://res.cloudinary.com/dhix6zkp8/image/upload/q_auto/f_auto/v1779521416/Eduassistsukcom_qqlr4g.jpg",
+      "date": "2026-01-17",
+      "location": "East Anglia, UK",
+      "tags": ["successStory", "facility", "uk"],
+      "likes": 543,
+      "views": 2100,
+      "photographer": "Edu Assists"
     }
   ],
   "categories": [
@@ -247,6 +278,12 @@
       "name": "Facilities",
       "icon": "utensils",
       "count": 1
+    },
+    {
+      "id": "EduAssists",
+      "name": "EduAssists Success",
+      "icon": "users",
+      "count": 2
     }
   ],
   "settings": {
