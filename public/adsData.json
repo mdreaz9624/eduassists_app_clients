@@ -26,12 +26,12 @@
     },
     {
       "id": 3,
-      "image": "https://i.ibb.co.com/zWNSRFbf/compus.jpg",
-      "title": "🇦🇺 Study in Australia",
-      "description": "PR pathways available after studies",
-      "discount": "Free IELTS Preparation",
-      "cta": "Get Offer",
-      "link": "/ieltsCard",
+      "image": "https://res.cloudinary.com/dhix6zkp8/image/upload/q_auto/f_auto/v1779727678/1779725412892_wvxliq.jpg",
+      "title": "Eid Vacation",
+      "description": "Eid Mubarak!",
+      "discount": "",
+      "cta": "",
+      "link": "",
       "color": "from-green-500 to-teal-600",
       "badge": "New",
       "duration": 5000
@@ -46,6 +46,18 @@
       "link": "/scholarship",
       "color": "from-yellow-500 to-orange-600",
       "badge": "Hot Deal",
+      "duration": 5000
+    },
+    {
+      "id": 5,
+      "image": "https://res.cloudinary.com/dhix6zkp8/image/upload/q_auto/f_auto/v1779727678/1779725412892_wvxliq.jpg",
+      "title": "🌍 Global Opportunities",
+      "description": "Study in top countries with ease",
+      "discount": "Visa Assistance Included",
+      "cta": "Explore Now",
+      "link": "/eligibility",
+      "color": "from-purple-500 to-pink-600",
+      "badge": "Exclusive",
       "duration": 5000
     }
   ],
