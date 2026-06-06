@@ -49,6 +49,8 @@ const UsersManagement = () => {
     }
   };
 
+  
+
   const handleDeleteUser = async (userId) => {
     const result = await Swal.fire({
       title: "Are you sure?",
@@ -70,6 +72,7 @@ const UsersManagement = () => {
       }
     }
   };
+
 
   const getRoleBadge = (role) => {
     switch (role) {
