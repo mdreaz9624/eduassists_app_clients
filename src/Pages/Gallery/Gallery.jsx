@@ -1,19 +1,7 @@
-// import React from 'react';
-// import AdPopup from '../AdPopUp/AdPopup';
 
-// const Gallery = () => {
-//     return (
-//         <div className='mt-28'>
-//             <h1 className='text-center text-red-800 font-extrabold'>Comming Soon..............</h1>
-            
-            
-//         </div>
-//     );
-// };
 
-// export default Gallery;
 
-//another version of gallery page with ad pop up
+// new version
 
 
 import { useState, useEffect } from "react";
@@ -36,6 +24,8 @@ import {
   FaList
 } from "react-icons/fa";
 
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+
 const Gallery = () => {
     const [galleryItems, setGalleryItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
@@ -50,44 +40,102 @@ const Gallery = () => {
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const [showFilters, setShowFilters] = useState(false);
     const [sortBy, setSortBy] = useState("latest");
+    const axiosSecure = useAxiosSecure();
 
-    // Fetch gallery data
-    useEffect(() => {
-        const fetchGallery = async () => {
-            try {
-                const response = await fetch('/galleryData.json');
-                const data = await response.json();
-                setGalleryItems(data.gallery);
-                setFilteredItems(data.gallery);
-                setCategories(data.categories);
-                setItemsPerPage(data.settings.itemsPerPage);
-                
-                // Load liked items from localStorage
-                const savedLikes = localStorage.getItem("likedGalleryItems");
-                if (savedLikes) {
-                    setLikedItems(JSON.parse(savedLikes));
+    // Fetch gallery data from MongoDB API
+
+    // In your Gallery.jsx, update the fetchGallery function:
+
+useEffect(() => {
+    const fetchGallery = async () => {
+        try {
+            setLoading(true);
+            
+            const response = await axiosSecure.get('/gallery');
+            const data = response.data;
+            
+            console.log("API Response:", data);
+            
+            let galleryArray = [];
+            
+            // Handle your specific response structure
+            if (Array.isArray(data)) {
+                // If data is an array of documents
+                if (data.length > 0 && data[0].gallery && Array.isArray(data[0].gallery)) {
+                    // Extract gallery array from first document
+                    galleryArray = data[0].gallery;
+                } else {
+                    // If data is directly the array of items
+                    galleryArray = data;
                 }
-            } catch (error) {
-                console.error("Error loading gallery:", error);
-            } finally {
-                setLoading(false);
+            } 
+            // If response is a single object with gallery property
+            else if (data && data.gallery && Array.isArray(data.gallery)) {
+                galleryArray = data.gallery;
             }
-        };
+            // If response has data property
+            else if (data && data.data && Array.isArray(data.data)) {
+                galleryArray = data.data;
+            }
+            
+            console.log("Extracted gallery array:", galleryArray);
+            console.log("Number of items:", galleryArray.length);
+            
+            setGalleryItems(galleryArray);
+            setFilteredItems(galleryArray);
+            
+            // Generate categories dynamically
+            const categoryMap = new Map();
+            categoryMap.set("all", { id: "all", name: "All Photos", count: galleryArray.length });
+            
+            galleryArray.forEach(item => {
+                const categoryId = item.category || "uncategorized";
+                if (categoryMap.has(categoryId)) {
+                    const existing = categoryMap.get(categoryId);
+                    existing.count++;
+                } else {
+                    categoryMap.set(categoryId, {
+                        id: categoryId,
+                        name: categoryId.charAt(0).toUpperCase() + categoryId.slice(1),
+                        count: 1
+                    });
+                }
+            });
+            
+            setCategories(Array.from(categoryMap.values()));
+            
+            // Load liked items from localStorage
+            const savedLikes = localStorage.getItem("likedGalleryItems");
+            if (savedLikes) {
+                setLikedItems(JSON.parse(savedLikes));
+            }
+        } catch (error) {
+            console.error("Error loading gallery from API:", error);
+            setGalleryItems([]);
+            setFilteredItems([]);
+            setCategories([{ id: "all", name: "All Photos", count: 0 }]);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-        fetchGallery();
-    }, []);
+    fetchGallery();
+}, [axiosSecure]);
+    
 
     // Filter and sort items
     useEffect(() => {
+        if (!galleryItems.length) return;
+        
         let filtered = [...galleryItems];
 
         // Search filter
         if (searchTerm) {
             filtered = filtered.filter(item =>
-                item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+                (item.title && item.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (item.description && item.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (item.location && item.location.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
             );
         }
 
@@ -105,10 +153,10 @@ const Gallery = () => {
                 filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
                 break;
             case "popular":
-                filtered.sort((a, b) => b.likes - a.likes);
+                filtered.sort((a, b) => (b.likes || 0) - (a.likes || 0));
                 break;
             case "most-viewed":
-                filtered.sort((a, b) => b.views - a.views);
+                filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
                 break;
             default:
                 break;
@@ -118,20 +166,34 @@ const Gallery = () => {
         setCurrentPage(1);
     }, [searchTerm, selectedCategory, galleryItems, sortBy]);
 
-    const handleLike = (itemId) => {
+    const handleLike = async (itemId) => {
         let newLikedItems;
         if (likedItems.includes(itemId)) {
             newLikedItems = likedItems.filter(id => id !== itemId);
-            // Decrease like count
+            // Decrease like count locally
             setGalleryItems(prev => prev.map(item => 
-                item.id === itemId ? { ...item, likes: item.likes - 1 } : item
+                item.id === itemId ? { ...item, likes: (item.likes || 0) - 1 } : item
             ));
+            
+            // Update in database
+            try {
+                await axiosSecure.patch(`/gallery/${itemId}/like`, { likes: -1 });
+            } catch (error) {
+                console.error("Failed to update like:", error);
+            }
         } else {
             newLikedItems = [...likedItems, itemId];
-            // Increase like count
+            // Increase like count locally
             setGalleryItems(prev => prev.map(item => 
-                item.id === itemId ? { ...item, likes: item.likes + 1 } : item
+                item.id === itemId ? { ...item, likes: (item.likes || 0) + 1 } : item
             ));
+            
+            // Update in database
+            try {
+                await axiosSecure.patch(`/gallery/${itemId}/like`, { likes: 1 });
+            } catch (error) {
+                console.error("Failed to update like:", error);
+            }
         }
         setLikedItems(newLikedItems);
         localStorage.setItem("likedGalleryItems", JSON.stringify(newLikedItems));
@@ -149,7 +211,6 @@ const Gallery = () => {
                 console.log("Share cancelled");
             }
         } else {
-            // Fallback
             navigator.clipboard.writeText(`${item.title} - ${item.description}`);
             alert("Description copied to clipboard!");
         }
@@ -283,7 +344,7 @@ const Gallery = () => {
 
                 {/* Category Tabs */}
                 <div className="flex flex-wrap gap-3 mb-8">
-                    {categories.map((category) => (
+                    {categories && categories.map((category) => (
                         <button
                             key={category.id}
                             onClick={() => setSelectedCategory(category.id)}
@@ -318,10 +379,13 @@ const Gallery = () => {
                                 {/* Image Container */}
                                 <div className="relative overflow-hidden cursor-pointer">
                                     <img
-                                        src={item.thumbnail}
+                                        src={item.thumbnail || item.image}
                                         alt={item.title}
                                         onClick={() => setSelectedImage(item)}
                                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                                        onError={(e) => {
+                                            e.target.src = "https://via.placeholder.com/400x300?text=Image+Not+Found";
+                                        }}
                                     />
                                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                                         <button
@@ -360,16 +424,16 @@ const Gallery = () => {
                                     <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
                                         <div className="flex items-center gap-2">
                                             <FaMapMarkerAlt className="text-primary" />
-                                            <span>{item.location}</span>
+                                            <span>{item.location || "Unknown"}</span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <FaCalendarAlt className="text-primary" />
-                                            <span>{new Date(item.date).toLocaleDateString()}</span>
+                                            <span>{item.date ? new Date(item.date).toLocaleDateString() : "Unknown"}</span>
                                         </div>
                                     </div>
 
                                     <div className="flex flex-wrap gap-2 mb-3">
-                                        {item.tags.slice(0, 3).map((tag, idx) => (
+                                        {item.tags && item.tags.slice(0, 3).map((tag, idx) => (
                                             <span key={idx} className="badge badge-sm badge-ghost">
                                                 #{tag}
                                             </span>
@@ -387,16 +451,16 @@ const Gallery = () => {
                                                 ) : (
                                                     <FaRegHeart />
                                                 )}
-                                                <span>{item.likes}</span>
+                                                <span>{item.likes || 0}</span>
                                             </button>
                                             <div className="flex items-center gap-1 text-gray-600">
                                                 <FaEye />
-                                                <span>{item.views}</span>
+                                                <span>{item.views || 0}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-1 text-gray-500 text-xs">
                                             <FaCamera />
-                                            <span>{item.photographer}</span>
+                                            <span>{item.photographer || "Anonymous"}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -451,6 +515,9 @@ const Gallery = () => {
                                 src={selectedImage.image}
                                 alt={selectedImage.title}
                                 className="w-full rounded-lg"
+                                onError={(e) => {
+                                    e.target.src = "https://via.placeholder.com/800x600?text=Image+Not+Found";
+                                }}
                             />
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
                                 <h3 className="text-white text-2xl font-bold mb-2">{selectedImage.title}</h3>
@@ -458,15 +525,15 @@ const Gallery = () => {
                                 <div className="flex flex-wrap gap-4 text-sm text-white/80">
                                     <div className="flex items-center gap-2">
                                         <FaMapMarkerAlt />
-                                        <span>{selectedImage.location}</span>
+                                        <span>{selectedImage.location || "Unknown"}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <FaCalendarAlt />
-                                        <span>{new Date(selectedImage.date).toLocaleDateString()}</span>
+                                        <span>{selectedImage.date ? new Date(selectedImage.date).toLocaleDateString() : "Unknown"}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <FaCamera />
-                                        <span>{selectedImage.photographer}</span>
+                                        <span>{selectedImage.photographer || "Anonymous"}</span>
                                     </div>
                                 </div>
                             </div>
