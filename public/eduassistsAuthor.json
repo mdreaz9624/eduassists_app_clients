@@ -1,3 +1,4 @@
+
 {
   "teamMembers": [
     {
@@ -6,9 +7,29 @@
       "name": "Mahadi Mir Moon",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "chairman@eduassists.com",
-      "whatsapp": "+880123456789",
+      "whatsapp": "+8801842134687",
+      "phone": "+8801842134687",
       "category": "Executive",
-      "priority": 1
+      "priority": 1,
+      "bio": "Founder and Chairman with over 15 years of experience in international education. Led EduAssists to become a leading education consultancy in South Asia.",
+      "education": [
+        "MBA - University of Dhaka",
+        "BBA - North South University"
+      ],
+      "achievements": [
+        "Successfully placed 5000+ students globally",
+        "Featured in Education Times Top 10 Consultants",
+        "Keynote Speaker at International Education Fairs"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/mahadi-mir-moon",
+        "facebook": "https://facebook.com/mahadi.mir.moon",
+        "twitter": "https://twitter.com/mahadi_mir"
+      },
+      "languages": ["Bengali", "English", "Hindi"],
+      "expertise": ["Strategic Planning", "University Partnerships", "Visa Counseling"],
+      "officeHours": "9 AM - 5 PM (Sun-Thu)",
+      "responseTime": "Within 24 hours"
     },
     {
       "id": 2,
@@ -17,8 +38,27 @@
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "ceo@eduassists.com",
       "whatsapp": "+8801611032373",
+      "phone": "+8801611032373",
       "category": "Executive",
-      "priority": 2
+      "priority": 2,
+      "bio": "Visionary CEO driving digital transformation in education consultancy. Expert in EdTech and student recruitment strategies.",
+      "education": [
+        "MSc in International Education - University of Oxford",
+        "BSc in Computer Science - BUET"
+      ],
+      "achievements": [
+        "Launched AI-powered student matching platform",
+        "Expanded operations to 12 countries",
+        "Awarded 'Best Education Consultant 2023'"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/navel-khan",
+        "facebook": "https://facebook.com/navel.khan"
+      },
+      "languages": ["Bengali", "English", "Arabic"],
+      "expertise": ["EdTech", "Digital Marketing", "Student Recruitment"],
+      "officeHours": "10 AM - 6 PM (Sun-Thu)",
+      "responseTime": "Within 12 hours"
     },
     {
       "id": 3,
@@ -27,44 +67,120 @@
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "director@eduassists.com",
       "whatsapp": "+8801980197166",
+      "phone": "+8801980197166",
       "category": "Executive",
-      "priority": 3
+      "priority": 3,
+      "bio": "Strategic Director specializing in UK and Australian education systems. Has helped 2000+ students achieve their study abroad dreams.",
+      "education": [
+        "MA in Education Leadership - UCL London",
+        "BA in English Literature - University of Dhaka"
+      ],
+      "achievements": [
+        "Developed scholarship programs worth $2M",
+        "Partnered with 50+ top universities",
+        "Trainer for 100+ education counselors"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/saiful-nayem",
+        "facebook": "https://facebook.com/saiful.nayem"
+      },
+      "languages": ["Bengali", "English", "French"],
+      "expertise": ["UK Education", "Scholarship Guidance", "Career Counseling"],
+      "officeHours": "9 AM - 5 PM (Sun-Thu)",
+      "responseTime": "Within 24 hours"
     },
     {
-      "id": 3,
+      "id": 4,
       "role": "Director",
       "name": "Kamrul Islam Noyon",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "director@eduassists.com",
       "whatsapp": "+447453302296",
+      "phone": "+447453302296",
       "category": "Executive",
-      "priority": 3
+      "priority": 3,
+      "bio": "UK-based Director handling European operations. Expert in UK student visas and post-study work opportunities.",
+      "education": [
+        "LLM in Immigration Law - University of Manchester",
+        "LLB - University of London"
+      ],
+      "achievements": [
+        "98% visa success rate for UK applications",
+        "Author of 'UK Study Guide' book",
+        "Registered Immigration Advisor"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/kamrul-noyon",
+        "facebook": "https://facebook.com/kamrul.noyon"
+      },
+      "languages": ["Bengali", "English", "Urdu"],
+      "expertise": ["UK Visas", "Immigration Law", "Post-Study Work"],
+      "officeHours": "2 PM - 10 PM (UK Time)",
+      "responseTime": "Within 6 hours"
     },
     {
-      "id": 4,
+      "id": 5,
       "role": "Admin Manager",
       "name": "Ahsan Reaz",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "admin@eduassists.com",
       "whatsapp": "+8801314883093",
+      "phone": "+8801314883093",
       "category": "Administration",
-      "priority": 4
+      "priority": 4,
+      "bio": "Experienced administrator ensuring smooth operations and student services. Manages daily activities and student inquiries.",
+      "education": [
+        "MBA in Management - IBA, Dhaka University",
+        "BBA - East West University"
+      ],
+      "achievements": [
+        "Streamlined student application process",
+        "Implemented CRM system",
+        "Reduced response time by 60%"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/ahsan-reaz",
+        "facebook": "https://facebook.com/ahsan.reaz"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["Operations Management", "Student Services", "Process Optimization"],
+      "officeHours": "9 AM - 6 PM (Sun-Thu)",
+      "responseTime": "Within 2 hours"
     },
     {
-      "id": 5,
+      "id": 6,
       "role": "Country Manager - Australia",
       "name": "Monir Hossen",
       "country": "Australia",
       "flag": "🇦🇺",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "australia@eduassists.com",
-      "whatsapp": "+0468325264",
+      "whatsapp": "+61468325264",
+      "phone": "+61468325264",
       "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/australia-link",
       "category": "Country Management",
-      "priority": 5
+      "priority": 5,
+      "bio": "Australian education specialist with 10+ years of experience. Expert in Australian university admissions and scholarships.",
+      "education": [
+        "Master of Education - University of Melbourne",
+        "Bachelor of Business - RMIT University"
+      ],
+      "achievements": [
+        "Placed 1500+ students in Australian universities",
+        "Expert in Australian visa regulations",
+        "Partnerships with 30+ Australian institutions"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/monir-hossen",
+        "facebook": "https://facebook.com/monir.hossen"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["Australian Education", "Student Visas", "Scholarships"],
+      "officeHours": "10 AM - 6 PM (AEST)",
+      "responseTime": "Within 24 hours"
     },
     {
-      "id": 6,
+      "id": 7,
       "role": "Country Manager - UK",
       "name": "Saiful Islam Nayem",
       "country": "United Kingdom",
@@ -72,39 +188,87 @@
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "uk@eduassists.com",
       "whatsapp": "+441234567890",
+      "phone": "+441234567890",
       "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/uk-link",
       "category": "Country Management",
-      "priority": 6
+      "priority": 6,
+      "bio": "UK education consultant specializing in Russell Group universities and student visa applications.",
+      "education": [
+        "MSc in Education - University of Bristol",
+        "BA in International Relations - University of Westminster"
+      ],
+      "achievements": [
+        "1000+ successful UK placements",
+        "Expert in UK student visa process",
+        "University admissions consultant"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/saiful-uk",
+        "facebook": "https://facebook.com/saiful.uk"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["UK Universities", "Visa Guidance", "CAS Processing"],
+      "officeHours": "1 PM - 9 PM (GMT)",
+      "responseTime": "Within 12 hours"
     },
     {
-      "id": 7,
+      "id": 8,
       "role": "Marketing Officer",
       "name": "Al Sabit",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
       "email": "marketing@eduassists.com",
       "whatsapp": "+8801742900088",
+      "phone": "+8801742900088",
       "category": "Marketing",
-      "priority": 7
-    },
-    {
-      "id": 8,
-      "role": "Digital Marketing Specialist",
-      "name": "Ass-hafi Rahman Arbab",
-      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
-      "email": "digital@eduassists.com",
-      "whatsapp": "+880123456786",
-      "category": "Marketing",
-      "priority": 8
+      "priority": 7,
+      "bio": "Creative marketing professional driving brand awareness and student engagement campaigns.",
+      "education": [
+        "MBA in Marketing - University of Dhaka",
+        "BBA in Marketing - East West University"
+      ],
+      "achievements": [
+        "Increased social media engagement by 300%",
+        "Launched successful student referral program",
+        "Organized 50+ education fairs"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/al-sabit",
+        "facebook": "https://facebook.com/al.sabit"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["Digital Marketing", "Brand Management", "Student Recruitment"],
+      "officeHours": "10 AM - 6 PM (Sun-Thu)",
+      "responseTime": "Within 2 hours"
     },
     {
       "id": 9,
-      "role": "Senior Admin",
-      "name": "Senior Admin Name",
+      "role": "Student Counselor",
+      "name": "Istiaq Ahmad Rafi",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
-      "email": "senior.admin@eduassists.com",
-      "whatsapp": "+880123456783",
-      "category": "Administration",
-      "priority": 9
+      "email": "istiaq@eduassists.com",
+      "whatsapp": "+8801875954253",
+      "phone": "+8801875954253",
+      "category": "Counseling",
+      "priority": 8,
+      "bio": "Dedicated student counselor providing personalized guidance on university selection and application processes.",
+      "education": [
+        "MA in Counseling Psychology - University of Dhaka",
+        "BA in Psychology - North South University"
+      ],  
+      "achievements": [
+        "Counseled 2000+ students to successful placements",
+        "Expert in university application strategies",
+        "Conducted 100+ student workshops"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/istiaq-ahmad-rafi",
+        "facebook": "https://facebook.com/istiaq.rafi"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["University Selection", "Application Strategy", "Student Counseling"],
+      "officeHours": "9 AM - 5 PM (Sun-Thu)",
+      "responseTime": "Within 24 hours"
+
     }
   ],
   "offices": [
@@ -116,7 +280,9 @@
       "mapLink": "https://maps.app.goo.gl/cphGp6j4zdwgw88o7",
       "phone": "+880123456789",
       "email": "office@eduassists.com",
-      "workingHours": "9:00 AM - 6:00 PM (Sunday-Thursday)"
+      "workingHours": "9:00 AM - 6:00 PM (Sunday-Thursday)",
+      "whatsapp": "+880123456789",
+      "facilities": ["Free Wi-Fi", "Study Area", "Visa Processing Center", "Document Notary"]
     },
     {
       "id": 2,
@@ -126,7 +292,9 @@
       "mapLink": "https://maps.app.goo.gl/uttara-branch-link",
       "phone": "+880123456790",
       "email": "uttara@eduassists.com",
-      "workingHours": "10:00 AM - 7:00 PM (Sunday-Thursday)"
+      "workingHours": "10:00 AM - 7:00 PM (Sunday-Thursday)",
+      "whatsapp": "+880123456790",
+      "facilities": ["Counseling Rooms", "Library", "Application Support"]
     }
   ]
 }

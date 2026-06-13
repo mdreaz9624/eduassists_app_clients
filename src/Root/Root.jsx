@@ -34,6 +34,7 @@ import UsersManagement from "../Admin/ManageUsers/UsersManagement";
 import StudyDataManagement from "../Admin/ManageUniversities/StudyDataManagement";
 import AddUniversity from "../Admin/ManageUniversities/AddUniversity";
 import ScholarshipDetails from "../Pages/Scholarship/ScholarshipDetails/ScholarshipDetails";
+import TeamDetails from "../Pages/Contract/TeamDetails";
 
 
 
@@ -65,6 +66,11 @@ export const router = createBrowserRouter([
       {
         path: "/contract",
         element: <Contract></Contract>
+      },
+      {
+        path:"/team/:id",
+        element: <TeamDetails></TeamDetails>
+
       },
       {
         path: "/gallery",
