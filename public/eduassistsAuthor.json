@@ -98,7 +98,7 @@
       "whatsapp": "+447453302296",
       "phone": "+447453302296",
       "category": "Executive",
-      "priority": 3,
+      "priority": 4,
       "bio": "UK-based Director handling European operations. Expert in UK student visas and post-study work opportunities.",
       "education": [
         "LLM in Immigration Law - University of Manchester",
@@ -122,16 +122,16 @@
       "id": 5,
       "role": "Admin Manager",
       "name": "Ahsan Reaz",
-      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
-      "email": "admin@eduassists.com",
+      "image": "https://i.ibb.co.com/KjY5wfkt/admin-Reaz.png",
+      "email": "reaz.edu.assists@gmail.com",
       "whatsapp": "+8801314883093",
       "phone": "+8801314883093",
       "category": "Administration",
-      "priority": 4,
+      "priority": 5,
       "bio": "Experienced administrator ensuring smooth operations and student services. Manages daily activities and student inquiries.",
       "education": [
-        "MBA in Management - IBA, Dhaka University",
-        "BBA - East West University"
+        "BSc in Computer Science & Engineering - National University",
+        "BSc in Computer Science & Engineering (Running) - JUNIV"
       ],
       "achievements": [
         "Streamlined student application process",
@@ -139,12 +139,12 @@
         "Reduced response time by 60%"
       ],
       "socialLinks": {
-        "linkedin": "https://linkedin.com/in/ahsan-reaz",
-        "facebook": "https://facebook.com/ahsan.reaz"
+        "linkedin": "https://www.linkedin.com/in/ahsan-reaz",
+        "facebook": "https://www.facebook.com/eshannair"
       },
       "languages": ["Bengali", "English"],
       "expertise": ["Operations Management", "Student Services", "Process Optimization"],
-      "officeHours": "9 AM - 6 PM (Sun-Thu)",
+      "officeHours": "9 AM - 5 PM (Sun-Thu)",
       "responseTime": "Within 2 hours"
     },
     {
@@ -159,7 +159,7 @@
       "phone": "+61468325264",
       "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/australia-link",
       "category": "Country Management",
-      "priority": 5,
+      "priority": 6,
       "bio": "Australian education specialist with 10+ years of experience. Expert in Australian university admissions and scholarships.",
       "education": [
         "Master of Education - University of Melbourne",
@@ -191,7 +191,7 @@
       "phone": "+441234567890",
       "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/uk-link",
       "category": "Country Management",
-      "priority": 6,
+      "priority": 7,
       "bio": "UK education consultant specializing in Russell Group universities and student visa applications.",
       "education": [
         "MSc in Education - University of Bristol",
@@ -203,7 +203,7 @@
         "University admissions consultant"
       ],
       "socialLinks": {
-        "linkedin": "https://linkedin.com/in/saiful-uk",
+        "linkedin": "https://www.linkedin.com/in/saiful-uk",
         "facebook": "https://facebook.com/saiful.uk"
       },
       "languages": ["Bengali", "English"],
@@ -213,6 +213,39 @@
     },
     {
       "id": 8,
+      "role": "Head of Admission & Consultant - EduAssists",
+      "name": "Md. Saddam Hossain",
+      "country": "Europe",
+      "flag": "🇪🇺",
+      "image": "https://i.ibb.co.com/dwmyxZmX/Saddam-Hossain.png",
+      "email": "saddam.edu.assists@gmail.com",  
+      "whatsapp": "+8801969890815",
+      "phone": "+8801969890815",
+      "bookingLink": "https://calendar.google.com/calendar/u/0/appointments/europe-link",
+      "category": "Country Management",
+      "priority": 8,
+      "bio": "Md. Saddam Hossain is a higher education consultant with over 5 years of experience in international admissions and student visa processing. He specializes in university applications, SOP writing, documentation, and career counselling across multiple study destinations. Known for his strong guidance and high visa success rate, he has helped many students achieve their study abroad goals.",
+      "education": [
+        "BBA -  National University ",
+        "HSC - Rajarbag Police Lines College"
+      ],
+      "achievements": [
+        "He also serves as Co-Founder and COO of another reputed education consultancy firm, bringing strong leadership and industry expertise to the organization.",
+        "Expert in European student visa regulations",
+        "Partnerships with 40+ European institutions"
+      ],
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/in/mdsaddam007/",
+        "facebook": "https://www.facebook.com/mdsaddam007/"
+      },
+      "languages": ["Bengali", "English"],
+      "expertise": ["European Education", "University Admissions", "Visa Counseling"],
+      "officeHours": "9 AM - 6 PM (EST)",
+      "responseTime": "Within 24 hours"
+
+    },
+    {
+      "id": 9,
       "role": "Marketing Officer",
       "name": "Al Sabit",
       "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
@@ -220,7 +253,7 @@
       "whatsapp": "+8801742900088",
       "phone": "+8801742900088",
       "category": "Marketing",
-      "priority": 7,
+      "priority": 9,
       "bio": "Creative marketing professional driving brand awareness and student engagement campaigns.",
       "education": [
         "MBA in Marketing - University of Dhaka",
@@ -241,19 +274,19 @@
       "responseTime": "Within 2 hours"
     },
     {
-      "id": 9,
+      "id": 10,
       "role": "Student Counselor",
       "name": "Istiaq Ahmad Rafi",
-      "image": "https://i.ibb.co.com/dsJpzHPt/1000036429.jpg",
-      "email": "istiaq@eduassists.com",
+      "image": "https://i.ibb.co.com/kszBDq97/image0.png",
+      "email": "rafi.edu.assists@gmail.com",
       "whatsapp": "+8801875954253",
       "phone": "+8801875954253",
       "category": "Counseling",
-      "priority": 8,
+      "priority": 10,
       "bio": "Dedicated student counselor providing personalized guidance on university selection and application processes.",
       "education": [
-        "MA in Counseling Psychology - University of Dhaka",
-        "BA in Psychology - North South University"
+        "HSC (Science) in Dhaka College  - Dhaka",
+        "BSc in Computer Science - National University ( Dhaka City College)"
       ],  
       "achievements": [
         "Counseled 2000+ students to successful placements",

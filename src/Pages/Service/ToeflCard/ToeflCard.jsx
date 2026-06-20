@@ -1,153 +1,301 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  Monitor, 
-  Mic2, 
+  BookOpen, 
   Headphones, 
-  FileText, 
+  PenTool, 
+  MessageSquare, 
   HelpCircle, 
   ChevronDown, 
   ChevronUp, 
+  CheckCircle2,
+  Mic,
+  FileAudio,
+  BookMarked,
+  Award,
+  Users,
+  Clock,
+  Star,
+  Zap,
+  GraduationCap,
+  PlayCircle,
+  FileText,
+  Check,
+  Globe,
   ArrowLeft,
-  Info
+  Target,
+  Sparkles
 } from 'lucide-react';
 
 const ToeflCard = () => {
   const navigate = useNavigate();
-  const [openFaq, setOpenFaq] = useState(null);
+  const [activeModule, setActiveModule] = useState(null);
+  const [selectedPricing, setSelectedPricing] = useState('standard');
 
-  const modules = [
-    {
-      id: 'reading',
-      title: 'Reading',
-      icon: <Monitor className="text-blue-600" />,
-      time: '35 Minutes',
-      details: 'Read 2 passages (approx. 700 words each) and answer 20 questions.',
-      focus: 'Academic transitions and vocabulary in context.'
-    },
-    {
-      id: 'listening',
-      title: 'Listening',
-      icon: <Headphones className="text-indigo-600" />,
-      time: '36 Minutes',
-      details: 'Listen to 3 lectures and 2 conversations. Answer 28 questions.',
-      focus: 'Note-taking and understanding the speaker’s attitude.'
-    },
-    {
-      id: 'speaking',
-      title: 'Speaking',
-      icon: <Mic2 className="text-rose-600" />,
-      time: '16 Minutes',
-      details: '4 tasks: 1 independent (personal opinion) and 3 integrated (read/listen/speak).',
-      focus: 'Clarity and coherence through a microphone.'
-    },
-    {
-      id: 'writing',
-      title: 'Writing',
-      icon: <FileText className="text-amber-600" />,
-      time: '29 Minutes',
-      details: '2 tasks: Integrated writing (20 mins) and Writing for Academic Discussion (10 mins).',
-      focus: 'Synthesizing info and responding to online discussions.'
+  // TOEFL Data from your serviceData
+  const toeflData = {
+    title: "TOEFL iBT",
+    tagline: "Comprehensive training for American university entrance",
+    description: "Complete preparation for the TOEFL iBT exam with focus on all four sections: Reading, Listening, Speaking, and Writing. Our program is designed specifically for students aiming for American and Canadian universities.",
+    icon: <Globe className="text-blue-600" size={28} />,
+    category: "language",
+    path: "/toefl",
+    buttonText: "Explore TOEFL",
+    color: "from-blue-500 to-cyan-600",
+    bgColor: "bg-blue-50",
+    badge: "Top Rated",
+    stats: [
+      { label: "Success Rate", value: "88%" },
+      { label: "Practice Tests", value: "40+" },
+      { label: "Students Trained", value: "1,800+" }
+    ],
+    features: [
+      "Academic Vocabulary Building",
+      "Integrated Skills Practice",
+      "Note-Taking Strategies",
+      "Time Management Techniques",
+      "Speaking Templates",
+      "Writing Templates"
+    ],
+    modules: [
+      {
+        name: "Reading",
+        icon: <BookMarked size={20} />,
+        description: "3-4 passages, 10 questions each",
+        tips: ["Academic vocabulary", "Reading comprehension", "Inference skills"],
+        duration: "35 Minutes",
+        questions: "3-4 passages",
+        sections: "10 questions each"
+      },
+      {
+        name: "Listening",
+        icon: <FileAudio size={20} />,
+        description: "3-4 lectures, 2-3 conversations",
+        tips: ["Academic listening", "Lecture comprehension", "Note-taking"],
+        duration: "36 Minutes",
+        questions: "3-4 lectures",
+        sections: "2-3 conversations"
+      },
+      {
+        name: "Speaking",
+        icon: <Mic size={20} />,
+        description: "4 tasks, 4 minutes total",
+        tips: ["Integrated speaking", "Templates", "Time management"],
+        duration: "16 Minutes",
+        questions: "4 tasks",
+        sections: "1 independent, 3 integrated"
+      },
+      {
+        name: "Writing",
+        icon: <PenTool size={20} />,
+        description: "2 tasks, 50 minutes total",
+        tips: ["Academic writing", "Integrated writing", "Structured essays"],
+        duration: "29 Minutes",
+        questions: "2 tasks",
+        sections: "Integrated + Discussion"
+      }
+    ],
+    pricing: {
+      standard: "$5/month",
+      premium: "$50/month",
+      features: {
+        standard: ["10 Live Classes", "Practice Tests", "Study Materials"],
+        premium: ["20 Live Classes", "Unlimited Practice Tests", "1-on-1 Coaching", "Essay Corrections"]
+      }
     }
-  ];
-
-  const faqs = [
-    {
-      q: "What is the 'Writing for an Academic Discussion' task?",
-      a: "This is a new TOEFL task where you participate in an online classroom forum. You must read a professor's question and other students' responses, then contribute your own opinion within 10 minutes."
-    },
-    {
-      q: "Is the TOEFL test entirely on a computer?",
-      a: "Yes. Unlike IELTS, the TOEFL iBT is 100% computer-based, including the speaking section where you record your voice into a headset rather than talking to a human examiner."
-    },
-    {
-      q: "How is the TOEFL scored?",
-      a: "Each of the 4 sections is scored from 0–30, making the total score out of 120. Most top universities require a score between 80 and 100."
-    },
-    {
-      q: "Can I take notes during the test?",
-      a: "Yes! The testing center provides scratch paper and pencils. Note-taking is essential, especially for the Integrated Speaking and Writing tasks."
-    }
-  ];
+  };
 
   return (
-    <div className="min-h-screen mt-24 bg-slate-50 p-4 md:p-8">
-      {/* Navigation & Header */}
-      <div className="max-w-5xl mx-auto mb-8">
-        <button 
-          onClick={() => navigate(-1)} 
-          className="flex items-center gap-2 text-slate-500 hover:text-indigo-600 font-bold mb-6 transition-colors"
-        >
-          <ArrowLeft size={20} /> Back to Services
-        </button>
+    <div className="max-w-6xl mx-auto mt-24 p-4 md:p-8 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 min-h-screen">
+      
+      {/* Back Button */}
+      <button 
+        onClick={() => navigate(-1)} 
+        className="flex items-center gap-2 text-slate-500 hover:text-blue-600 font-bold mb-6 transition-colors"
+      >
+        <ArrowLeft size={20} /> Back to Services
+      </button>
 
-        <div className="bg-gradient-to-r from-blue-700 to-indigo-800 rounded-3xl p-8 md:p-12 text-white shadow-xl">
-          <h1 className="text-4xl font-black mb-4">TOEFL iBT Comprehensive Guide</h1>
-          <p className="text-blue-100 text-lg max-w-2xl">
-            The Test of English as a Foreign Language (TOEFL) is the premier English-language test for university study, work, and immigration in the USA and beyond.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-8">
-            <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm font-bold">Total Time: ~2 Hours</span>
-            <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm font-bold">Score Range: 0 - 120</span>
-            <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm font-bold">Delivery: Computer Based</span>
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 rounded-3xl p-8 md:p-12 mb-8 overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
+        
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex-1 text-white">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4">
+              <Sparkles size={16} />
+              <span className="text-sm font-semibold">Top Rated Course</span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold mb-3">{toeflData.title}</h1>
+            <p className="text-blue-100 text-lg mb-4">{toeflData.tagline}</p>
+            <p className="text-white/80 max-w-2xl">{toeflData.description}</p>
+          </div>
+          <div className="flex-shrink-0">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <div className="text-4xl font-bold text-white">120</div>
+              <div className="text-white/80 text-sm">Perfect Score</div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Modules Grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        {modules.map((m) => (
-          <div key={m.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 bg-slate-50 rounded-xl">{m.icon}</div>
-              <div>
-                <h3 className="text-xl font-black text-slate-900">{m.title}</h3>
-                <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">{m.time}</span>
-              </div>
-            </div>
-            <p className="text-slate-600 text-sm mb-4 leading-relaxed">{m.details}</p>
-            <div className="flex items-start gap-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
-              <Info size={16} className="text-blue-600 mt-0.5" />
-              <p className="text-xs font-medium text-blue-800"><strong>Key Focus:</strong> {m.focus}</p>
-            </div>
+      {/* Stats Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        {toeflData.stats.map((stat, index) => (
+          <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center hover:shadow-md transition-all">
+            <div className="text-3xl font-bold text-blue-600">{stat.value}</div>
+            <div className="text-sm text-slate-600">{stat.label}</div>
           </div>
         ))}
       </div>
 
-      {/* Concept Clarity / FAQ Section */}
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-8">
-          <HelpCircle size={40} className="mx-auto text-indigo-500 mb-2" />
-          <h2 className="text-2xl font-black text-slate-900">Concept Clarity</h2>
-          <p className="text-slate-500">Quick answers to clear your doubts about the TOEFL iBT.</p>
+      {/* Features Grid */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
+        <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <Award className="text-blue-600" size={24} />
+          What You'll Get
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {toeflData.features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 bg-blue-50 rounded-xl px-4 py-2.5">
+              <Check className="text-blue-600" size={16} />
+              <span className="text-sm text-slate-700">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modules Section */}
+      <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <GraduationCap className="text-blue-600" size={24} />
+        Module Breakdown
+      </h3>
+      
+      <div className="grid grid-cols-1 gap-4 mb-8">
+        {toeflData.modules.map((module) => (
+          <div key={module.name} className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden transition-all">
+            <div 
+              className="p-5 cursor-pointer flex items-center justify-between hover:bg-slate-50 transition-colors"
+              onClick={() => setActiveModule(activeModule === module.name ? null : module.name)}
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-50 rounded-xl text-blue-600">
+                  {module.icon}
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-slate-900">{module.name}</h4>
+                  <p className="text-sm text-slate-500">{module.description}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <div className="text-xs text-slate-500">Duration</div>
+                  <div className="text-sm font-semibold text-slate-700">{module.duration}</div>
+                </div>
+                {activeModule === module.name ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-blue-600" />}
+              </div>
+            </div>
+
+            {activeModule === module.name && (
+              <div className="p-5 bg-blue-50/30 border-t border-slate-100">
+                <h5 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+                  <HelpCircle size={16} className="text-blue-600" />
+                  Pro Tips for {module.name}
+                </h5>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {module.tips.map((tip, index) => (
+                    <div key={index} className="bg-white rounded-xl p-3 border border-slate-200">
+                      <div className="flex items-start gap-2">
+                        <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-xs font-bold text-blue-600">{index + 1}</span>
+                        </div>
+                        <p className="text-sm text-slate-700">{tip}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
+                  <span className="flex items-center gap-1">
+                    <Clock size={14} /> {module.duration}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FileText size={14} /> {module.questions}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <BookOpen size={14} /> {module.sections}
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Pricing Section */}
+      <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8">
+        <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Choose Your Plan</h3>
+        
+        <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex-1 bg-slate-50 rounded-xl p-4">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="pricing"
+                value="standard"
+                checked={selectedPricing === 'standard'}
+                onChange={() => setSelectedPricing('standard')}
+                className="w-4 h-4 text-blue-600"
+              />
+              <div>
+                <div className="font-bold text-slate-900">Standard Plan</div>
+                <div className="text-xl font-black text-blue-600">{toeflData.pricing.standard}</div>
+              </div>
+            </label>
+          </div>
+          <div className="flex-1 bg-blue-50 rounded-xl p-4 border-2 border-blue-200 relative">
+            <div className="absolute -top-3 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Most Popular
+            </div>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="pricing"
+                value="premium"
+                checked={selectedPricing === 'premium'}
+                onChange={() => setSelectedPricing('premium')}
+                className="w-4 h-4 text-blue-600"
+              />
+              <div>
+                <div className="font-bold text-slate-900">Premium Plan</div>
+                <div className="text-xl font-black text-blue-600">{toeflData.pricing.premium}</div>
+              </div>
+            </label>
+          </div>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-              <button 
-                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                className="w-full p-5 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
-              >
-                <span className="font-bold text-slate-800 pr-4">{faq.q}</span>
-                {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              {openFaq === index && (
-                <div className="p-5 bg-slate-50 border-t border-slate-100 text-slate-600 text-sm leading-relaxed animate-in slide-in-from-top-1">
-                  {faq.a}
-                </div>
-              )}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          {toeflData.pricing.features[selectedPricing].map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 bg-slate-50 rounded-xl px-3 py-2">
+              <CheckCircle2 className="text-emerald-500" size={16} />
+              <span className="text-sm text-slate-700">{feature}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center bg-indigo-900 p-8 rounded-3xl text-white">
-          <h3 className="text-xl font-bold mb-2">Ready to start your TOEFL journey?</h3>
-          <p className="text-indigo-200 mb-6 text-sm">Join EduAssists for high-quality mock tests and feedback.</p>
-          <button className="px-8 py-3 bg-white text-indigo-900 font-black rounded-xl hover:bg-blue-400 hover:text-white transition-all">
-            Book a Free Trial Class
-          </button>
-        </div>
+        <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all hover:scale-[1.02] active:scale-95">
+          <PlayCircle size={20} className="inline mr-2" />
+          Start Your TOEFL Journey Now
+        </button>
+      </div>
+
+      {/* CTA Footer */}
+      <div className="mt-8 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-center text-white">
+        <h4 className="text-xl font-bold mb-2">Ready to Ace the TOEFL?</h4>
+        <p className="text-blue-100 text-sm mb-4">Join 1,800+ students who achieved their dream scores</p>
+        <button className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-lg">
+          Book Free Consultation
+        </button>
       </div>
     </div>
   );

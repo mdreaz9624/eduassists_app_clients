@@ -1,148 +1,288 @@
-
-
 import React, { useState } from 'react';
-import { BookOpen, Headphones, PenTool, MessageSquare, HelpCircle, ChevronDown, ChevronUp, CheckCircle2 } from 'lucide-react';
+import { 
+  BookOpen, 
+  Headphones, 
+  PenTool, 
+  MessageSquare, 
+  HelpCircle, 
+  ChevronDown, 
+  ChevronUp, 
+  CheckCircle2,
+  Mic,
+  FileAudio,
+  BookMarked,
+  Award,
+  Users,
+  Clock,
+  Star,
+  Zap,
+  GraduationCap,
+  PlayCircle,
+  FileText,
+  Check,
+  X
+} from 'lucide-react';
 
 const IeltsCard = () => {
   const [activeModule, setActiveModule] = useState(null);
+  const [selectedPricing, setSelectedPricing] = useState('standard');
 
-  const modules = [
-    {
-      id: 'listening',
-      title: 'Listening',
-      icon: <Headphones className="text-blue-500" />,
-      duration: '30 Minutes',
-      description: '40 questions across 4 recordings of native speakers.',
-      questions: [
-        "How many sections are in the Listening test?",
-        "Do I get extra time to transfer answers to the sheet?",
-        "What happens if I misspell a word?"
-      ],
-      answers: [
-        "There are 4 sections (10 questions each).",
-        "Yes, in the Paper-based test, you get 10 minutes to transfer answers.",
-        "The answer will be marked as incorrect. Spelling matters!"
-      ]
-    },
-    {
-      id: 'reading',
-      title: 'Reading',
-      icon: <BookOpen className="text-emerald-500" />,
-      duration: '60 Minutes',
-      description: '3 long texts ranging from descriptive to analytical.',
-      questions: [
-        "Are the texts different for Academic and General Training?",
-        "Is there extra time for transferring answers?",
-        "Can I write 'T' instead of 'True'?"
-      ],
-      answers: [
-        "Yes, Academic texts are more scholarly; General texts focus on daily life/work.",
-        "No. You must write answers directly on the sheet within 60 minutes.",
-        "Yes, usually 'T' is accepted, but always check instructions."
-      ]
-    },
-    {
-      id: 'writing',
-      title: 'Writing',
-      icon: <PenTool className="text-amber-500" />,
-      duration: '60 Minutes',
-      description: 'Task 1 (Report/Letter) and Task 2 (Essay).',
-      questions: [
-        "What is the word count for Task 1 and Task 2?",
-        "Which task carries more weight for the band score?",
-        "Will I lose marks for bad handwriting?"
-      ],
-      answers: [
-        "Task 1: 150 words; Task 2: 250 words.",
-        "Task 2 carries twice as much weight as Task 1.",
-        "As long as it is legible, you won't lose marks, but clarity helps."
-      ]
-    },
-    {
-      id: 'speaking',
-      title: 'Speaking',
-      icon: <MessageSquare className="text-rose-500" />,
-      duration: '11–14 Minutes',
-      description: 'A face-to-face interview in 3 parts.',
-      questions: [
-        "What are the three parts of the speaking test?",
-        "What should I do if I don't understand the question?",
-        "Does my accent affect my score?"
-      ],
-      answers: [
-        "Part 1: Introduction; Part 2: Cue Card; Part 3: Discussion.",
-        "You can politely ask the examiner to repeat or clarify once.",
-        "No. Pronunciation matters, but a native-like accent is not required."
-      ]
+  // IELTS Data from your serviceData
+  const ieltsData = {
+    title: "IELTS Preparation",
+    tagline: "Master the 4 modules with expert guidance",
+    description: "Comprehensive IELTS training program designed to help you achieve your target band score. Our expert instructors provide personalized coaching for all four modules: Listening, Reading, Writing, and Speaking.",
+    icon: <BookOpen className="text-indigo-600" size={28} />,
+    category: "language",
+    path: "/ieltsCard",
+    buttonText: "View IELTS Course",
+    color: "from-indigo-500 to-blue-600",
+    bgColor: "bg-indigo-50",
+    badge: "Most Popular",
+    stats: [
+      { label: "Success Rate", value: "92%" },
+      { label: "Practice Tests", value: "50+" },
+      { label: "Students Trained", value: "2,500+" }
+    ],
+    features: [
+      "Expert-Led Live Classes",
+      "Full-Length Mock Tests",
+      "Personalized Feedback",
+      "Study Materials & Resources",
+      "Speaking Practice Sessions",
+      "Writing Task Evaluation"
+    ],
+    modules: [
+      {
+        name: "Listening",
+        icon: <FileAudio size={20} />,
+        description: "Master 4 sections with 40 questions",
+        tips: ["Practice with different accents", "Learn note-taking techniques", "Understand question types"],
+        duration: "30 Minutes",
+        questions: 40,
+        sections: 4
+      },
+      {
+        name: "Reading",
+        icon: <BookMarked size={20} />,
+        description: "3 sections, 40 questions, 60 minutes",
+        tips: ["Skim & scan techniques", "Time management", "Understand passage structures"],
+        duration: "60 Minutes",
+        questions: 40,
+        sections: 3
+      },
+      {
+        name: "Writing",
+        icon: <PenTool size={20} />,
+        description: "Task 1 & Task 2 academic writing",
+        tips: ["Essay structure", "Vocabulary building", "Grammar accuracy"],
+        duration: "60 Minutes",
+        questions: 2,
+        sections: 2
+      },
+      {
+        name: "Speaking",
+        icon: <Mic size={20} />,
+        description: "11-14 minute face-to-face interview",
+        tips: ["Fluency practice", "Pronunciation", "Confidence building"],
+        duration: "11-14 Minutes",
+        questions: 3,
+        sections: 3
+      }
+    ],
+    pricing: {
+      standard: "$5/month",
+      premium: "$50/month",
+      features: {
+        standard: ["12 Live Classes", "Practice Tests", "Study Materials"],
+        premium: ["24 Live Classes", "Unlimited Practice Tests", "1-on-1 Coaching", "Priority Support"]
+      }
     }
-  ];
+  };
 
   return (
-    <div className="max-w-4xl mx-auto mt-24 p-4 md:p-8 bg-slate-50 min-h-screen">
-      {/* Header & Basic Instructions */}
-      <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 mb-8">
-        <h2 className="text-3xl font-black text-slate-900 mb-4 flex items-center gap-3">
-          <CheckCircle2 className="text-indigo-600" size={32} />
-          IELTS Master Guide
-        </h2>
-        <p className="text-slate-600 leading-relaxed mb-6">
-          The International English Language Testing System (IELTS) measures your ability to communicate in English for work, study, or migration. Total test time is <strong>2 hours and 45 minutes</strong>.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-            <p className="text-xs font-bold text-indigo-600 uppercase">Total Score</p>
-            <p className="text-xl font-black text-slate-800">Band 1.0 - 9.0</p>
+    <div className="max-w-6xl mx-auto mt-24 p-4 md:p-8 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 min-h-screen">
+      
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 rounded-3xl p-8 md:p-12 mb-8 overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
+        
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex-1 text-white">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4">
+              <Zap size={16} />
+              <span className="text-sm font-semibold">Most Popular Course</span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold mb-3">{ieltsData.title}</h1>
+            <p className="text-indigo-100 text-lg mb-4">{ieltsData.tagline}</p>
+            <p className="text-white/80 max-w-2xl">{ieltsData.description}</p>
           </div>
-          <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-            <p className="text-xs font-bold text-indigo-600 uppercase">Validity</p>
-            <p className="text-xl font-black text-slate-800">2 Years</p>
-          </div>
-          <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-            <p className="text-xs font-bold text-indigo-600 uppercase">Attempts</p>
-            <p className="text-xl font-black text-slate-800">Unlimited</p>
+          <div className="flex-shrink-0">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <div className="text-4xl font-bold text-white">Band 9.0</div>
+              <div className="text-white/80 text-sm">Target Score</div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Modules Grid */}
-      <div className="grid grid-cols-1 gap-6">
-        {modules.map((module) => (
-          <div key={module.id} className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden transition-all">
+      {/* Stats Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        {ieltsData.stats.map((stat, index) => (
+          <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center hover:shadow-md transition-all">
+            <div className="text-3xl font-bold text-indigo-600">{stat.value}</div>
+            <div className="text-sm text-slate-600">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Features Grid */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
+        <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <Award className="text-indigo-600" size={24} />
+          What You'll Get
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {ieltsData.features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 bg-indigo-50 rounded-xl px-4 py-2.5">
+              <Check className="text-indigo-600" size={16} />
+              <span className="text-sm text-slate-700">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modules Section */}
+      <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <GraduationCap className="text-indigo-600" size={24} />
+        Module Breakdown
+      </h3>
+      
+      <div className="grid grid-cols-1 gap-4 mb-8">
+        {ieltsData.modules.map((module) => (
+          <div key={module.name} className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden transition-all">
             <div 
-              className="p-6 cursor-pointer flex items-center justify-between hover:bg-slate-50"
-              onClick={() => setActiveModule(activeModule === module.id ? null : module.id)}
+              className="p-5 cursor-pointer flex items-center justify-between hover:bg-slate-50 transition-colors"
+              onClick={() => setActiveModule(activeModule === module.name ? null : module.name)}
             >
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-slate-100 rounded-xl">
+                <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
                   {module.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-black text-slate-900">{module.title}</h3>
-                  <p className="text-sm font-medium text-slate-400">{module.duration}</p>
+                  <h4 className="text-lg font-bold text-slate-900">{module.name}</h4>
+                  <p className="text-sm text-slate-500">{module.description}</p>
                 </div>
               </div>
-              {activeModule === module.id ? <ChevronUp /> : <ChevronDown />}
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <div className="text-xs text-slate-500">Duration</div>
+                  <div className="text-sm font-semibold text-slate-700">{module.duration}</div>
+                </div>
+                {activeModule === module.name ? <ChevronUp className="text-indigo-600" /> : <ChevronDown className="text-indigo-600" />}
+              </div>
             </div>
 
-            {/* Expanded FAQ/Questions Section */}
-            {activeModule === module.id && (
-              <div className="p-6 bg-slate-50 border-t border-slate-100 animate-in slide-in-from-top-2 duration-300">
-                <p className="text-slate-700 mb-6 font-medium italic">"{module.description}"</p>
-                <h4 className="text-sm font-bold text-slate-900 uppercase mb-4 flex items-center gap-2">
-                  <HelpCircle size={16} className="text-indigo-600" /> Common Module Questions
-                </h4>
-                <div className="space-y-4">
-                  {module.questions.map((q, index) => (
-                    <div key={index} className="bg-white p-4 rounded-xl border border-slate-200">
-                      <p className="font-bold text-slate-800 text-sm mb-1">Q: {q}</p>
-                      <p className="text-slate-600 text-sm">A: {module.answers[index]}</p>
+            {activeModule === module.name && (
+              <div className="p-5 bg-indigo-50/30 border-t border-slate-100">
+                <h5 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+                  <HelpCircle size={16} className="text-indigo-600" />
+                  Pro Tips for {module.name}
+                </h5>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {module.tips.map((tip, index) => (
+                    <div key={index} className="bg-white rounded-xl p-3 border border-slate-200">
+                      <div className="flex items-start gap-2">
+                        <div className="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-xs font-bold text-indigo-600">{index + 1}</span>
+                        </div>
+                        <p className="text-sm text-slate-700">{tip}</p>
+                      </div>
                     </div>
                   ))}
+                </div>
+                <div className="mt-3 flex gap-4 text-sm text-slate-600">
+                  <span className="flex items-center gap-1">
+                    <Clock size={14} /> {module.duration}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FileText size={14} /> {module.questions} Questions
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <BookOpen size={14} /> {module.sections} Sections
+                  </span>
                 </div>
               </div>
             )}
           </div>
         ))}
+      </div>
+
+      {/* Pricing Section */}
+      <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8">
+        <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Choose Your Plan</h3>
+        
+        <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex-1 bg-slate-50 rounded-xl p-4">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="pricing"
+                value="standard"
+                checked={selectedPricing === 'standard'}
+                onChange={() => setSelectedPricing('standard')}
+                className="w-4 h-4 text-indigo-600"
+              />
+              <div>
+                <div className="font-bold text-slate-900">Standard Plan</div>
+                <div className="text-xl font-black text-indigo-600">{ieltsData.pricing.standard}</div>
+              </div>
+            </label>
+          </div>
+          <div className="flex-1 bg-indigo-50 rounded-xl p-4 border-2 border-indigo-200 relative">
+            <div className="absolute -top-3 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Most Popular
+            </div>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="pricing"
+                value="premium"
+                checked={selectedPricing === 'premium'}
+                onChange={() => setSelectedPricing('premium')}
+                className="w-4 h-4 text-indigo-600"
+              />
+              <div>
+                <div className="font-bold text-slate-900">Premium Plan</div>
+                <div className="text-xl font-black text-indigo-600">{ieltsData.pricing.premium}</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          {ieltsData.pricing.features[selectedPricing].map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 bg-slate-50 rounded-xl px-3 py-2">
+              <CheckCircle2 className="text-emerald-500" size={16} />
+              <span className="text-sm text-slate-700">{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        <button className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all hover:scale-[1.02] active:scale-95">
+          <PlayCircle size={20} className="inline mr-2" />
+          Start Your IELTS Journey Now
+        </button>
+      </div>
+
+      {/* CTA Footer */}
+      <div className="mt-8 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-6 text-center text-white">
+        <h4 className="text-xl font-bold mb-2">Ready to Achieve Your Dream Score?</h4>
+        <p className="text-indigo-100 text-sm mb-4">Join 2,500+ students who achieved their target band score</p>
+        <button className="bg-white text-indigo-600 px-8 py-3 rounded-xl font-bold hover:bg-indigo-50 transition-all shadow-lg">
+          Book Free Consultation
+        </button>
       </div>
     </div>
   );
