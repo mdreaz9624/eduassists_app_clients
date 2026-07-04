@@ -1,10 +1,17 @@
 
 
-//another version of ad popup
-
 
 import { useState, useEffect } from "react";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaClock, FaGift, FaWindowRestore } from "react-icons/fa";
+import {
+    FaTimes,
+    FaChevronLeft,
+    FaChevronRight,
+    FaClock,
+    FaGift,
+    FaWindowRestore,
+    FaPlay,
+    FaYoutube
+} from "react-icons/fa";
 
 const AdPopup = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +23,13 @@ const AdPopup = () => {
     const [ads, setAds] = useState([]);
     const [loading, setLoading] = useState(true);
     const [settings, setSettings] = useState({});
+    const [showVideo, setShowVideo] = useState(false);
+    const [currentVideo, setCurrentVideo] = useState(null);
 
     // Fetch ads data from JSON
     useEffect(() => {
         const fetchAds = async () => {
             try {
-                // Option 1: Fetch from public folder
                 const response = await fetch('/adsData.json');
                 const data = await response.json();
                 setAds(data.ads);
@@ -29,7 +37,6 @@ const AdPopup = () => {
                 setCountdown(data.settings?.autoCloseDelay || 5);
             } catch (error) {
                 console.error("Error loading ads:", error);
-                // Fallback data if JSON fetch fails
                 setAds([
                     {
                         id: 1,
@@ -73,18 +80,18 @@ const AdPopup = () => {
 
     // Auto-rotate slides
     useEffect(() => {
-        if (!isOpen || isHovered || ads.length === 0) return;
+        if (!isOpen || isHovered || ads.length === 0 || showVideo) return;
 
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % ads.length);
         }, ads[currentSlide]?.duration || 5000);
 
         return () => clearInterval(interval);
-    }, [isOpen, isHovered, currentSlide, ads]);
+    }, [isOpen, isHovered, currentSlide, ads, showVideo]);
 
     // Countdown timer
     useEffect(() => {
-        if (!showCountdown || !isOpen) return;
+        if (!showCountdown || !isOpen || showVideo) return;
 
         const timer = setInterval(() => {
             setCountdown((prev) => {
@@ -98,10 +105,11 @@ const AdPopup = () => {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [showCountdown, isOpen]);
+    }, [showCountdown, isOpen, showVideo]);
 
     const handleClose = () => {
         setIsOpen(false);
+        setShowVideo(false);
         sessionStorage.setItem("hasSeenAdPopup", "true");
         sessionStorage.removeItem("hasMinimizedPopup");
     };
@@ -109,6 +117,7 @@ const AdPopup = () => {
     const handleMinimize = () => {
         setIsOpen(false);
         setIsMinimized(true);
+        setShowVideo(false);
         sessionStorage.setItem("hasMinimizedPopup", "true");
     };
 
@@ -119,15 +128,45 @@ const AdPopup = () => {
     };
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % ads.length);
+        if (!showVideo) {
+            setCurrentSlide((prev) => (prev + 1) % ads.length);
+        }
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + ads.length) % ads.length);
+        if (!showVideo) {
+            setCurrentSlide((prev) => (prev - 1 + ads.length) % ads.length);
+        }
     };
 
     const goToSlide = (index) => {
-        setCurrentSlide(index);
+        if (!showVideo) {
+            setCurrentSlide(index);
+        }
+    };
+
+    const handleWatchStory = (ad) => {
+        if (ad.videoUrl) {
+            setCurrentVideo(ad);
+            setShowVideo(true);
+        }
+    };
+
+    const handleCloseVideo = () => {
+        setShowVideo(false);
+        setCurrentVideo(null);
+    };
+
+    // Extract YouTube Video ID
+    const getYouTubeEmbedUrl = (url) => {
+        if (!url) return null;
+        // Handle different YouTube URL formats
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        if (match && match[2].length === 11) {
+            return `https://www.youtube.com/embed/${match[2]}?autoplay=1&rel=0`;
+        }
+        return url; // Return as is if not a standard YouTube URL
     };
 
     if (loading) {
@@ -195,7 +234,7 @@ const AdPopup = () => {
                 </div>
 
                 {/* Countdown Timer */}
-                {showCountdown && (
+                {showCountdown && !showVideo && (
                     <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2 text-white text-sm">
                         <FaClock className="animate-pulse" />
                         <span>Auto-closes in {countdown}s</span>
@@ -205,90 +244,145 @@ const AdPopup = () => {
                 {/* Main Card */}
                 <div className="card bg-base-100 shadow-2xl overflow-hidden">
                     <div className="relative">
-                        {/* Carousel */}
-                        <div className="relative">
-                            {/* Badge */}
-                            <div className="absolute top-4 left-4 z-10">
-                                <div className={`badge badge-lg gap-2 bg-gradient-to-r ${ads[currentSlide]?.color || 'from-primary to-secondary'} text-white border-0 shadow-lg animate-pulse`}>
-                                    🔥 {ads[currentSlide]?.badge}
-                                </div>
-                            </div>
-
-                            {/* Image */}
-                            <div className="relative h-64 md:h-96 overflow-hidden">
-                                <img
-                                    src={ads[currentSlide]?.image}
-                                    alt={ads[currentSlide]?.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                            </div>
-
-                            {/* Content */}
-                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 text-white">
-                                <h2 className="text-2xl md:text-4xl font-bold mb-2">
-                                    {ads[currentSlide]?.title}
-                                </h2>
-                                <p className="text-sm md:text-base mb-2 opacity-95">
-                                    {ads[currentSlide]?.description}
-                                </p>
-                                <div className="badge badge-lg bg-yellow-500 text-black border-0 mb-3 shadow-lg">
-                                    💰 {ads[currentSlide]?.discount}
-                                </div>
-                                <div className="flex flex-wrap gap-3">
-                                    <a
-                                        href={ads[currentSlide]?.link}
-                                        className="btn btn-primary gap-2 shadow-lg hover:scale-105 transition-transform"
-                                        onClick={handleClose}
-                                    >
-                                        {ads[currentSlide]?.cta}
-                                    </a>
+                        {showVideo && currentVideo ? (
+                            // Video Player View
+                            <div className="relative">
+                                <div className="relative h-64 md:h-[500px] bg-black">
+                                    <iframe
+                                        src={getYouTubeEmbedUrl(currentVideo.videoUrl)}
+                                        title={currentVideo.title}
+                                        className="w-full h-full"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                    <div className="absolute top-4 left-4 z-10">
+                                        <div className={`badge badge-lg gap-2 bg-gradient-to-r ${currentVideo.color || 'from-primary to-secondary'} text-white border-0 shadow-lg`}>
+                                            🎬 Now Playing
+                                        </div>
+                                    </div>
                                     <button
-                                        onClick={handleMinimize}
-                                        className="btn btn-ghost text-white border-white/30 hover:bg-white/20"
+                                        onClick={handleCloseVideo}
+                                        className="absolute top-4 right-4 z-10 btn btn-circle btn-ghost text-white bg-black/50 hover:bg-black/70 transition-all"
                                     >
-                                        Remind Me Later
+                                        <FaTimes className="text-xl" />
                                     </button>
                                 </div>
+                                <div className="p-4 md:p-6 bg-white">
+                                    <h3 className="text-xl font-bold text-slate-900">{currentVideo.title}</h3>
+                                    <p className="text-slate-600 mt-1">{currentVideo.description}</p>
+                                    {currentVideo.link && (
+                                        <a
+                                            href={currentVideo.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 mt-3 text-indigo-600  hover:text-indigo-800 rounded-full transition-colors"
+                                        >
+                                            Watch Full Story <FaChevronRight size={14} />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
+                        ) : (
+                            // Carousel View
+                            <>
+                                {/* Badge */}
+                                <div className="absolute top-4 left-4 z-10">
+                                    <div className={`badge badge-lg gap-2 bg-gradient-to-r ${ads[currentSlide]?.color || 'from-primary to-secondary'} text-white border-0 shadow-lg animate-pulse`}>
+                                        🔥 {ads[currentSlide]?.badge}
+                                    </div>
+                                </div>
 
-                            {/* Navigation Arrows */}
-                            {ads.length > 1 && (
-                                <>
-                                    <button
-                                        onClick={prevSlide}
-                                        className="absolute left-2 top-1/2 -translate-y-1/2 btn btn-circle btn-ghost text-white bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110"
-                                        aria-label="Previous"
-                                    >
-                                        <FaChevronLeft />
-                                    </button>
-                                    <button
-                                        onClick={nextSlide}
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 btn btn-circle btn-ghost text-white bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110"
-                                        aria-label="Next"
-                                    >
-                                        <FaChevronRight />
-                                    </button>
-                                </>
-                            )}
+                                {/* Image */}
+                                <div className="relative h-64 md:h-96 overflow-hidden">
+                                    <img
+                                        src={ads[currentSlide]?.image}
+                                        alt={ads[currentSlide]?.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                                </div>
 
-                            {/* Dots Indicator */}
-                            {ads.length > 1 && (
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                                    {ads.map((_, index) => (
+                                {/* Content */}
+                                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 text-white">
+                                    <h2 className="text-2xl md:text-4xl font-bold mb-2">
+                                        {ads[currentSlide]?.title}
+                                    </h2>
+                                    <p className="text-sm md:text-base mb-2 opacity-95">
+                                        {ads[currentSlide]?.description}
+                                    </p>
+                                    {ads[currentSlide]?.discount && (
+                                        <div className="badge badge-lg bg-yellow-500 text-black border-0 mb-3 shadow-lg">
+                                            💰 {ads[currentSlide]?.discount}
+                                        </div>
+                                    )}
+                                    <div className="flex flex-wrap items-center gap-3 mt-2">
+                                        {ads[currentSlide]?.link && (
+                                            <a
+                                                href={ads[currentSlide]?.link}
+                                                className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-sm rounded-lg shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group"
+                                                onClick={handleClose}
+                                            >
+                                                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                                                {ads[currentSlide]?.cta || 'Learn More'}
+                                            </a>
+                                        )}
+                                        {ads[currentSlide]?.videoUrl && (
+                                            <button
+                                                onClick={() => handleWatchStory(ads[currentSlide])}
+                                                className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold text-sm rounded-lg shadow-lg hover:shadow-red-500/25 transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group"
+                                            >
+                                                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                                                <FaYoutube className="text-lg" />
+                                                <span>Watch Story</span>
+                                            </button>
+                                        )}
                                         <button
-                                            key={index}
-                                            onClick={() => goToSlide(index)}
-                                            className={`transition-all duration-300 ${index === currentSlide
-                                                ? "w-8 h-2 bg-white rounded-full"
-                                                : "w-2 h-2 bg-white/50 rounded-full hover:bg-white/80"
-                                                }`}
-                                            aria-label={`Go to slide ${index + 1}`}
-                                        />
-                                    ))}
+                                            onClick={handleMinimize}
+                                            className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold text-sm rounded-lg border border-white/30 hover:border-white/50 transition-all duration-300 hover:scale-105 active:scale-95"
+                                        >
+                                            Remind Me Later
+                                        </button>
+                                    </div>
                                 </div>
-                            )}
-                        </div>
+
+                                {/* Navigation Arrows */}
+                                {ads.length > 1 && (
+                                    <>
+                                        <button
+                                            onClick={prevSlide}
+                                            className="absolute left-2 top-1/2 -translate-y-1/2 btn btn-circle btn-ghost text-white bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110"
+                                            aria-label="Previous"
+                                        >
+                                            <FaChevronLeft />
+                                        </button>
+                                        <button
+                                            onClick={nextSlide}
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 btn btn-circle btn-ghost text-white bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110"
+                                            aria-label="Next"
+                                        >
+                                            <FaChevronRight />
+                                        </button>
+                                    </>
+                                )}
+
+                                {/* Dots Indicator */}
+                                {ads.length > 1 && (
+                                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                                        {ads.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => goToSlide(index)}
+                                                className={`transition-all duration-300 ${index === currentSlide
+                                                    ? "w-8 h-2 bg-white rounded-full"
+                                                    : "w-2 h-2 bg-white/50 rounded-full hover:bg-white/80"
+                                                    }`}
+                                                aria-label={`Go to slide ${index + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
@@ -297,4 +391,3 @@ const AdPopup = () => {
 };
 
 export default AdPopup;
-

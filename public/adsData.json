@@ -10,7 +10,9 @@
       "link": "/scholarship",
       "color": "from-blue-500 to-purple-600",
       "badge": "Limited Offer",
-      "duration": 5000
+      "duration": 5000,
+      "videoUrl": "https://www.youtube.com/watch?v=-nMjIashICs",
+      "watchStoryLink": "/watch-story"
     },
     {
       "id": 2,
@@ -22,7 +24,9 @@
       "link": "/eligibility",
       "color": "from-red-500 to-pink-600",
       "badge": "Popular",
-      "duration": 5000
+      "duration": 5000,
+      "videoUrl": "https://www.youtube.com/watch?v=-nMjIashICs",
+      "watchStoryLink": "/watch-story"
     },
     {
       "id": 3,
@@ -46,7 +50,9 @@
       "link": "/scholarship",
       "color": "from-yellow-500 to-orange-600",
       "badge": "Hot Deal",
-      "duration": 5000
+      "duration": 5000,
+      "videoUrl": "https://www.youtube.com/watch?v=KhfYmadWBTs",
+      "watchStoryLink": "/watch-story"
     },
     {
       "id": 5,
@@ -58,7 +64,9 @@
       "link": "/eligibility",
       "color": "from-purple-500 to-pink-600",
       "badge": "Exclusive",
-      "duration": 5000
+      "duration": 5000,
+      "videoUrl": "https://www.youtube.com/watch?v=KhfYmadWBTs",
+      "watchStoryLink": "/watch-story"
     }
   ],
   "settings": {
