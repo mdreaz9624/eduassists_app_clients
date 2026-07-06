@@ -1,18 +1,18 @@
-import amazon from "../../../assets/amazon.jpeg";
-import bkash from "../../../assets/bkash.jpg";
-import daraz from "../../../assets/daraz.png";
-import foodpanda from "../../../assets/foodpanda.png";
-import pathao from "../../../assets/DroptifyLogo_final.JPG";
-import eduassists from "../../../assets/eduassists.png";
+import connected from "../../../assets/connectedHE.PNG";
+import Kangaroo from "../../../assets/KangarooGlobal.PNG";
+import kcoverses from "../../../assets/KCOverses.PNG";
+import tensai from "../../../assets/tensaiStudy.PNG";
+import doftify from "../../../assets/DroptifyLogo_final.JPG";
+import eduexpress from "../../../assets/eduExpress.PNG";
 
 const SupportedCompanies = () => {
   const companies = [
-    { name: "Amazon", logo: amazon },
-    { name: "Bkash", logo: bkash },
-    { name: "Daraz", logo: daraz },
-    { name: "Foodpanda", logo: foodpanda },
-    { name: "Pathao", logo: pathao },
-    { name: "EduAssists", logo: eduassists },
+    { name: "ConnectedHE", logo: connected },
+    { name: "KangarooGlobal", logo: Kangaroo },
+    { name: "KCOverses", logo: kcoverses },
+    { name: "TensaiStudyAbroad", logo: tensai },
+    { name: "Droptify", logo: doftify },
+    { name: "EduExpress", logo: eduexpress }
   ];
 
   return (
