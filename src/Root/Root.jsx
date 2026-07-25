@@ -36,6 +36,8 @@ import AddUniversity from "../Admin/ManageUniversities/AddUniversity";
 import ScholarshipDetails from "../Pages/Scholarship/ScholarshipDetails/ScholarshipDetails";
 import TeamDetails from "../Pages/Contract/TeamDetails";
 import CareerCounsellingCard from "../Pages/Service/CareerCounsellingCard/CareerCounsellingCard";
+import CountryDocuments from "../Pages/CountryDocuments/CountryDocuments";
+import CountryDetails from "../Pages/CountryDocuments/CountryDetails";
 
 
 
@@ -119,6 +121,14 @@ export const router = createBrowserRouter([
       {
         path: "/watch-story",
         element: <WatchStory></WatchStory>
+      },
+      {
+        path: "/country-documents",
+        element: <CountryDocuments></CountryDocuments>
+      },
+      {
+        path: "/country-documents/:id",
+        element: <CountryDetails></CountryDetails>
       }
 
     ]

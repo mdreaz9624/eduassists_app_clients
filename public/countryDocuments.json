@@ -1,0 +1,571 @@
+[
+  {
+    "id": "uk",
+    "name": "United Kingdom",
+    "flag": "🇬🇧",
+    "flagCode": "gb",
+    "description": "UK Student Visa & Admission Guide",
+    "sortOrder": 1,
+    "meta": {
+      "currency": "GBP",
+      "currencySymbol": "£",
+      "language": "English",
+      "intakes": ["September", "January", "May"],
+      "popularCities": ["London", "Manchester", "Birmingham", "Glasgow", "Bristol"],
+      "educationSystem": "UK Education System",
+      "website": "https://www.gov.uk/student-visa"
+    },
+    "quickFacts": [
+      { "label": "Universities", "value": "150+", "icon": "🏛️" },
+      { "label": "PSW Duration", "value": "2 Years", "icon": "⏰" },
+      { "label": "Work Permit", "value": "20 hrs/week", "icon": "💼" },
+      { "label": "Min Wage", "value": "£10.42-£11.44/hr", "icon": "💰" }
+    ],
+    "scholarships": {
+      "available": true,
+      "maxAmount": "£5,000",
+      "types": ["Merit-based", "Need-based", "University-specific"],
+      "notes": "Generous scholarships up to £5,000 available.",
+      "details": [
+        { "name": "Vice-Chancellor's Scholarship", "amount": "£5,000", "eligibility": "Academic excellence" },
+        { "name": "International Excellence Award", "amount": "£3,000", "eligibility": "High academic achievement" },
+        { "name": "Departmental Scholarship", "amount": "£2,000", "eligibility": "Subject-specific merit" }
+      ]
+    },
+    "admissionRequirements": {
+      "bachelor": {
+        "ielts": "6.0 (min 5.5 in each)",
+        "alternative": ["PTE", "TOEFL", "OIETC"],
+        "academicRequirements": "SSC & HSC with good grades",
+        "documents": [
+          { "name": "SSC Certificate & Marksheet", "required": true, "notes": "Full set with transcripts" },
+          { "name": "HSC Certificate & Marksheet", "required": true, "notes": "Full set with transcripts" },
+          { "name": "Passport", "required": true, "notes": "Valid for at least 6 months" },
+          { "name": "NID", "required": true, "notes": "Both sides, translated if needed" },
+          { "name": "Birth Certificate", "required": true, "notes": "For age verification" },
+          { "name": "Recent Photographs", "required": true, "notes": "45mm x 35mm, white background" }
+        ]
+      },
+      "master": {
+        "ielts": "6.0-6.5 (min 5.5 in each)",
+        "alternative": ["PTE", "TOEFL", "OIETC"],
+        "academicRequirements": "Bachelor's degree with minimum 60%+",
+        "documents": [
+          { "name": "Bachelor's Degree & Transcripts", "required": true, "notes": "All semesters transcripts" },
+          { "name": "HSC Certificate & Marksheet", "required": true, "notes": "Full set with transcripts" },
+          { "name": "SSC Certificate & Marksheet", "required": true, "notes": "Full set with transcripts" },
+          { "name": "Passport", "required": true, "notes": "Valid for at least 6 months" },
+          { "name": "NID", "required": true, "notes": "Both sides, translated if needed" }
+        ]
+      }
+    },
+    "documentChecklist": {
+      "categories": [
+        {
+          "name": "Personal Documents",
+          "icon": "👤",
+          "items": [
+            { "name": "Passport", "requirement": "Valid for at least 6 months beyond course end date", "priority": "high" },
+            { "name": "National ID Card (NID)", "requirement": "Both sides, translated if not in English", "priority": "high" },
+            { "name": "Birth Certificate", "requirement": "If available (for age verification)", "priority": "medium" },
+            { "name": "Recent Photographs", "requirement": "Passport size (45mm x 35mm, white background)", "priority": "high" }
+          ]
+        },
+        {
+          "name": "Academic Documents",
+          "icon": "📚",
+          "items": [
+            { "name": "SSC Certificate & Marksheet", "requirement": "Full set with transcripts", "priority": "high" },
+            { "name": "HSC Certificate & Marksheet", "requirement": "Full set with transcripts", "priority": "high" },
+            { "name": "Bachelor's Degree & Transcripts", "requirement": "All years/semesters transcripts", "priority": "high" },
+            { "name": "Master's Degree & Transcripts", "requirement": "If applicable for PhD/second Master's", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "Work Experience Documents",
+          "icon": "💼",
+          "items": [
+            { "name": "Experience Certificate", "requirement": "On company letterhead with dates, designation, responsibilities", "priority": "medium" },
+            { "name": "NOC (No Objection Certificate)", "requirement": "If currently employed", "priority": "medium" },
+            { "name": "Salary Statement / Bank Statements", "requirement": "Last 6-12 months salary proof", "priority": "medium" },
+            { "name": "Appointment Letter", "requirement": "Initial job offer letter", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "English Proficiency",
+          "icon": "🌐",
+          "items": [
+            { "name": "IELTS / TOEFL / PTE / OIETC Certificate", "requirement": "Valid (usually 2 years from test date)", "priority": "high" },
+            { "name": "Medium of Instruction Certificate", "requirement": "If applicable and accepted by university", "priority": "low" }
+          ]
+        },
+        {
+          "name": "Statement & References",
+          "icon": "📝",
+          "items": [
+            { "name": "SOP (Statement of Purpose)", "requirement": "Detailed essay (800-1000 words)", "priority": "high" },
+            { "name": "Updated CV/Resume", "requirement": "Detailed timeline of education, work experience", "priority": "high" },
+            { "name": "Recommendation Letter - 1", "requirement": "Minimum 1 from University (Professor/Academic Supervisor)", "priority": "high" },
+            { "name": "Recommendation Letter - 2", "requirement": "From another university professor OR Employer/Company", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "Gap Supporting Documents",
+          "icon": "⏳",
+          "items": [
+            { "name": "Gap Explanation Letter", "requirement": "Detailed explanation for any gaps in education/employment", "priority": "medium" },
+            { "name": "Supporting Proof", "requirement": "Training certificates, job letters, preparation courses", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "Financial Documents",
+          "icon": "💰",
+          "items": [
+            { "name": "Bank Statement / Solvency Certificate", "requirement": "28-30 days continuous balance", "priority": "high" },
+            { "name": "Sponsor's NID", "requirement": "If sponsored by parents/relatives", "priority": "high" },
+            { "name": "Sponsor's Income Proof", "requirement": "Salary slips, tax returns, business documents", "priority": "high" },
+            { "name": "Affidavit of Support", "requirement": "Legal declaration from sponsor", "priority": "high" },
+            { "name": "Loan Approval Letter", "requirement": "If education loan is arranged", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "University & CAS Documents",
+          "icon": "🎓",
+          "items": [
+            { "name": "Unconditional Offer Letter", "requirement": "From UK university", "priority": "high" },
+            { "name": "CAS (Confirmation of Acceptance for Studies)", "requirement": "Issued by university after fee payment", "priority": "high" },
+            { "name": "Tuition Fee Receipt", "requirement": "Proof of tuition fee payment", "priority": "high" },
+            { "name": "Accommodation Proof", "requirement": "University accommodation offer or rental agreement", "priority": "medium" }
+          ]
+        },
+        {
+          "name": "Visa Application Documents",
+          "icon": "🛂",
+          "items": [
+            { "name": "Visa Application Form", "requirement": "Online filled (UKVI website)", "priority": "high" },
+            { "name": "IHS (Immigration Health Surcharge)", "requirement": "Payment Receipt - Mandatory", "priority": "high" },
+            { "name": "Visa Fee Payment Receipt", "requirement": "Proof of visa fee payment", "priority": "high" },
+            { "name": "TB Test Certificate", "requirement": "From UKVI-approved clinic in Bangladesh", "priority": "high" },
+            { "name": "Biometric Appointment", "requirement": "Confirmation after VFS appointment booking", "priority": "high" }
+          ]
+        }
+      ]
+    },
+    "costBreakdown": {
+      "currency": "BDT",
+      "exchangeRate": "1 GBP = 160 BDT",
+      "items": [
+        { "category": "Agency Fee", "amount": "20,000", "notes": "Initial file opening", "required": true, "timing": "Before Application" },
+        { "category": "University Application", "amount": "Free", "notes": "Through partner universities", "required": false, "timing": "Application Stage" },
+        { "category": "UK Student Visa Fee", "amount": "88,000", "notes": "£524 per person", "required": true, "timing": "Visa Stage" },
+        { "category": "IHS Fee (1 Year Master's)", "amount": "195,000", "notes": "£1,164", "required": true, "timing": "Visa Stage" },
+        { "category": "IHS Fee (2 Year Master's)", "amount": "320,000", "notes": "£1,920", "required": true, "timing": "Visa Stage" },
+        { "category": "IHS Fee (3 Year Bachelor)", "amount": "434,560", "notes": "£2,716", "required": true, "timing": "Visa Stage" },
+        { "category": "Medical Test (TB)", "amount": "5,500", "notes": "From Authorised Medical Centre", "required": true, "timing": "Pre-Visa" },
+        { "category": "Tuition Fees (50-60% of yearly)", "amount": "900,000 - 1,200,000", "notes": "£5,500-£8,500", "required": true, "timing": "CAS Stage" },
+        { "category": "Flight Tickets", "amount": "50,000 - 80,000", "notes": "One-way", "required": true, "timing": "Post-Visa" },
+        { "category": "Total (Single Applicant)", "amount": "1,500,000 - 1,700,000", "notes": "Complete package", "required": true, "timing": "Overall" }
+      ],
+      "livingCost": {
+        "monthly": "£1,000 - £1,500",
+        "annual": "£12,000 - £18,000",
+        "notes": "Based on lifestyle and city",
+        "breakdown": [
+          { "item": "Accommodation", "amount": "£400 - £800", "notes": "Per month" },
+          { "item": "Food & Groceries", "amount": "£200 - £300", "notes": "Per month" },
+          { "item": "Transport", "amount": "£50 - £100", "notes": "Per month" },
+          { "item": "Utilities", "amount": "£100 - £150", "notes": "Per month" },
+          { "item": "Miscellaneous", "amount": "£150 - £250", "notes": "Per month" }
+        ]
+      }
+    },
+    "applicationSteps": [
+      { "step": 1, "title": "University Selection", "description": "Choose universities based on profile and preferences", "duration": "1-2 weeks", "icon": "🔍" },
+      { "step": 2, "title": "University Application", "description": "Submit application with all required documents", "duration": "2-3 weeks", "icon": "📝" },
+      { "step": 3, "title": "Receive Offer", "description": "Get Conditional or Unconditional Offer", "duration": "2-4 weeks", "icon": "📨" },
+      { "step": 4, "title": "Accept Offer", "description": "Pay initial fee/CAS deposit to confirm", "duration": "1 week", "icon": "✅" },
+      { "step": 5, "title": "CAS Interview", "description": "University interview (submit medical and bank docs)", "duration": "1 week", "icon": "🎙️" },
+      { "step": 6, "title": "Medical Test", "description": "Complete TB test from UKVI-approved center", "duration": "1-2 days", "icon": "🏥" },
+      { "step": 7, "title": "CAS Letter", "description": "Receive Confirmation of Acceptance for Studies", "duration": "1-2 weeks", "icon": "📄" },
+      { "step": 8, "title": "Visa Submission", "description": "VFS appointment and biometric submission", "duration": "1 day", "icon": "🛂" },
+      { "step": 9, "title": "Visa Interview", "description": "UKVI interview (if required)", "duration": "1 day", "icon": "👔" },
+      { "step": 10, "title": "Visa Decision", "description": "7-21 days processing time", "duration": "7-21 days", "icon": "⏰" }
+    ],
+    "postVisaServices": {
+      "available": true,
+      "services": [
+        { "name": "Air Flight/Ticket Booking", "description": "Book affordable student flights", "icon": "✈️" },
+        { "name": "UK Accommodation Setup", "description": "Find suitable housing", "icon": "🏠" },
+        { "name": "UK Discounted Travel Card", "description": "Student travel discounts", "icon": "🚌" },
+        { "name": "UK Bank Account Opening", "description": "Open UK bank account", "icon": "🏦" },
+        { "name": "UK Doctor Registration", "description": "Register with NHS", "icon": "👨‍⚕️" },
+        { "name": "Airport Pickup", "description": "Arrival assistance", "icon": "🚗" },
+        { "name": "UK National Insurance Registration", "description": "NINo application", "icon": "📋" },
+        { "name": "Job Searching Assistance", "description": "Find part-time work", "icon": "💼" }
+      ]
+    },
+    "workOpportunities": {
+      "duringStudies": {
+        "partTime": "20 hours/week during term time",
+        "fullTime": "40 hours/week during holidays",
+        "minWage": "£10.42 - £11.44/hour",
+        "monthlyEarning": "£800 - £1,200",
+        "details": [
+          { "type": "On-campus jobs", "examples": "Library assistant, Research assistant, Campus tour guide" },
+          { "type": "Off-campus jobs", "examples": "Retail, Hospitality, Tutoring" },
+          { "type": "Internships", "examples": "Paid internships (subject to visa restrictions)" }
+        ]
+      },
+      "afterStudies": {
+        "graduateRoute": "2 years (Bachelor's/Master's), 3 years (PhD)",
+        "workType": "Full-time employment, self-employment, job search",
+        "salaryRange": "£25,000 - £40,000 annually (entry level)"
+      }
+    },
+    "partnerUniversities": [
+      { "name": "University of East London", "location": "London", "ranking": "Top 100 UK", "popularCourses": ["Business", "Law", "Computer Science"] },
+      { "name": "Teesside University London", "location": "London", "ranking": "Top 150 UK", "popularCourses": ["Engineering", "Business", "Healthcare"] },
+      { "name": "Aston University", "location": "Birmingham", "ranking": "Top 50 UK", "popularCourses": ["Business", "Engineering", "Pharmacy"] },
+      { "name": "Kingston University, London", "location": "London", "ranking": "Top 100 UK", "popularCourses": ["Art & Design", "Business", "Engineering"] },
+      { "name": "Northumbria University Newcastle", "location": "Newcastle", "ranking": "Top 100 UK", "popularCourses": ["Business", "Law", "Design"] }
+    ],
+    "faqs": [
+      { "question": "What are the English language requirements?", "answer": "Bachelor's: IELTS 6.0 (min 5.5 in each) | Master's: IELTS 6.0-6.5 (min 5.5 in each).", "category": "Admission" },
+      { "question": "How much bank balance do I need to show?", "answer": "Single Applicant: £38+ lakhs. Student with Spouse: £55+ lakhs.", "category": "Visa" },
+      { "question": "What is the study gap acceptability?", "answer": "Study gaps are acceptable with proper supporting documentation.", "category": "General" },
+      { "question": "Can I bring my spouse to UK?", "answer": "Yes, spouse application options are available for MRes programs.", "category": "Visa" },
+      { "question": "What is the post-study work visa duration?", "answer": "Bachelor's/Master's: 2 years, PhD: 3 years.", "category": "Work" }
+    ],
+    "tbTestCenters": [
+      { "name": "Medinova Medical Services Ltd.", "locations": ["Dhaka", "Chittagong", "Sylhet"], "phone": "+880-2-9881234" },
+      { "name": "Shahabuddin Medical College & Hospital", "locations": ["Dhaka"], "phone": "+880-2-9101234" },
+      { "name": "Ibn Sina Diagnostic Imaging Center", "locations": ["Dhaka"], "phone": "+880-2-8111234" }
+    ]
+  },
+  {
+    "id": "china",
+    "name": "China",
+    "flag": "🇨🇳",
+    "flagCode": "cn",
+    "description": "Bachelor programs with scholarship opportunities",
+    "sortOrder": 2,
+    "meta": {
+      "currency": "CNY",
+      "currencySymbol": "¥",
+      "language": "Chinese/English",
+      "intakes": ["September"],
+      "popularCities": ["Beijing", "Shanghai", "Nanjing", "Guangzhou", "Shenzhen"],
+      "educationSystem": "Chinese Higher Education System",
+      "website": "https://www.campuschina.org"
+    },
+    "quickFacts": [
+      { "label": "Universities", "value": "35+", "icon": "🏛️" },
+      { "label": "Scholarships", "value": "100% Available", "icon": "💰" },
+      { "label": "Work Permit", "value": "Part-time allowed", "icon": "💼" },
+      { "label": "Language", "value": "English Medium", "icon": "🌐" }
+    ],
+    "scholarships": {
+      "available": true,
+      "maxAmount": "100% Tuition + Accommodation",
+      "types": ["First Class", "Second Class", "Third Class"],
+      "notes": "All scholarship winners must pass an annual review.",
+      "details": [
+        { "name": "First Class Scholarship", "amount": "100% Tuition + 100% Accommodation + Insurance + Stipend", "stipend": "2,500 CNY/Month", "eligibility": "Top academic performers" },
+        { "name": "Second Class Scholarship", "amount": "100% Tuition + 100% Accommodation + Insurance", "stipend": "None", "eligibility": "Excellent academic record" },
+        { "name": "Third Class Scholarship", "amount": "100% Tuition", "stipend": "None", "eligibility": "Good academic standing" }
+      ]
+    },
+    "admissionRequirements": {
+      "bachelor": {
+        "ielts": "5.5-6.0",
+        "alternative": ["DET: 85-115", "EFSET", "MOI"],
+        "academicRequirements": "HSC with minimum 4.00 GPA",
+        "ageLimit": "18-25",
+        "documents": [
+          { "name": "HSC Certificate", "required": true, "notes": "With good grades" },
+          { "name": "Passport", "required": true, "notes": "Valid for at least 6 months" },
+          { "name": "Academic Transcripts", "required": true, "notes": "All semesters" },
+          { "name": "Recommendation Letters", "required": true, "notes": "2 letters minimum" },
+          { "name": "Statement of Purpose", "required": true, "notes": "800-1000 words" }
+        ]
+      }
+    },
+    "documentChecklist": {
+      "categories": [
+        {
+          "name": "Personal Documents",
+          "icon": "👤",
+          "items": [
+            { "name": "Passport", "requirement": "Valid for at least 6 months", "priority": "high" },
+            { "name": "National ID Card", "requirement": "Both sides", "priority": "high" },
+            { "name": "Birth Certificate", "requirement": "For age verification", "priority": "medium" },
+            { "name": "Recent Photographs", "requirement": "Passport size (white background)", "priority": "high" }
+          ]
+        },
+        {
+          "name": "Academic Documents",
+          "icon": "📚",
+          "items": [
+            { "name": "SSC Certificate & Marksheet", "requirement": "Full set with transcripts", "priority": "high" },
+            { "name": "HSC Certificate & Marksheet", "requirement": "Full set with transcripts", "priority": "high" }
+          ]
+        },
+        {
+          "name": "English Proficiency",
+          "icon": "🌐",
+          "items": [
+            { "name": "IELTS / TOEFL / DET Certificate", "requirement": "Valid and meets university requirements", "priority": "high" }
+          ]
+        }
+      ]
+    },
+    "costBreakdown": {
+      "currency": "CNY",
+      "exchangeRate": "1 CNY = 15 BDT",
+      "items": [
+        { "category": "Application Fee", "amount": "400 - 800", "notes": "Non-refundable", "required": true, "timing": "Application Stage" },
+        { "category": "Tuition Fee", "amount": "10,000 - 30,000", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Hostel Fee", "amount": "1,500 - 9,600", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Insurance Fee", "amount": "800 - 1,000", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Medical Fee", "amount": "300 - 600", "notes": "First year only", "required": true, "timing": "Pre-Arrival" },
+        { "category": "Residence Permit", "amount": "400 - 800", "notes": "Per year", "required": true, "timing": "After Arrival" }
+      ],
+      "livingCost": {
+        "monthly": "2,000 - 4,000 CNY",
+        "annual": "24,000 - 48,000 CNY",
+        "notes": "Varies by city",
+        "breakdown": [
+          { "item": "Accommodation", "amount": "800 - 2,000 CNY", "notes": "Per month" },
+          { "item": "Food & Groceries", "amount": "500 - 1,000 CNY", "notes": "Per month" },
+          { "item": "Transport", "amount": "100 - 300 CNY", "notes": "Per month" },
+          { "item": "Utilities", "amount": "200 - 400 CNY", "notes": "Per month" },
+          { "item": "Miscellaneous", "amount": "400 - 800 CNY", "notes": "Per month" }
+        ]
+      }
+    },
+    "applicationSteps": [
+      { "step": 1, "title": "University Selection", "description": "Choose from 35+ universities", "duration": "1-2 weeks", "icon": "🔍" },
+      { "step": 2, "title": "Application Submission", "description": "Submit documents and application", "duration": "2-3 weeks", "icon": "📝" },
+      { "step": 3, "title": "Scholarship Application", "description": "Apply for available scholarships", "duration": "1 week", "icon": "💰" },
+      { "step": 4, "title": "Receive Admission", "description": "Get admission and scholarship decision", "duration": "2-4 weeks", "icon": "📨" },
+      { "step": 5, "title": "Visa Application", "description": "Apply for Chinese student visa (X1/X2)", "duration": "1-2 weeks", "icon": "🛂" }
+    ],
+    "workOpportunities": {
+      "duringStudies": {
+        "partTime": "Allowed with university permission",
+        "fullTime": "During holidays (subject to regulations)",
+        "minWage": "Varies by city",
+        "monthlyEarning": "1,000 - 3,000 CNY"
+      }
+    },
+    "faqs": [
+      { "question": "What scholarships are available in China?", "answer": "First Class: 100% Tuition + 100% Accommodation + Insurance + Stipend (2,500 CNY/Month). Second Class: 100% Tuition + 100% Accommodation + Insurance. Third Class: 100% Tuition.", "category": "Scholarship" },
+      { "question": "What are the age limits for studying in China?", "answer": "Typically 18-25 years for Bachelor programs. Some universities accept up to 30 years.", "category": "Admission" },
+      { "question": "What majors are available in English medium?", "answer": "Computer Science, Engineering, Business, Medicine, Pharmacy, International Trade, and many more.", "category": "Academics" },
+      { "question": "Do I need to know Chinese to study in China?", "answer": "No. Most international programs are offered in English medium. However, learning basic Chinese is recommended.", "category": "Language" }
+    ]
+  },
+  {
+    "id": "denmark",
+    "name": "Denmark",
+    "flag": "🇩🇰",
+    "flagCode": "dk",
+    "description": "MSc in Medicine & Biomedicine Guide",
+    "sortOrder": 3,
+    "meta": {
+      "currency": "DKK",
+      "currencySymbol": "Kr",
+      "language": "English",
+      "intakes": ["September", "February"],
+      "popularCities": ["Copenhagen", "Aalborg", "Aarhus", "Odense"],
+      "educationSystem": "Danish Higher Education System",
+      "website": "https://studyindenmark.dk"
+    },
+    "quickFacts": [
+      { "label": "Universities", "value": "8+", "icon": "🏛️" },
+      { "label": "PSW Duration", "value": "3 Years", "icon": "⏰" },
+      { "label": "Work Permit", "value": "20 hrs/week", "icon": "💼" },
+      { "label": "Min Wage", "value": "110-130 DKK/hr", "icon": "💰" }
+    ],
+    "scholarships": {
+      "available": true,
+      "maxAmount": "Varies",
+      "types": ["University Scholarships", "Government Scholarships"],
+      "notes": "Scholarships are competitive and based on academic excellence.",
+      "details": [
+        { "name": "Danish Government Scholarship", "amount": "Partial to Full Tuition", "eligibility": "Non-EU/EEA students with excellent academic records" },
+        { "name": "University Scholarships", "amount": "Partial tuition waiver", "eligibility": "High academic achievement" }
+      ]
+    },
+    "admissionRequirements": {
+      "master": {
+        "ielts": "6.5 (no band below 6.0)",
+        "alternative": ["TOEFL iBT: 85+"],
+        "academicRequirements": "BSc in Biomedicine, Medicine, Pharmacy, Biotechnology, Biochemistry, or related field",
+        "gpa": "Typically 70%+ or CGPA 3.0/4.0",
+        "ects": "Minimum 60 ECTS in relevant biomedical sciences",
+        "documents": [
+          { "name": "Bachelor's Degree Certificate", "required": true, "notes": "Attested by Education Ministry" },
+          { "name": "Bachelor's Transcripts", "required": true, "notes": "All semester/year-wise marksheets" },
+          { "name": "HSC Certificate & Marksheet", "required": true, "notes": "Attested by Education Board" },
+          { "name": "SSC Certificate & Marksheet", "required": true, "notes": "Attested by Education Board" }
+        ]
+      }
+    },
+    "costBreakdown": {
+      "currency": "DKK",
+      "exchangeRate": "1 DKK = 15 BDT",
+      "items": [
+        { "category": "File Opening Charge", "amount": "10,000 BDT", "notes": "One-time, non-refundable", "required": true, "timing": "Initial Stage" },
+        { "category": "University Application Fee", "amount": "150 EUR", "notes": "~22,050 BDT", "required": true, "timing": "Application Stage" },
+        { "category": "Tuition Fee (1st Year)", "amount": "57,850 DKK", "notes": "~8,67,750 BDT", "required": true, "timing": "Admission Stage" },
+        { "category": "Visa Application Fee", "amount": "2,500 DKK", "notes": "~37,500 BDT", "required": true, "timing": "Visa Stage" },
+        { "category": "Flight Ticket", "amount": "85,000 - 1,10,000 BDT", "notes": "Dhaka → Copenhagen", "required": true, "timing": "Post-Visa" },
+        { "category": "Accommodation Deposit", "amount": "5,000 DKK", "notes": "One-time", "required": true, "timing": "Pre-Arrival" },
+        { "category": "Rent (Monthly)", "amount": "3,000 - 4,500 DKK", "notes": "Shared/Studio", "required": true, "timing": "Monthly" }
+      ],
+      "livingCost": {
+        "monthly": "7,400 - 10,600 DKK",
+        "annual": "88,800 - 127,200 DKK",
+        "notes": "Includes accommodation, food, transport, utilities, and miscellaneous",
+        "breakdown": [
+          { "item": "Accommodation", "amount": "3,000 - 4,500 DKK", "notes": "Per month" },
+          { "item": "Food & Groceries", "amount": "2,000 - 2,500 DKK", "notes": "Per month" },
+          { "item": "Transport", "amount": "500 - 700 DKK", "notes": "Per month" },
+          { "item": "Books & Materials", "amount": "300 - 400 DKK", "notes": "Per month" },
+          { "item": "Mobile & Internet", "amount": "300 - 500 DKK", "notes": "Per month" },
+          { "item": "Miscellaneous", "amount": "1,000 - 1,500 DKK", "notes": "Per month" }
+        ]
+      }
+    },
+    "applicationSteps": [
+      { "step": 1, "title": "File Opening", "description": "Open file with EduAssists", "duration": "1 day", "icon": "📂" },
+      { "step": 2, "title": "University Application", "description": "Submit application to Aalborg University", "duration": "2 weeks", "icon": "📝" },
+      { "step": 3, "title": "Receive Admission", "description": "Get offer letter from university", "duration": "2-4 weeks", "icon": "📨" },
+      { "step": 4, "title": "Pay Tuition", "description": "Pay first year tuition fee", "duration": "1 week", "icon": "💰" },
+      { "step": 5, "title": "Visa Application", "description": "Apply for Danish student visa", "duration": "2-3 weeks", "icon": "🛂" },
+      { "step": 6, "title": "Post-Visa Services", "description": "Flight, accommodation, and airport pickup", "duration": "1-2 weeks", "icon": "✈️" }
+    ],
+    "postVisaServices": {
+      "available": true,
+      "services": [
+        { "name": "Air Flight/Ticket Booking", "description": "Book affordable student flights", "icon": "✈️" },
+        { "name": "Accommodation Setup", "description": "Find suitable housing in Aalborg", "icon": "🏠" },
+        { "name": "Airport Pickup", "description": "Arrival assistance from Copenhagen to Aalborg", "icon": "🚗" },
+        { "name": "Bank Account Opening", "description": "Open Danish bank account", "icon": "🏦" },
+        { "name": "CPR Registration", "description": "Danish Civil Registration", "icon": "📋" },
+        { "name": "Job Searching Assistance", "description": "Find part-time work in Denmark", "icon": "💼" }
+      ]
+    },
+    "workOpportunities": {
+      "duringStudies": {
+        "partTime": "20 hours/week during semester",
+        "fullTime": "During June, July, August",
+        "minWage": "110 - 130 DKK/hour",
+        "monthlyEarning": "8,000 - 12,000 DKK"
+      },
+      "afterStudies": {
+        "graduateRoute": "3 years job-seeking visa",
+        "workType": "Full-time employment, self-employment, job search",
+        "salaryRange": "35,000 - 45,000 DKK/month (entry level)"
+      }
+    },
+    "faqs": [
+      { "question": "What is the tuition fee for MSc in Medicine?", "answer": "57,850 DKK per year (~8,67,750 BDT).", "category": "Cost" },
+      { "question": "What are the academic requirements?", "answer": "BSc in related field with minimum 70%+ or CGPA 3.0/4.0. Minimum 60 ECTS in relevant subjects.", "category": "Admission" },
+      { "question": "What is the English language requirement?", "answer": "IELTS 6.5 (no band below 6.0) or TOEFL iBT 85+.", "category": "Language" },
+      { "question": "Can I work part-time while studying?", "answer": "Yes, 20 hours/week during semester and full-time during June, July, August.", "category": "Work" },
+      { "question": "What is the post-study work visa duration?", "answer": "3 years job-seeking visa after completing your studies.", "category": "Work" }
+    ]
+  },
+  {
+    "id": "usa",
+    "name": "USA",
+    "flag": "🇺🇸",
+    "flagCode": "us",
+    "description": "US University Admissions & Visa Guide",
+    "sortOrder": 4,
+    "meta": {
+      "currency": "USD",
+      "currencySymbol": "$",
+      "language": "English",
+      "intakes": ["August", "January", "May"],
+      "popularCities": ["New York", "Los Angeles", "Boston", "Chicago", "San Francisco"],
+      "educationSystem": "US Education System",
+      "website": "https://studyinthestates.dhs.gov"
+    },
+    "quickFacts": [
+      { "label": "Universities", "value": "4,000+", "icon": "🏛️" },
+      { "label": "OPT Duration", "value": "12-36 Months", "icon": "⏰" },
+      { "label": "Work Permit", "value": "20 hrs/week on-campus", "icon": "💼" },
+      { "label": "Visa Type", "value": "F-1 Student Visa", "icon": "🛂" }
+    ],
+    "scholarships": {
+      "available": true,
+      "maxAmount": "Full Tuition + Living",
+      "types": ["Merit-based", "Need-based", "Athletic", "Departmental"],
+      "notes": "Scholarships are widely available through universities.",
+      "details": [
+        { "name": "University Scholarships", "amount": "Partial to Full Tuition", "eligibility": "Varies by university" },
+        { "name": "External Scholarships", "amount": "Varies", "eligibility": "Based on nationality, field, or background" }
+      ]
+    },
+    "admissionRequirements": {
+      "bachelor": {
+        "ielts": "6.0-6.5",
+        "alternative": ["TOEFL: 79-90", "Duolingo: 100-120"],
+        "standardizedTests": ["SAT", "ACT"],
+        "documents": [
+          { "name": "SSC Certificate & Marksheet", "required": true, "notes": "Translated and evaluated" },
+          { "name": "HSC Certificate & Marksheet", "required": true, "notes": "Translated and evaluated" },
+          { "name": "SAT/ACT Scores", "required": true, "notes": "Required by most universities" },
+          { "name": "Recommendation Letters", "required": true, "notes": "2-3 letters" },
+          { "name": "Statement of Purpose", "required": true, "notes": "Detailed essay" }
+        ]
+      }
+    },
+    "costBreakdown": {
+      "currency": "USD",
+      "exchangeRate": "1 USD = 120 BDT",
+      "items": [
+        { "category": "Tuition Fee", "amount": "20,000 - 60,000", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Living Expenses", "amount": "12,000 - 18,000", "notes": "Per year", "required": true, "timing": "Monthly" },
+        { "category": "Health Insurance", "amount": "2,000 - 4,000", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Books & Supplies", "amount": "1,000 - 2,000", "notes": "Per year", "required": true, "timing": "Admission Stage" },
+        { "category": "Visa Fee (SEVIS I-901)", "amount": "350", "notes": "One-time", "required": true, "timing": "Visa Stage" },
+        { "category": "Visa Application Fee", "amount": "160", "notes": "One-time", "required": true, "timing": "Visa Stage" }
+      ],
+      "livingCost": {
+        "monthly": "1,000 - 1,500 USD",
+        "annual": "12,000 - 18,000 USD",
+        "notes": "Varies by city",
+        "breakdown": [
+          { "item": "Accommodation", "amount": "500 - 1,000 USD", "notes": "Per month" },
+          { "item": "Food", "amount": "200 - 400 USD", "notes": "Per month" },
+          { "item": "Transport", "amount": "100 - 200 USD", "notes": "Per month" },
+          { "item": "Utilities", "amount": "100 - 150 USD", "notes": "Per month" },
+          { "item": "Miscellaneous", "amount": "100 - 250 USD", "notes": "Per month" }
+        ]
+      }
+    },
+    "workOpportunities": {
+      "duringStudies": {
+        "partTime": "20 hours/week on-campus during term",
+        "fullTime": "40 hours/week during holidays",
+        "minWage": "$7.25 - $15/hour",
+        "monthlyEarning": "$800 - $1,500"
+      },
+      "afterStudies": {
+        "graduateRoute": "12 months OPT (STEM: 24 months extension)",
+        "workType": "Full-time employment in field of study",
+        "salaryRange": "$50,000 - $90,000 annually (entry level)"
+      }
+    },
+    "faqs": [
+      { "question": "What is the F-1 visa process for USA?", "answer": "Get admission → Pay SEVIS I-901 fee → Complete DS-160 → Schedule visa interview → Attend interview → Visa decision.", "category": "Visa" },
+      { "question": "What is OPT and how long is it?", "answer": "Optional Practical Training (OPT) allows work for up to 12 months. STEM graduates get 24 months extension.", "category": "Work" },
+      { "question": "Can I work off-campus in USA?", "answer": "Yes, through CPT after completing one year of study. Must be related to your field.", "category": "Work" },
+      { "question": "What is the cost of studying in USA?", "answer": "Total cost: $30,000 - $80,000 per year depending on university and location.", "category": "Cost" }
+    ]
+  }
+]
