@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 // Assuming you have a relevant image, or update the path to a consultancy-themed one
 import partnerPic from "../../../assets/customerSatisfied.jpg"; 
+import { Link } from "react-router";
 
 const MerchantSatisfaction = () => {
   const [fade, setFade] = useState(false);
@@ -44,11 +45,11 @@ const MerchantSatisfaction = () => {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
               <button className="btn bg-white text-[#002B5B] border-none font-bold hover:bg-gray-200 px-8">
-                Become a Franchisee
+                <Link to="/partnership">Become a Franchisee</Link>
               </button>
 
               <button className="btn bg-[#00F2A2] text-[#002B5B] border-none font-bold hover:bg-[#00c985] px-8">
-                Partner with EduAssists
+                <Link to="/partnership">Partner with EduAssists</Link>
               </button>
             </div>
           </div>

@@ -1,0 +1,120 @@
+{
+  "overview": {
+    "title": "B2B & Franchise Partnership",
+    "description": "Join EduAssists as a trusted partner and bring world-class education consultancy to your community."
+  },
+  "metrics": [
+    { "label": "Student Placements", "value": "500+", "icon": "🎓" },
+    { "label": "Universities Partnered", "value": "50+", "icon": "🏛️" },
+    { "label": "Countries Covered", "value": "10+", "icon": "🌍" },
+    { "label": "Visa Success Rate", "value": "~100%", "icon": "✅" }
+  ],
+  "partnershipModels": [
+    {
+      "id": "agent",
+      "name": "Agent",
+      "description": "Best for individual/referral-based student recruitment and smaller-scale partner activity.",
+      "commission": "10%",
+      "icon": "🤝",
+      "features": [
+        "Individual or smaller-scale recruitment",
+        "Referral-based student recruitment",
+        "Typical commission: 10%",
+        "Subject to destination and commercial terms"
+      ]
+    },
+    {
+      "id": "b2b",
+      "name": "B2B Partner",
+      "description": "Best for established education businesses, agencies or networks with stronger recruitment capacity.",
+      "commission": "Up to 20%",
+      "icon": "🏢",
+      "features": [
+        "Established education consultancy",
+        "Stronger recruitment capacity",
+        "Can be up to 20% commission",
+        "Subject to destination and commercial terms"
+      ]
+    },
+    {
+      "id": "franchise",
+      "name": "Franchise Partner",
+      "description": "Best for a deeper local business relationship with an EduAssists-branded center and defined territory.",
+      "commission": "Separate Agreement",
+      "icon": "⭐",
+      "features": [
+        "Full-service franchise center",
+        "Exclusive territory protection",
+        "Comprehensive training and support",
+        "Brand recognition and marketing assistance"
+      ]
+    }
+  ],
+  "franchiseLocations": [
+    { "name": "Cox's Bazar", "status": "Active", "type": "Full-service franchise" },
+    { "name": "Madaripur", "status": "Active", "type": "Full-service franchise with IELTS center" },
+    { "name": "Bogura", "status": "Active", "type": "Full-service franchise" }
+  ],
+  "franchiseBenefits": [
+    {
+      "title": "Proven Business Model",
+      "description": "Established systems and processes for success.",
+      "icon": "📊"
+    },
+    {
+      "title": "Training & Support",
+      "description": "Comprehensive training provided for your team.",
+      "icon": "🎓"
+    },
+    {
+      "title": "Exclusive Territory",
+      "description": "Protected franchise territory in your district.",
+      "icon": "📍"
+    },
+    {
+      "title": "Brand Recognition",
+      "description": "Join a trusted and growing brand in Bangladesh.",
+      "icon": "🏷️"
+    },
+    {
+      "title": "Marketing Assistance",
+      "description": "Access to marketing materials and campaigns.",
+      "icon": "📣"
+    },
+    {
+      "title": "Ongoing Guidance",
+      "description": "Continuous operational and strategic support.",
+      "icon": "🤝"
+    }
+  ],
+  "franchiseRequirements": [
+    "Passion for Education - Genuine commitment to helping students succeed",
+    "Local Presence - Established office space in the district",
+    "Dedicated Team - Willingness to recruit and train staff",
+    "Network & Connections - Access to schools, colleges, and local communities",
+    "Financial Investment - Investment in infrastructure and marketing"
+  ],
+  "franchiseSteps": [
+    { "step": 1, "title": "Submit Interest", "description": "Submit interest to EduAssists headquarters" },
+    { "step": 2, "title": "Leadership Meeting", "description": "Attend a one-on-one meeting with our leadership team" },
+    { "step": 3, "title": "Sign Agreement", "description": "Sign franchise agreement" },
+    { "step": 4, "title": "Receive Training", "description": "Receive training and onboarding support" },
+    { "step": 5, "title": "Setup Center", "description": "Set up your franchise center" },
+    { "step": 6, "title": "Start Operations", "description": "Start operations with full support from EduAssists" }
+  ],
+  "commissionFactors": [
+    { "factor": "Country/Destination", "description": "Varies by country" },
+    { "factor": "University/Institution", "description": "Varies by institution" },
+    { "factor": "Programme", "description": "Different programmes may have different terms" },
+    { "factor": "Partner Type", "description": "~10% Agent / up to 20% B2B" },
+    { "factor": "Franchise", "description": "Separate agreement" }
+  ],
+  "contactInfo": {
+    "website": "eduassists.com",
+    "email": "info@eduassists.com",
+    "phone": ["+880 1711 775 994", "+880 1842 134 687", "+44 7482 443968"],
+    "directorEmail": "nayem@eduassists.com",
+    "londonOffice": "Unit 3, 1 New Plaistow Road, E15 3JB",
+    "dhakaOffice": "Sabamoon Tower, 152/1/H, 9th Floor, Panthapath Green Rd, Dhaka-1205"
+  }
+}

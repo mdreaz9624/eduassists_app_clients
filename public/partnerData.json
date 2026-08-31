@@ -1,0 +1,236 @@
+[
+  {
+    "id": "uk",
+    "name": "United Kingdom",
+    "flag": "🇬🇧",
+    "flagCode": "gb",
+    "color": "from-blue-600 to-blue-800",
+    "sortOrder": 1,
+    "category": "europe",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "3-4 years (Scotland: 4 yrs; Eng/Wales/NI: 3 yrs)",
+      "entryRequirement": "HSC/12th: 55-70%+; A-Levels/IB accepted",
+      "englishRequirement": "IELTS 6.0-6.5 (5.5 min each) | PTE | Duolingo",
+      "tuitionRange": "£12,000 - £25,000 / year",
+      "intakes": "September (primary), January (limited), May",
+      "workRights": "20 hrs/week in term; full-time in holidays"
+    },
+    "master": {
+      "duration": "1-Year Master's programs",
+      "entryRequirement": "Entry from CGPA 2.5+ / IELTS 6.0",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | Duolingo | TOEFL",
+      "tuitionRange": "From £14,000/year",
+      "intakes": "January, May & September",
+      "workRights": "2-Year Post-Study Work Permit",
+      "additional": "Fast offer-to-visa processing"
+    },
+    "bestFit": "Students wanting a broad university choice, prestigious degrees and the 2-year Graduate Route.",
+    "universities": "170+ universities, strong QS rankings",
+    "visaSuccessRate": "95%",
+    "studentsPlaced": "500+"
+  },
+  {
+    "id": "ireland",
+    "name": "Ireland",
+    "flag": "🇮🇪",
+    "flagCode": "ie",
+    "color": "from-green-600 to-green-800",
+    "sortOrder": 2,
+    "category": "europe",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "3-4 years (Honours: 3 yrs; with placement: 4 yrs)",
+      "entryRequirement": "HSC/12th: 60-70%+; Foundation for 50-60%",
+      "englishRequirement": "IELTS 6.0 (5.5 min) | PTE | Duolingo | TOEFL",
+      "tuitionRange": "€10,000 - €18,000 / year",
+      "intakes": "September (primary) & January (limited)",
+      "workRights": "Part-time during study; full-time in holidays"
+    },
+    "master": {
+      "duration": "1-Year Master's programs",
+      "entryRequirement": "Entry from CGPA 2.5+ / IELTS 6.0",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | Duolingo | TOEFL",
+      "tuitionRange": "From €14,000/year",
+      "intakes": "September (primary) & January (limited)",
+      "workRights": "2-Year Post-Study Work Permit"
+    },
+    "bestFit": "Students seeking a safe, English-speaking European destination with strong post-study work options.",
+    "universities": "One of Europe's safest countries",
+    "visaSuccessRate": "92%"
+  },
+  {
+    "id": "usa",
+    "name": "USA",
+    "flag": "🇺🇸",
+    "flagCode": "us",
+    "color": "from-blue-700 to-blue-900",
+    "sortOrder": 3,
+    "category": "north_america",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "4 years (standard)",
+      "entryRequirement": "GPA 2.5+/4.0; SAT/ACT optional; Community College pathway",
+      "englishRequirement": "IELTS 6.0+ / TOEFL 70+ | Duolingo accepted",
+      "tuitionRange": "$15,000 - $45,000/year",
+      "intakes": "August/September (primary), January (limited)",
+      "workRights": "On-campus up to 20 hrs/week; CPT after 1 year"
+    },
+    "master": {
+      "duration": "1-2 Years",
+      "entryRequirement": "Entry: CGPA 2.5, IELTS 6.0 (5.5)",
+      "englishRequirement": "IELTS 6.0+ / TOEFL 70+ | Duolingo accepted",
+      "tuitionRange": "From $15,000/year",
+      "intakes": "January & September",
+      "workRights": "CPT/OPT + STEM OPT up to 36 months"
+    },
+    "bestFit": "Students wanting flexible entry, STEM/OPT work pathways and globally recognized universities.",
+    "universities": "170+ universities, strong QS rankings",
+    "visaSuccessRate": "88%"
+  },
+  {
+    "id": "canada",
+    "name": "Canada",
+    "flag": "🇨🇦",
+    "flagCode": "ca",
+    "color": "from-red-600 to-red-800",
+    "sortOrder": 4,
+    "category": "north_america",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "4 years",
+      "entryRequirement": "HSC/12th: 60-70%+; Foundation/Pathway available",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | TOEFL | Duolingo",
+      "tuitionRange": "CAD 15,000 - CAD 30,000 / year",
+      "intakes": "September (primary), January (limited)",
+      "workRights": "20 hrs/week during study; full-time in breaks"
+    },
+    "master": {
+      "duration": "1-2 Years",
+      "entryRequirement": "Entry: IELTS 6.0-6.5 | PTE/TOEFL",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | TOEFL | Duolingo",
+      "tuitionRange": "CAD 17k - 25k/year",
+      "intakes": "January & September",
+      "workRights": "Up to 3-year PGWP for eligible graduates"
+    },
+    "bestFit": "Students seeking clear settlement pathways, co-op programmes and long-term residency options.",
+    "universities": "Strong long-term settlement pathways",
+    "visaSuccessRate": "90%"
+  },
+  {
+    "id": "australia",
+    "name": "Australia",
+    "flag": "🇦🇺",
+    "flagCode": "au",
+    "color": "from-blue-600 to-blue-800",
+    "sortOrder": 5,
+    "category": "oceania",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "3-4 years",
+      "entryRequirement": "HSC/12th: 60-70%+; Foundation/Diploma available",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | TOEFL | Duolingo",
+      "tuitionRange": "AUD 25,000 - AUD 40,000 / year",
+      "intakes": "February (primary), July, November (limited)",
+      "workRights": "48 hrs/fortnight during study; full-time in breaks"
+    },
+    "master": {
+      "duration": "1-2 Years",
+      "entryRequirement": "Entry: CGPA 2.5/4.0, IELTS 6.0-6.5",
+      "englishRequirement": "IELTS 6.0-6.5 | PTE | TOEFL | Duolingo",
+      "tuitionRange": "Average AUD 35,000/year",
+      "intakes": "February & July",
+      "workRights": "2-4 Year Post-Study Work (PSW) opportunity"
+    },
+    "bestFit": "Students seeking a large, high-income economy with broad choices and PR pathways.",
+    "universities": "Pay only 1 semester's tuition before visa",
+    "visaSuccessRate": "87%"
+  },
+  {
+    "id": "new_zealand",
+    "name": "New Zealand",
+    "flag": "🇳🇿",
+    "flagCode": "nz",
+    "color": "from-red-500 to-blue-700",
+    "sortOrder": 6,
+    "category": "oceania",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "3 years",
+      "entryRequirement": "HSC/12th: 60-70%+; Foundation available",
+      "englishRequirement": "IELTS 6.0 (5.5 min) | PTE | TOEFL",
+      "tuitionRange": "NZD 22,000 - NZD 32,000 / year",
+      "intakes": "February (primary), July (secondary)",
+      "workRights": "20 hrs/week during study; full-time in holidays"
+    },
+    "master": {
+      "duration": "1-2 Years",
+      "entryRequirement": "Entry: CGPA 2.5, IELTS 6.5 (6.0)",
+      "englishRequirement": "IELTS 6.5 (6.0) | PTE | TOEFL",
+      "tuitionRange": "NZD 25k - 35k/year",
+      "intakes": "February & July",
+      "workRights": "Family-friendly environment"
+    },
+    "bestFit": "Students wanting a smaller, safe, family-friendly destination with long-term career considerations.",
+    "universities": "Small, English-speaking destination",
+    "visaSuccessRate": "85%"
+  },
+  {
+    "id": "denmark",
+    "name": "Denmark",
+    "flag": "🇩🇰",
+    "flagCode": "dk",
+    "color": "from-red-500 to-red-700",
+    "sortOrder": 7,
+    "category": "europe",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "3 years",
+      "entryRequirement": "HSC/12th: 70%+; Subject-specific; IB accepted",
+      "englishRequirement": "IELTS 6.5 | TOEFL 83+ | PTE",
+      "tuitionRange": "DKK 45,000 - DKK 100,000 / year",
+      "intakes": "August/September (primary); limited January",
+      "workRights": "Up to 90 hrs/month; full-time June-Aug"
+    },
+    "master": {
+      "duration": "2 Years",
+      "entryRequirement": "Entry: High academic achievement",
+      "englishRequirement": "IELTS 6.5 | TOEFL 83+ | PTE",
+      "tuitionRange": "DKK 45k - 120k/year",
+      "intakes": "Varies by university",
+      "workRights": "6-month to 3-year job-seeking permit"
+    },
+    "bestFit": "High-achieving students wanting an innovative education in engineering, IT or health.",
+    "universities": "Top universities: Copenhagen, Aarhus, DTU",
+    "visaSuccessRate": "82%"
+  },
+  {
+    "id": "china",
+    "name": "China",
+    "flag": "🇨🇳",
+    "flagCode": "cn",
+    "color": "from-red-600 to-red-800",
+    "sortOrder": 8,
+    "category": "asia",
+    "educationLevels": ["bachelor", "master"],
+    "bachelor": {
+      "duration": "4 years",
+      "entryRequirement": "HSC/12th: 60%+; HSK 4+ for Chinese-taught",
+      "englishRequirement": "IELTS 5.5-6.0 (English-taught) | HSK 4 (Chinese)",
+      "tuitionRange": "RMB 20,000 - RMB 40,000 / year (~$3,000-6,000)",
+      "intakes": "September (primary), February (secondary)",
+      "workRights": "On-campus work; internships with approval"
+    },
+    "master": {
+      "duration": "2-3 Years",
+      "entryRequirement": "Entry: Bachelor's degree",
+      "englishRequirement": "IELTS 5.5-6.0 | HSK 4+",
+      "tuitionRange": "RMB 25,000 - RMB 50,000 / year",
+      "intakes": "September & February",
+      "workRights": "On-campus work; internships with approval"
+    },
+    "bestFit": "Students interested in Asian markets, Mandarin, and highly affordable, scholarship-backed study.",
+    "universities": "World-class QS-ranked universities (STEM & Business)",
+    "visaSuccessRate": "80%"
+  }
+]

@@ -33,8 +33,8 @@
     },
     {
       "id": 2,
-      "role": "Chief Executive",
-      "name": "Md. Shahnewaz Khan Sumon",
+      "role": "CEO",
+      "name": "Md. Shahnewaz Khan",
       "image": "https://res.cloudinary.com/dhix6zkp8/image/upload/v1783920225/sumon_mama_nggbnr.jpg",
       "email": "ceo@eduassists.com",
       "whatsapp": "+8801711775994",
@@ -43,8 +43,9 @@
       "priority": 2,
       "bio": "Visionary Chief Executive driving digital transformation in education consultancy. Expert in EdTech and student recruitment strategies.",
       "education": [
-        "MSc in International Education - University of Oxford",
-        "BSc in Computer Science - BUET"
+        "BSc & MSc in Hospitality and Tourism Management - Lincoln University College, Malaysia",
+        "Diploma in Hotel & Catering - Lincoln University College, Malaysia",
+        "HSC - Northern College, Bangladesh"
       ],
       "achievements": [
         "Launched AI-powered student matching platform",
@@ -52,12 +53,12 @@
         "Awarded 'Best Education Consultant 2023'"
       ],
       "socialLinks": {
-        "linkedin": "https://linkedin.com/in/navel-khan",
-        "facebook": "https://facebook.com/navel.khan"
+        "linkedin": "https://linkedin.com/in/shahnewaz-khan",
+        "facebook": "https://facebook.com/khan.newaz.9"
       },
       "languages": ["Bengali", "English", "Arabic"],
       "expertise": ["EdTech", "Digital Marketing", "Student Recruitment"],
-      "officeHours": "10 AM - 6 PM (Sun-Thu)",
+      "officeHours": "10 AM - 6 PM (Sat-Thu)",
       "responseTime": "Within 12 hours"
     },
     {

@@ -38,6 +38,9 @@ import TeamDetails from "../Pages/Contract/TeamDetails";
 import CareerCounsellingCard from "../Pages/Service/CareerCounsellingCard/CareerCounsellingCard";
 import CountryDocuments from "../Pages/CountryDocuments/CountryDocuments";
 import CountryDetails from "../Pages/CountryDocuments/CountryDetails";
+import Partnership from "../Pages/Partnership/Partnership";
+import CountryInfo from "../Pages/CountryInfo/CountryInfo";
+import CountryInfoDetails from "../Pages/CountryInfo/CountryInfoDetails";
 
 
 
@@ -129,6 +132,14 @@ export const router = createBrowserRouter([
       {
         path: "/country-documents/:id",
         element: <CountryDetails></CountryDetails>
+      },
+      {
+        path: "/partnership",
+        element: <Partnership></Partnership> 
+      },
+      {
+        path: "/country-info",
+        element: <CountryInfo></CountryInfo>
       }
 
     ]
